@@ -155,8 +155,8 @@ async def configure_webhook() -> None:
     if WEBHOOK_SECRET:
         payload["secret_token"] = hashlib.sha256(WEBHOOK_SECRET.encode("utf-8")).hexdigest()
     try:
-        result = await telegram("setWebhook", payload)
-        log.info("Telegram webhook configured: %s", result.get("url", ""))
+        await telegram("setWebhook", payload)
+        log.info("Telegram webhook configured successfully: %s/telegram/webhook", PUBLIC_URL)
     except (RuntimeError, httpx.HTTPError) as exc:
         log.exception("Could not configure Telegram webhook: %s", exc)
 
