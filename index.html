@@ -372,11 +372,19 @@
     function refreshFilterOptions() {
       const selectedMake = makeFilter.value;
       const selectedModel = modelFilter.value;
+      const selectedYear = yearFilter.value;
+      const selectedFuel = fuelFilter.value;
       setOptions(makeFilter, 'Все марки', uniqueValues(cars, 'make'), selectedMake);
       const modelPool = makeFilter.value
         ? cars.filter(function (car) { return car.make === makeFilter.value; })
         : cars;
       setOptions(modelFilter, 'Все модели', uniqueValues(modelPool, 'model'), selectedModel);
+      const years = uniqueValues(cars, 'year').sort(function (a, b) { return Number(b) - Number(a); });
+      yearFilter.innerHTML = '<option value="">Любой</option>' + years.map(function (year) {
+        return '<option value="' + escapeHtml(year) + '">' + escapeHtml(year) + ' и новее</option>';
+      }).join('');
+      yearFilter.value = years.includes(selectedYear) ? selectedYear : '';
+      setOptions(fuelFilter, 'Любой', uniqueValues(cars, 'fuel'), selectedFuel);
     }
     function carCardHtml(car) {
       const title = car.title || (String(car.make || '') + ' ' + String(car.model || '')).trim();
