@@ -232,41 +232,8 @@
           <div class="field"><label for="fuelFilter">Тип топлива</label><select id="fuelFilter"><option value="">Любой</option><option value="Бензин">Бензин</option><option value="Дизель">Дизель</option><option value="Гибрид">Гибрид</option><option value="Электро">Электро</option></select></div>
           <button class="btn btn-gold filter-submit" id="applyFilters"><span>⌕</span> Найти</button>
         </div>
-        <div class="catalog-meta"><span id="catalogCount" aria-live="polite">8 автомобилей в подборке</span><span>Цены и наличие уточняйте у менеджера</span></div>
-        <div class="catalog-grid" id="carGrid">
-          <article class="car-card" data-make="Porsche" data-model="Cayenne" data-price="12.49" data-year="2022" data-fuel="Бензин" data-market="stock">
-            <div class="car-photo"><img loading="lazy" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=82" alt="Porsche Cayenne, чёрный премиальный автомобиль"><span class="stock in">В наличии</span><button class="favorite" aria-label="Добавить Porsche Cayenne в избранное" aria-pressed="false">♡</button></div>
-            <div class="car-info"><h3 class="car-title">Porsche Cayenne</h3><div class="car-subtitle">2022 <span>·</span> 3.0 л <span>·</span> 340 л.с.</div><div class="car-specs"><span class="car-spec">Бензин</span><span class="car-spec">Автомат</span><span class="car-spec">Полный</span></div><div class="car-bottom"><span class="car-price">12 490 000 ₽</span><small>под ключ</small></div><button class="btn btn-outline car-detail" data-car="Porsche Cayenne">Подробнее <span class="btn-arrow">→</span></button></div>
-          </article>
-          <article class="car-card" data-make="BMW" data-model="X5" data-price="8.75" data-year="2021" data-fuel="Дизель" data-market="stock">
-            <div class="car-photo"><img loading="lazy" src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=900&q=82" alt="BMW X5, тёмный внедорожник"><span class="stock in">В наличии</span><button class="favorite" aria-label="Добавить BMW X5 в избранное" aria-pressed="false">♡</button></div>
-            <div class="car-info"><h3 class="car-title">BMW X5 30d</h3><div class="car-subtitle">2021 <span>·</span> 3.0 л <span>·</span> 249 л.с.</div><div class="car-specs"><span class="car-spec">Дизель</span><span class="car-spec">Автомат</span><span class="car-spec">Полный</span></div><div class="car-bottom"><span class="car-price">8 750 000 ₽</span><small>под ключ</small></div><button class="btn btn-outline car-detail" data-car="BMW X5 30d">Подробнее <span class="btn-arrow">→</span></button></div>
-          </article>
-          <article class="car-card" data-make="Mercedes-Benz" data-model="E 200" data-price="6.89" data-year="2021" data-fuel="Бензин" data-market="stock">
-            <div class="car-photo"><img loading="lazy" src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=900&q=82" alt="Mercedes-Benz E-Class, белый седан"><span class="stock in">В наличии</span><button class="favorite" aria-label="Добавить Mercedes-Benz E 200 в избранное" aria-pressed="false">♡</button></div>
-            <div class="car-info"><h3 class="car-title">Mercedes-Benz E 200</h3><div class="car-subtitle">2021 <span>·</span> 2.0 л <span>·</span> 197 л.с.</div><div class="car-specs"><span class="car-spec">Бензин</span><span class="car-spec">Автомат</span><span class="car-spec">Задний</span></div><div class="car-bottom"><span class="car-price">6 890 000 ₽</span><small>под ключ</small></div><button class="btn btn-outline car-detail" data-car="Mercedes-Benz E 200">Подробнее <span class="btn-arrow">→</span></button></div>
-          </article>
-          <article class="car-card" data-make="Audi" data-model="Q7" data-price="11.2" data-year="2022" data-fuel="Бензин" data-market="order">
-            <div class="car-photo"><img loading="lazy" src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=900&q=82" alt="Audi Q7, чёрный внедорожник"><span class="stock order">Под заказ</span><button class="favorite" aria-label="Добавить Audi Q7 в избранное" aria-pressed="false">♡</button></div>
-            <div class="car-info"><h3 class="car-title">Audi Q7 55 TFSI</h3><div class="car-subtitle">2022 <span>·</span> 3.0 л <span>·</span> 340 л.с.</div><div class="car-specs"><span class="car-spec">Бензин</span><span class="car-spec">Автомат</span><span class="car-spec">Полный</span></div><div class="car-bottom"><span class="car-price">11 200 000 ₽</span><small>под ключ</small></div><button class="btn btn-outline car-detail" data-car="Audi Q7 55 TFSI">Подробнее <span class="btn-arrow">→</span></button></div>
-          </article>
-          <article class="car-card" data-make="Hyundai" data-model="Tucson" data-price="4.25" data-year="2023" data-fuel="Бензин" data-market="stock">
-            <div class="car-photo"><img loading="lazy" src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=900&q=82" alt="Hyundai Tucson, автомобиль для города"><span class="stock in">В наличии</span><button class="favorite" aria-label="Добавить Hyundai Tucson в избранное" aria-pressed="false">♡</button></div>
-            <div class="car-info"><h3 class="car-title">Hyundai Tucson</h3><div class="car-subtitle">2023 <span>·</span> 2.0 л <span>·</span> 150 л.с.</div><div class="car-specs"><span class="car-spec">Бензин</span><span class="car-spec">Автомат</span><span class="car-spec">Полный</span></div><div class="car-bottom"><span class="car-price">4 250 000 ₽</span><small>под ключ</small></div><button class="btn btn-outline car-detail" data-car="Hyundai Tucson">Подробнее <span class="btn-arrow">→</span></button></div>
-          </article>
-          <article class="car-card" data-make="Kia" data-model="Sportage" data-price="3.89" data-year="2022" data-fuel="Бензин" data-market="order">
-            <div class="car-photo"><img loading="lazy" src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=82" alt="Kia Sportage, городской кроссовер"><span class="stock order">Под заказ</span><button class="favorite" aria-label="Добавить Kia Sportage в избранное" aria-pressed="false">♡</button></div>
-            <div class="car-info"><h3 class="car-title">Kia Sportage</h3><div class="car-subtitle">2022 <span>·</span> 2.0 л <span>·</span> 150 л.с.</div><div class="car-specs"><span class="car-spec">Бензин</span><span class="car-spec">Автомат</span><span class="car-spec">Полный</span></div><div class="car-bottom"><span class="car-price">3 890 000 ₽</span><small>под ключ</small></div><button class="btn btn-outline car-detail" data-car="Kia Sportage">Подробнее <span class="btn-arrow">→</span></button></div>
-          </article>
-          <article class="car-card" data-make="Li Auto" data-model="L7" data-price="5.85" data-year="2024" data-fuel="Гибрид" data-market="order">
-            <div class="car-photo"><img loading="lazy" src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=900&q=82" alt="Li Auto L7, современный премиальный кроссовер"><span class="stock order">Под заказ</span><button class="favorite" aria-label="Добавить Li Auto L7 в избранное" aria-pressed="false">♡</button></div>
-            <div class="car-info"><h3 class="car-title">Li Auto L7</h3><div class="car-subtitle">2024 <span>·</span> 1.5 л <span>·</span> гибрид</div><div class="car-specs"><span class="car-spec">Гибрид</span><span class="car-spec">Автомат</span><span class="car-spec">Полный</span></div><div class="car-bottom"><span class="car-price">5 850 000 ₽</span><small>под ключ</small></div><button class="btn btn-outline car-detail" data-car="Li Auto L7">Подробнее <span class="btn-arrow">→</span></button></div>
-          </article>
-          <article class="car-card" data-make="BYD" data-model="Song Plus" data-price="3.65" data-year="2024" data-fuel="Гибрид" data-market="order">
-            <div class="car-photo"><img loading="lazy" src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=82" alt="BYD Song Plus, современный автомобиль"><span class="stock order">Под заказ</span><button class="favorite" aria-label="Добавить BYD Song Plus в избранное" aria-pressed="false">♡</button></div>
-            <div class="car-info"><h3 class="car-title">BYD Song Plus</h3><div class="car-subtitle">2024 <span>·</span> 1.5 л <span>·</span> гибрид</div><div class="car-specs"><span class="car-spec">Гибрид</span><span class="car-spec">Автомат</span><span class="car-spec">Передний</span></div><div class="car-bottom"><span class="car-price">3 650 000 ₽</span><small>под ключ</small></div><button class="btn btn-outline car-detail" data-car="BYD Song Plus">Подробнее <span class="btn-arrow">→</span></button></div>
-          </article>
-        </div>
+        <div class="catalog-meta"><span id="catalogCount" aria-live="polite">Загрузка каталога…</span><span>Цены и наличие уточняйте у менеджера</span></div>
+        <div class="catalog-grid" id="carGrid"></div>
         <div class="empty-state" id="catalogEmpty">По выбранным параметрам ничего не найдено. Измените фильтры или оставьте заявку на индивидуальный подбор.</div>
         <div class="catalog-more"><a class="btn btn-outline" href="https://t.me/AlexTopCarsLeadBot?start=lead" target="_blank" rel="noopener noreferrer">Не нашли подходящий автомобиль? <span class="btn-arrow">→</span></a></div>
       </div>
@@ -371,9 +338,74 @@
     const priceFilter = document.getElementById('priceFilter');
     const yearFilter = document.getElementById('yearFilter');
     const fuelFilter = document.getElementById('fuelFilter');
-    const cards = Array.from(document.querySelectorAll('.car-card'));
+    const carGrid = document.getElementById('carGrid');
     const catalogCount = document.getElementById('catalogCount');
     const catalogEmpty = document.getElementById('catalogEmpty');
+    const toast = document.getElementById('toast');
+    let cars = [];
+    let cards = [];
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      window.setTimeout(function () { toast.classList.remove('show'); }, 2600);
+    }
+    function escapeHtml(value) {
+      return String(value == null ? '' : value).replace(/[&<>"']/g, function (char) {
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char];
+      });
+    }
+    function formatPrice(value) {
+      return new Intl.NumberFormat('ru-RU', {maximumFractionDigits: 0}).format(Number(value) || 0) + ' ₽';
+    }
+    function uniqueValues(items, key) {
+      return Array.from(new Set(items.map(function (car) { return String(car[key] || '').trim(); }).filter(Boolean)))
+        .sort(function (a, b) { return a.localeCompare(b, 'ru'); });
+    }
+    function setOptions(select, placeholder, values, selected) {
+      select.innerHTML = '<option value="">' + escapeHtml(placeholder) + '</option>' +
+        values.map(function (value) {
+          return '<option value="' + escapeHtml(value) + '">' + escapeHtml(value) + '</option>';
+        }).join('');
+      select.value = values.includes(selected) ? selected : '';
+    }
+    function refreshFilterOptions() {
+      const selectedMake = makeFilter.value;
+      const selectedModel = modelFilter.value;
+      setOptions(makeFilter, 'Все марки', uniqueValues(cars, 'make'), selectedMake);
+      const modelPool = makeFilter.value
+        ? cars.filter(function (car) { return car.make === makeFilter.value; })
+        : cars;
+      setOptions(modelFilter, 'Все модели', uniqueValues(modelPool, 'model'), selectedModel);
+    }
+    function carCardHtml(car) {
+      const title = car.title || (String(car.make || '') + ' ' + String(car.model || '')).trim();
+      const status = car.status === 'stock'
+        ? '<span class="stock in">В наличии</span>'
+        : '<span class="stock order">Под заказ</span>';
+      const detail = [car.year, car.engine, car.power].filter(Boolean).map(escapeHtml);
+      const specs = [car.fuel, car.transmission, car.drive].filter(Boolean);
+      const priceMillions = (Number(car.priceRub) || 0) / 1000000;
+      return '<article class="car-card" data-make="' + escapeHtml(car.make) +
+        '" data-model="' + escapeHtml(car.model) +
+        '" data-price="' + priceMillions +
+        '" data-year="' + Number(car.year || 0) +
+        '" data-fuel="' + escapeHtml(car.fuel) +
+        '" data-market="' + escapeHtml(car.status) + '">' +
+          '<div class="car-photo"><img loading="lazy" src="' + escapeHtml(car.image) +
+          '" alt="' + escapeHtml(car.imageAlt || title) + '">' + status +
+          '<button class="favorite" aria-label="Добавить ' + escapeHtml(title) +
+          ' в избранное" aria-pressed="false">♡</button></div>' +
+          '<div class="car-info"><h3 class="car-title">' + escapeHtml(title) + '</h3>' +
+          '<div class="car-subtitle">' + detail.join(' <span>·</span> ') + '</div>' +
+          '<div class="car-specs">' + specs.map(function (value) {
+            return '<span class="car-spec">' + escapeHtml(value) + '</span>';
+          }).join('') + '</div>' +
+          '<div class="car-bottom"><span class="car-price">' + formatPrice(car.priceRub) +
+          '</span><small>' + escapeHtml(car.priceNote || 'под ключ') + '</small></div>' +
+          '<button class="btn btn-outline car-detail" data-car="' + escapeHtml(title) +
+          '">Подробнее <span class="btn-arrow">→</span></button></div></article>';
+    }
     function applyFilters() {
       let visible = 0;
       cards.forEach(function (card) {
@@ -392,28 +424,60 @@
         card.hidden = !show;
         if (show) visible += 1;
       });
-      catalogCount.textContent = visible + (visible === 1 ? ' автомобиль найден' : visible >= 2 && visible <= 4 ? ' автомобиля найдено' : ' автомобилей найдено');
+      catalogCount.textContent = visible + (visible === 1 ? ' автомобиль найден' :
+        visible >= 2 && visible <= 4 ? ' автомобиля найдено' : ' автомобилей найдено');
       catalogEmpty.classList.toggle('visible', visible === 0);
     }
-    document.getElementById('applyFilters').addEventListener('click', applyFilters);
-    [makeFilter, modelFilter, priceFilter, yearFilter, fuelFilter].forEach(function (select) {
+    makeFilter.addEventListener('change', function () {
+      const selectedModel = modelFilter.value;
+      const models = makeFilter.value
+        ? uniqueValues(cars.filter(function (car) { return car.make === makeFilter.value; }), 'model')
+        : uniqueValues(cars, 'model');
+      setOptions(modelFilter, 'Все модели', models, selectedModel);
+      applyFilters();
+    });
+    modelFilter.addEventListener('change', applyFilters);
+    [priceFilter, yearFilter, fuelFilter].forEach(function (select) {
       select.addEventListener('change', applyFilters);
     });
+    document.getElementById('applyFilters').addEventListener('click', applyFilters);
 
-    const toast = document.getElementById('toast');
-    function showToast(message) {
-      toast.textContent = message;
-      toast.classList.add('show');
-      window.setTimeout(function () { toast.classList.remove('show'); }, 2600);
-    }
-    document.querySelectorAll('.favorite').forEach(function (button) {
-      button.addEventListener('click', function () {
-        const active = button.getAttribute('aria-pressed') === 'true';
-        button.setAttribute('aria-pressed', String(!active));
-        button.textContent = active ? '♡' : '♥';
+    carGrid.addEventListener('click', function (event) {
+      const favorite = event.target.closest('.favorite');
+      if (favorite) {
+        const active = favorite.getAttribute('aria-pressed') === 'true';
+        favorite.setAttribute('aria-pressed', String(!active));
+        favorite.textContent = active ? '♡' : '♥';
         showToast(active ? 'Автомобиль удалён из избранного' : 'Автомобиль добавлен в избранное');
-      });
+        return;
+      }
+      const detail = event.target.closest('.car-detail');
+      if (detail) {
+        const carName = detail.dataset.car || 'автомобиль';
+        const message = 'Здравствуйте! Хочу узнать подробнее об автомобиле: ' + carName + '.';
+        window.open('https://t.me/+79192826666?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
+      }
     });
+
+    fetch('data/cars.json', {cache: 'no-store'})
+      .then(function (response) {
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        return response.json();
+      })
+      .then(function (items) {
+        if (!Array.isArray(items)) throw new Error('Cars data must be an array');
+        cars = items.filter(function (car) { return car && car.active !== false; });
+        refreshFilterOptions();
+        carGrid.innerHTML = cars.map(carCardHtml).join('');
+        cards = Array.from(carGrid.querySelectorAll('.car-card'));
+        applyFilters();
+      })
+      .catch(function (error) {
+        console.error('Не удалось загрузить каталог автомобилей:', error);
+        catalogCount.textContent = 'Не удалось загрузить каталог';
+        catalogEmpty.textContent = 'Каталог временно недоступен. Попробуйте обновить страницу.';
+        catalogEmpty.classList.add('visible');
+      });
 
     // Для заявок через бота укажите его username без символа @, когда он будет известен.
     // Пока используется личный чат как надёжный запасной маршрут.
@@ -426,15 +490,6 @@
       modal.showModal();
       document.body.classList.add('modal-open');
     }
-    // Карточка автомобиля ведёт сразу в личный чат; Telegram подставит готовый текст сообщения.
-    document.querySelectorAll('.car-detail').forEach(function (button) {
-      button.addEventListener('click', function () {
-        const carName = button.dataset.car || 'автомобиль';
-        const message = 'Здравствуйте! Хочу узнать подробнее об автомобиле: ' + carName + '.';
-        const url = TELEGRAM_PERSONAL_CHAT + '?text=' + encodeURIComponent(message);
-        window.open(url, '_blank', 'noopener,noreferrer');
-      });
-    });
     document.getElementById('closeModal').addEventListener('click', function () {
       modal.close();
       document.body.classList.remove('modal-open');
