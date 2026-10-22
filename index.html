@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="description" content="TOPCARS — подбор, покупка и доставка автомобилей из Кореи, Китая и Европы. Автовыкуп, Trade-in и комиссионная продажа.">
+  <title>TOPCARS — автомобиль начинается с правильного выбора</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --panel: #131a23;
+      --panel-soft: #171f2a;
+      --text: #f4f7fb;
+      --muted: #a7b1c0;
+      --line: rgba(255,255,255,.11);
+      --blue: #d6ad55;
+      --blue-bright: #f0c96a;
+      --green: #0f9f4b;
+      --green-hover: #0b843d;
+      --dark: #070a0f;
+      --max: 1180px;
+      --radius: 20px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55; -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(var(--max), calc(100% - 44px)); margin: 0 auto; }
+    .topline { border-bottom: 1px solid var(--line); color: #c6cfdb; font-size: 12px; letter-spacing: .11em; text-transform: uppercase; }
+    .topline-inner { display: flex; justify-content: space-between; gap: 20px; padding: 10px 0; }
+    header { position: sticky; top: 0; z-index: 50; background: rgba(13,17,23,.88); backdrop-filter: blur(18px); border-bottom: 1px solid var(--line); }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 900; letter-spacing: .16em; font-size: 21px; white-space: nowrap; }
+    .brand-mark { width: 35px; height: 35px; display: grid; place-items: center; background: var(--blue); border-radius: 10px; color: white; font-size: 12px; letter-spacing: -.06em; box-shadow: 0 8px 24px rgba(214,173,85,.26); }
+    .brand small { display: block; color: var(--muted); font-size: 9px; font-weight: 650; letter-spacing: .21em; margin-top: -3px; }
+    .nav-links { display: flex; align-items: center; gap: 30px; color: #d4dbe5; font-size: 13px; }
+    .nav-links a:hover { color: var(--blue-bright); }
+    .nav-cta, .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 13px 18px; border-radius: 11px; background: var(--blue); color: white; font-size: 13px; font-weight: 750; border: 1px solid var(--blue); transition: transform .2s ease, background .2s ease; }
+    .nav-cta:hover, .button:hover { background: #b58a2c; transform: translateY(-2px); }
+
+    .nav-cta, .button[href*="t.me"] { background: var(--green); border-color: var(--green); color: #fff; }
+    .nav-cta:hover, .button[href*="t.me"]:hover { background: var(--green-hover); border-color: var(--green-hover); }
+    .contact-box .button[href*="t.me"] { background: var(--green); border-color: var(--green); color: #fff; }
+    .contact-box .button[href*="t.me"]:hover { background: var(--green-hover); border-color: var(--green-hover); }
+    .button.secondary { background: transparent; border-color: rgba(255,255,255,.25); color: var(--text); }
+    .button.secondary:hover { border-color: var(--blue); background: rgba(214,173,85,.08); }
+    .menu-toggle { display: none; background: none; color: white; border: 1px solid var(--line); border-radius: 9px; padding: 9px 12px; font-size: 20px; }
+    .hero { padding: 62px 0 72px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: .94fr 1.06fr; align-items: center; gap: 54px; }
+    .eyebrow { color: var(--blue-bright); font-size: 11px; letter-spacing: .19em; text-transform: uppercase; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+    .eyebrow:before { content: ""; width: 25px; height: 2px; background: var(--blue); display: inline-block; }
+    h1 { font-size: clamp(42px, 5.4vw, 69px); line-height: .99; letter-spacing: -.055em; margin: 20px 0 22px; font-weight: 800; }
+    h1 span { color: var(--blue-bright); }
+    .hero-copy { max-width: 490px; color: var(--muted); font-size: 16px; margin-bottom: 30px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .micro-line { display: flex; align-items: center; gap: 13px; flex-wrap: wrap; margin-top: 28px; color: #cad3df; font-size: 12px; }
+    .micro-line span { display: inline-flex; align-items: center; gap: 7px; }
+    .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--blue-bright); }
+    .hero-visual { position: relative; min-height: 470px; }
+    .hero-photo { position: absolute; inset: 0 0 25px 0; border-radius: 26px; overflow: hidden; background: #192330; }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.78); }
+    .hero-photo:after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,12,18,.35), transparent 55%), linear-gradient(0deg, rgba(8,12,18,.55), transparent 48%); }
+    .image-tag { position: absolute; z-index: 1; left: 22px; top: 22px; border: 1px solid rgba(255,255,255,.28); background: rgba(8,12,18,.42); backdrop-filter: blur(10px); border-radius: 7px; padding: 9px 12px; font-size: 10px; letter-spacing: .13em; text-transform: uppercase; }
+    .image-caption { position: absolute; z-index: 1; bottom: 25px; left: 25px; right: 25px; display: flex; justify-content: space-between; align-items: end; gap: 15px; }
+    .image-caption strong { display: block; font-size: 19px; }
+    .image-caption small { color: #d1d8e1; display: block; margin-top: 3px; font-size: 12px; }
+    .arrow-box { width: 45px; height: 45px; display: grid; place-items: center; background: var(--blue); border-radius: 12px; font-size: 22px; flex: 0 0 auto; }
+    .float-card { position: absolute; right: -13px; bottom: 0; background: white; color: #10151d; border-radius: 16px; padding: 16px 19px; display: flex; align-items: center; gap: 13px; box-shadow: 0 20px 45px rgba(0,0,0,.28); }
+    .float-symbol { width: 37px; height: 37px; border-radius: 11px; background: #fff2cf; color: #956b15; display: grid; place-items: center; font-size: 17px; }
+    .float-card b { display: block; font-size: 13px; }
+    .float-card small { color: #677384; font-size: 11px; }
+    section { padding: 82px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 32px; }
+    .section-head h2 { margin: 13px 0 0; font-size: clamp(29px, 3.4vw, 43px); line-height: 1.07; letter-spacing: -.04em; }
+    .section-head p { margin: 0; max-width: 390px; color: var(--muted); font-size: 14px; }
+    .countries { background: #111720; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .country-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .country-card { min-height: 300px; position: relative; overflow: hidden; border-radius: 18px; background: #18202a; border: 1px solid rgba(255,255,255,.08); }
+    .country-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .75; transition: transform .5s ease; }
+    .country-card:hover img { transform: scale(1.045); }
+    .country-card:after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(6,9,14,.93) 0%, rgba(6,9,14,.12) 70%); }
+    .country-content { position: absolute; z-index: 1; left: 23px; right: 23px; bottom: 21px; }
+    .country-number { color: var(--blue-bright); font-size: 10px; letter-spacing: .16em; font-weight: 800; }
+    .country-content h3 { margin: 7px 0 3px; font-size: 25px; letter-spacing: -.03em; }
+    .country-content p { margin: 0; color: #d2d9e4; font-size: 12px; max-width: 270px; }
+    .services-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+    .service-card { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 24px 21px 22px; min-height: 232px; transition: border-color .2s, transform .2s; }
+    .service-card:hover { border-color: rgba(240,201,106,.6); transform: translateY(-3px); }
+    .service-icon { width: 43px; height: 43px; display: grid; place-items: center; background: rgba(214,173,85,.13); border-radius: 12px; color: var(--blue-bright); margin-bottom: 24px; font-size: 20px; }
+    .service-card h3 { font-size: 17px; margin: 0 0 9px; letter-spacing: -.02em; }
+    .service-card p { color: var(--muted); font-size: 12px; margin: 0; }
+    .service-link { display: inline-flex; color: var(--blue-bright); font-size: 12px; font-weight: 750; margin-top: 19px; }
+    .steps { background: #111720; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; border-top: 1px solid var(--line); }
+    .step { padding: 24px 25px 12px 0; position: relative; }
+    .step:not(:last-child) { margin-right: 24px; border-right: 1px solid var(--line); }
+    .step-no { color: var(--blue-bright); font-size: 12px; letter-spacing: .1em; font-weight: 800; }
+    .step h3 { margin: 18px 0 9px; font-size: 18px; }
+    .step p { margin: 0; font-size: 12px; color: var(--muted); max-width: 220px; }
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 60px; align-items: center; }
+    .about-art { min-height: 370px; border-radius: 20px; overflow: hidden; position: relative; background: #192330; }
+    .about-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .about-art:after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg,rgba(7,10,15,.55),transparent 65%); }
+    .about-badge { position: absolute; z-index: 1; bottom: 18px; left: 18px; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,.25); background: rgba(7,10,15,.42); backdrop-filter: blur(10px); font-size: 12px; }
+    .about-copy h2 { font-size: clamp(30px,3.5vw,44px); line-height: 1.04; letter-spacing: -.045em; margin: 14px 0 20px; }
+    .about-copy > p { color: var(--muted); font-size: 14px; }
+    .check-list { list-style: none; padding: 0; margin: 25px 0 0; display: grid; gap: 14px; }
+    .check-list li { display: flex; gap: 11px; align-items: start; font-size: 13px; color: #dfe5ed; }
+    .check { width: 22px; height: 22px; flex: 0 0 auto; border-radius: 7px; background: rgba(214,173,85,.14); color: var(--blue-bright); display: grid; place-items: center; font-size: 12px; }
+    .contact { padding: 0 0 82px; }
+    .contact-box { position: relative; overflow: hidden; border-radius: 24px; padding: clamp(28px,5vw,55px); background: #211c12; border: 1px solid rgba(240,201,106,.3); display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .contact-box:after { content: "TC"; position: absolute; right: 14%; top: -100px; font-size: 310px; font-weight: 900; letter-spacing: -.12em; color: rgba(255,255,255,.035); pointer-events: none; }
+    .contact-box > div { position: relative; z-index: 1; }
+    .contact-box h2 { font-size: clamp(29px,4vw,45px); line-height: 1.05; letter-spacing: -.04em; margin: 12px 0; max-width: 600px; }
+    .contact-box p { color: #c4d0e1; font-size: 14px; margin: 0; max-width: 470px; }
+    .contact-box .button { flex: 0 0 auto; background: white; color: #101827; border-color: white; }
+    .contact-box .button:hover { background: #fff5dc; }
+    footer { border-top: 1px solid var(--line); }
+    .footer-main { display: flex; justify-content: space-between; gap: 30px; padding: 28px 0; align-items: center; }
+    .footer-copy { color: var(--muted); font-size: 11px; max-width: 410px; margin-top: 9px; }
+    .footer-right { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; font-size: 12px; color: #d9e0e9; }
+    .footer-right a:hover { color: var(--blue-bright); }
+    .footer-bottom { border-top: 1px solid var(--line); padding: 13px 0; display: flex; justify-content: space-between; gap: 20px; color: #7f8b9b; font-size: 10px; }
+    .note { color: #7f8b9b; font-size: 10px; line-height: 1.5; }
+    @media (max-width: 960px) {
+      .nav-links { gap: 17px; }
+      .nav-cta { display: none; }
+      .hero-grid { gap: 30px; }
+      .hero-visual { min-height: 410px; }
+      .services-grid { grid-template-columns: repeat(2,1fr); }
+      .about-grid { gap: 34px; }
+    }
+    @media (max-width: 720px) {
+      .container { width: min(var(--max), calc(100% - 32px)); }
+      .topline-inner { font-size: 9px; letter-spacing: .07em; }
+      .topline-inner span:last-child { display: none; }
+      .nav { min-height: 67px; }
+      .brand { font-size: 18px; }
+      .menu-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 67px; left: 0; right: 0; padding: 18px 22px 22px; background: #10161f; border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; gap: 0; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 0; border-bottom: 1px solid var(--line); }
+      .nav-links a:last-child { border-bottom: 0; }
+      .hero { padding: 45px 0 52px; }
+      .hero-grid { grid-template-columns: 1fr; }
+      h1 { font-size: clamp(42px, 12vw, 58px); }
+      .hero-copy { font-size: 14px; }
+      .hero-visual { min-height: 330px; margin-right: 7px; }
+      .float-card { right: -7px; padding: 12px 14px; }
+      .float-symbol { width: 33px; height: 33px; }
+      section { padding: 60px 0; }
+      .section-head { display: block; margin-bottom: 25px; }
+      .section-head p { margin-top: 14px; }
+      .country-grid { grid-template-columns: 1fr; }
+      .country-card { min-height: 250px; }
+      .services-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .service-card { min-height: unset; padding: 18px 15px; }
+      .service-icon { margin-bottom: 17px; }
+      .service-card h3 { font-size: 15px; }
+      .service-card p { font-size: 11px; }
+      .steps-grid { grid-template-columns: 1fr 1fr; row-gap: 0; }
+      .step { padding: 20px 15px 23px 0; }
+      .step:nth-child(2) { border-right: 0; margin-right: 0; }
+      .step:nth-child(3) { border-top: 1px solid var(--line); }
+      .step:nth-child(4) { border-top: 1px solid var(--line); margin-right: 0; border-right: 0; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-art { min-height: 280px; }
+      .contact { padding-bottom: 60px; }
+      .contact-box { display: block; }
+      .contact-box .button { margin-top: 24px; }
+      .footer-main { align-items: start; flex-direction: column; }
+      .footer-bottom { flex-direction: column; gap: 5px; }
+    }
+    @media (max-width: 390px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .hero-actions .button { width: 100%; }
+      .image-caption strong { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline">
+    <div class="container topline-inner">
+      <span>Автомобили • подбор • сопровождение</span>
+      <span>Корея / Китай / Европа</span>
+    </div>
+  </div>
+  <header>
+    <nav class="container nav" aria-label="Основная навигация">
+      <a class="brand" href="#home" aria-label="TOPCARS — главная">
+        <span class="brand-mark">TC</span>
+        <span>TOPCARS<small>DRIVE YOUR WAY</small></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#directions">Направления</a>
+        <a href="#services">Услуги</a>
+        <a href="#process">Как работаем</a>
+        <a href="#contacts">Контакты</a>
+      </div>
+      <a class="nav-cta" href="https://t.me/alex.topcars" target="_blank" rel="noopener">Написать в Telegram <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Ваш автомобиль — наш маршрут</div>
+          <h1>Найдём авто,<br>которое <span>ваше.</span></h1>
+          <p class="hero-copy">Подбор, покупка и доставка автомобилей из Кореи, Китая и Европы. Помогаем пройти путь от выбора до согласованных условий сделки.</p>
+          <div class="hero-actions">
+            <a class="button" href="https://t.me/alex.topcars" target="_blank" rel="noopener">Подобрать автомобиль <span aria-hidden="true">↗</span></a>
+            <a class="button secondary" href="#services">Все услуги <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="micro-line">
+            <span><i class="dot"></i> Подбор под ваш запрос</span>
+            <span><i class="dot"></i> Прозрачное согласование условий</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-photo">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85" alt="Современный спортивный автомобиль на дороге" fetchpriority="high">
+            <div class="image-tag">TOPCARS / AUTO SELECTION</div>
+            <div class="image-caption">
+              <div><strong>Путь к вашему авто начинается здесь</strong><small>Расскажите нам, что вы ищете</small></div>
+              <a class="arrow-box" href="https://t.me/alex.topcars" aria-label="Перейти в Telegram" target="_blank" rel="noopener">↗</a>
+            </div>
+          </div>
+          <div class="float-card">
+            <div class="float-symbol">✦</div>
+            <div><b>Подбор под задачу</b><small>Модель • бюджет • пожелания</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="countries" id="directions">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Направления</div><h2>Ищем там, где<br>есть ваш вариант.</h2></div>
+          <p>Подберём направление под ваши задачи, требования к комплектации и бюджет. Конкретные варианты и условия обсуждаем индивидуально.</p>
+        </div>
+        <div class="country-grid">
+          <a class="country-card" href="https://t.me/alex.topcars" target="_blank" rel="noopener">
+            <img src="https://images.unsplash.com/photo-1617469767053-d3b523a0b982?auto=format&fit=crop&w=900&q=80" alt="Современный автомобиль" loading="lazy">
+            <div class="country-content"><div class="country-number">01 / KOREA</div><h3>Авто из Кореи</h3><p>Подбор моделей и комплектаций под ваш запрос.</p></div>
+          </a>
+          <a class="country-card" href="https://t.me/alex.topcars" target="_blank" rel="noopener">
+            <img src="https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?auto=format&fit=crop&w=900&q=80" alt="Автомобиль в современном городе" loading="lazy">
+            <div class="country-content"><div class="country-number">02 / CHINA</div><h3>Авто из Китая</h3><p>Рассмотрим современные модели и варианты оснащения.</p></div>
+          </a>
+          <a class="country-card" href="https://t.me/alex.topcars" target="_blank" rel="noopener">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=80" alt="Спортивный автомобиль" loading="lazy">
+            <div class="country-content"><div class="country-number">03 / EUROPE</div><h3>Авто из Европы</h3><p>Подбор европейских марок под ваши требования.</p></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Что мы делаем</div><h2>Автомобильные задачи<br>под одним именем.</h2></div>
+          <p>Выберите услугу — обсудим вашу ситуацию, сроки, бюджет и возможные следующие шаги.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">↗</div><h3>Подбор и импорт</h3>
+            <p>Поиск автомобиля за рубежом, согласование варианта и сопровождение процесса покупки и доставки.</p>
+            <a class="service-link" href="https://t.me/alex.topcars" target="_blank" rel="noopener">Обсудить подбор ↗</a>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">⌁</div><h3>Автовыкуп</h3>
+            <p>Рассмотрим ваш автомобиль для выкупа. Итоговые условия определяются после оценки.</p>
+            <a class="service-link" href="https://t.me/alex.topcars" target="_blank" rel="noopener">Оценить автомобиль ↗</a>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">⇄</div><h3>Trade-in</h3>
+            <p>Поможем рассмотреть обмен текущего автомобиля на другой с расчётом разницы в стоимости.</p>
+            <a class="service-link" href="https://t.me/alex.topcars" target="_blank" rel="noopener">Обсудить обмен ↗</a>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">◫</div><h3>Комиссионная продажа</h3>
+            <p>Обсудим условия сотрудничества и поможем организовать продажу вашего автомобиля.</p>
+            <a class="service-link" href="https://t.me/alex.topcars" target="_blank" rel="noopener">Продать с нами ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps" id="process">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Просто и понятно</div><h2>От запроса<br>до следующего ключа.</h2></div>
+          <p>Каждый этап согласовываем с вами заранее. Конкретные сроки и стоимость зависят от автомобиля и выбранного маршрута.</p>
+        </div>
+        <div class="steps-grid">
+          <article class="step"><div class="step-no">ШАГ / 01</div><h3>Заявка</h3><p>Вы рассказываете о модели, бюджете и пожеланиях.</p></article>
+          <article class="step"><div class="step-no">ШАГ / 02</div><h3>Подбор вариантов</h3><p>Обсуждаем подходящие варианты и критерии выбора.</p></article>
+          <article class="step"><div class="step-no">ШАГ / 03</div><h3>Проверка и согласование</h3><p>Уточняем состояние, характеристики и условия сделки.</p></article>
+          <article class="step"><div class="step-no">ШАГ / 04</div><h3>Покупка и доставка</h3><p>Согласовываем дальнейшие действия и сопровождаем процесс.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container about-grid">
+        <div class="about-art">
+          <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=85" alt="Автомобиль крупным планом" loading="lazy">
+          <div class="about-badge">TOPCARS · Подбор по вашим критериям</div>
+        </div>
+        <div class="about-copy">
+          <div class="eyebrow">Индивидуальный подход</div>
+          <h2>Не просто найти автомобиль.<br>Найти ваш вариант.</h2>
+          <p>Хороший выбор начинается с правильных вопросов. Мы учитываем ваши приоритеты, сравниваем варианты и заранее обсуждаем условия — чтобы решение было осознанным.</p>
+          <ul class="check-list">
+            <li><span class="check">✓</span><span><b>Под ваши приоритеты</b><br>Модель, оснащение, бюджет и задачи использования.</span></li>
+            <li><span class="check">✓</span><span><b>Согласование до действий</b><br>Вариант, стоимость и условия обсуждаются заранее.</span></li>
+            <li><span class="check">✓</span><span><b>Связь на каждом этапе</b><br>Можно задать вопросы и уточнить дальнейшие шаги.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacts">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <div class="eyebrow">Начнём с диалога</div>
+            <h2>Расскажите, какой автомобиль вы ищете.</h2>
+            <p>Напишите в Telegram модель или класс автомобиля, желаемый бюджет и важные пожелания. Обсудим возможные варианты.</p>
+          </div>
+          <div><a class="button" href="https://t.me/alex.topcars" target="_blank" rel="noopener">Написать @alex.topcars <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-main">
+      <div>
+        <a class="brand" href="#home"><span class="brand-mark">TC</span><span>TOPCARS<small>DRIVE YOUR WAY</small></span></a>
+        <p class="footer-copy">Подбор и сопровождение покупки автомобилей из Кореи, Китая и Европы. Автовыкуп, Trade-in и комиссионная продажа.</p>
+      </div>
+      <div class="footer-right">
+        <a href="#directions">Направления</a><a href="#services">Услуги</a><a href="#process">Как работаем</a><a href="https://t.me/alex.topcars" target="_blank" rel="noopener">Telegram ↗</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> TOPCARS</span>
+      <span class="note">Изображения загружаются с Unsplash. Примеры изображений не являются предложением конкретных автомобилей в продаже.</span>
+    </div>
+  </footer>
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      const opened = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(opened));
+      toggle.setAttribute('aria-label', opened ? 'Закрыть меню' : 'Открыть меню');
+      toggle.textContent = opened ? '×' : '☰';
+    });
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = '☰';
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
