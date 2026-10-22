@@ -1,0 +1,90 @@
+media:
+  input: images
+  output: /belgorod/images
+  rename: safe
+  categories:
+    - image
+
+content:
+  - name: cars
+    label: Автомобили
+    type: file
+    path: data/cars.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: Название в каталоге
+        type: string
+        required: true
+      - name: make
+        label: Марка
+        type: string
+        required: true
+      - name: model
+        label: Модель для фильтра
+        type: string
+        required: true
+      - name: image
+        label: Фотография
+        type: image
+        required: true
+        options:
+          path: images
+          extensions: [jpg, jpeg, png, webp]
+      - name: imageAlt
+        label: Описание фотографии
+        type: string
+        required: true
+      - name: active
+        label: Показывать на сайте
+        type: boolean
+        required: true
+      - name: status
+        label: Наличие
+        type: select
+        required: true
+        options:
+          values:
+            - name: stock
+              label: В наличии
+            - name: order
+              label: Под заказ
+      - name: year
+        label: Год выпуска
+        type: number
+        required: true
+      - name: engine
+        label: Объём двигателя
+        type: string
+        required: true
+      - name: power
+        label: Мощность
+        type: string
+        required: true
+      - name: fuel
+        label: Тип топлива
+        type: select
+        required: true
+        options:
+          values: [Бензин, Дизель, Гибрид, Электро]
+      - name: transmission
+        label: Коробка передач
+        type: select
+        required: true
+        options:
+          values: [Автомат, Робот, Механика, Вариатор]
+      - name: drive
+        label: Привод
+        type: select
+        required: true
+        options:
+          values: [Полный, Передний, Задний]
+      - name: priceRub
+        label: Цена в рублях (числом, без пробелов)
+        type: number
+        required: true
+      - name: priceNote
+        label: Подпись к цене
+        type: string
+        required: true
