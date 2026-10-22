@@ -102,6 +102,35 @@
     .country-number { color: var(--blue-bright); font-size: 10px; letter-spacing: .16em; font-weight: 800; }
     .country-content h3 { margin: 7px 0 3px; font-size: 25px; letter-spacing: -.03em; }
     .country-content p { margin: 0; color: #d2d9e4; font-size: 12px; max-width: 270px; }
+
+    .catalog-section { background: #0d1117; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .catalog-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; margin: 0 0 25px; }
+    .catalog-filters { display: flex; flex-wrap: wrap; gap: 8px; }
+    .filter-btn { appearance: none; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; padding: 10px 15px; background: transparent; color: #d5dce6; font: inherit; font-size: 12px; font-weight: 750; cursor: pointer; transition: .2s ease; }
+    .filter-btn:hover { border-color: rgba(240,201,106,.6); color: var(--blue-bright); }
+    .filter-btn[aria-pressed="true"] { background: var(--blue-bright); color: #15110a; border-color: var(--blue-bright); }
+    .catalog-count { color: var(--muted); font-size: 12px; }
+    .catalog-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; }
+    .car-card { min-width: 0; overflow: hidden; border-radius: 17px; background: linear-gradient(180deg, #151c26, #10151c); border: 1px solid rgba(255,255,255,.10); transition: transform .22s ease, border-color .22s ease; }
+    .car-card:hover { transform: translateY(-4px); border-color: rgba(240,201,106,.48); }
+    .car-card[hidden] { display: none !important; }
+    .car-image { position: relative; height: 205px; overflow: hidden; background: #1b232e; }
+    .car-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; filter: saturate(.8); }
+    .car-card:hover .car-image img { transform: scale(1.04); }
+    .car-market { position: absolute; left: 14px; top: 14px; padding: 7px 10px; border-radius: 7px; border: 1px solid rgba(255,255,255,.20); color: white; background: rgba(8,11,16,.73); backdrop-filter: blur(8px); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; font-weight: 800; }
+    .car-body { padding: 18px 18px 17px; }
+    .car-type { color: var(--blue-bright); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; font-weight: 800; }
+    .car-body h3 { margin: 6px 0 8px; font-size: 21px; letter-spacing: -.035em; line-height: 1.18; }
+    .car-desc { min-height: 42px; color: var(--muted); font-size: 12px; margin: 0 0 17px; }
+    .car-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; border-top: 1px solid var(--line); padding-top: 14px; }
+    .car-price-label { color: #8f9aaa; display: block; font-size: 10px; margin-bottom: 3px; }
+    .car-price { color: #f5f7fb; font-size: 14px; font-weight: 800; }
+    .car-ask { width: 38px; height: 38px; display: inline-grid; place-items: center; flex: 0 0 auto; border-radius: 10px; background: var(--green); color: #fff; font-size: 18px; transition: background .2s ease, transform .2s ease; }
+    .car-ask:hover { background: var(--green-hover); transform: translateY(-2px); }
+    .catalog-disclaimer { margin: 20px 0 0; color: #8c98a8; font-size: 11px; line-height: 1.6; max-width: 900px; }
+    .catalog-empty { display: none; color: var(--muted); padding: 22px; border: 1px dashed var(--line); border-radius: 14px; }
+    .catalog-empty.visible { display: block; }
+
     .services-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
     .service-card { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 24px 21px 22px; min-height: 232px; transition: border-color .2s, transform .2s; }
     .service-card:hover { border-color: rgba(240,201,106,.6); transform: translateY(-3px); }
@@ -151,6 +180,8 @@
       .hero-grid { gap: 30px; }
       .hero-visual { min-height: 410px; }
       .services-grid { grid-template-columns: repeat(2,1fr); }
+      .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .car-image { height: 180px; }
       .about-grid { gap: 34px; }
     }
     @media (max-width: 720px) {
@@ -176,6 +207,10 @@
       .section-head p { margin-top: 14px; }
       .country-grid { grid-template-columns: 1fr; }
       .country-card { min-height: 250px; }
+      .catalog-tools { align-items: flex-start; flex-direction: column; gap: 12px; }
+      .catalog-grid { grid-template-columns: 1fr; gap: 13px; }
+      .car-image { height: 220px; }
+      .car-body { padding: 16px; }
       .services-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
       .service-card { min-height: unset; padding: 18px 15px; }
       .service-icon { margin-bottom: 17px; }
@@ -200,6 +235,285 @@
       .hero-actions .button { width: 100%; }
       .image-caption strong { font-size: 16px; }
     }
+  
+    /* TOPCARS — premium editorial redesign */
+    :root {
+      --bg: #080b10;
+      --panel: #101720;
+      --panel-soft: #151e28;
+      --text: #f6f5f1;
+      --muted: #aeb6c2;
+      --line: rgba(240,201,106,.16);
+      --blue: #c69b3c;
+      --blue-bright: #f0c96a;
+      --green: #0d9f50;
+      --green-hover: #087b3c;
+      --dark: #05070b;
+      --radius: 22px;
+    }
+    body {
+      background:
+        radial-gradient(ellipse at 12% 10%, rgba(198,155,60,.08), transparent 27%),
+        radial-gradient(ellipse at 91% 32%, rgba(13,159,80,.045), transparent 22%),
+        var(--bg);
+    }
+    .topline {
+      background: #07090d;
+      border-bottom-color: rgba(240,201,106,.13);
+      font-size: 10px;
+      letter-spacing: .16em;
+    }
+    .topline-inner { padding: 11px 0; }
+    header {
+      background: rgba(7,10,14,.9);
+      border-bottom-color: rgba(240,201,106,.19);
+      box-shadow: 0 8px 35px rgba(0,0,0,.15);
+    }
+    .nav { min-height: 82px; }
+    .brand { gap: 13px; letter-spacing: .18em; }
+    .brand-mark {
+      border-radius: 50% 50% 48% 48%;
+      background: linear-gradient(145deg,#f4d98a,#b48424);
+      color: #17130a;
+      box-shadow: 0 0 0 5px rgba(214,173,85,.07), 0 10px 30px rgba(214,173,85,.15);
+    }
+    .brand small { letter-spacing: .24em; font-size: 8px; }
+    .nav-links a { position: relative; transition: color .2s ease; }
+    .nav-links a:after {
+      content: ""; position: absolute; left: 0; right: 100%; bottom: -9px; height: 1px;
+      background: var(--blue-bright); transition: right .2s ease;
+    }
+    .nav-links a:hover:after { right: 0; }
+    .nav-cta, .button {
+      border-radius: 999px;
+      padding: 14px 20px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.15);
+      letter-spacing: .01em;
+    }
+    .nav-cta, .button[href*="t.me"] { box-shadow: 0 10px 28px rgba(13,159,80,.18); }
+    .nav-cta:hover, .button[href*="t.me"]:hover { box-shadow: 0 12px 30px rgba(13,159,80,.32); }
+    .nav-social { border-radius: 999px; padding: 12px 16px; }
+    .button.secondary { border-color: rgba(240,201,106,.42); border-radius: 999px; }
+    .button.secondary:hover { background: rgba(214,173,85,.1); }
+    .hero { padding: 26px 0 55px; position: relative; }
+    .hero-grid {
+      position: relative;
+      display: block;
+      min-height: 650px;
+      overflow: hidden;
+      border-radius: 28px;
+      border: 1px solid rgba(240,201,106,.33);
+      background: #090d12;
+      box-shadow: 0 32px 85px rgba(0,0,0,.36), inset 0 0 0 1px rgba(255,255,255,.02);
+      isolation: isolate;
+    }
+    .hero-grid:before {
+      content: ""; position: absolute; z-index: 2; pointer-events: none;
+      inset: 12px; border: 1px solid rgba(240,201,106,.12); border-radius: 19px;
+    }
+    .hero-grid > div:first-child {
+      position: relative;
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      box-sizing: border-box;
+      min-height: 604px;
+      width: 59%;
+      max-width: 690px;
+      padding: 55px 0 74px 5.2%;
+    }
+    .eyebrow {
+      gap: 11px; color: var(--blue-bright);
+      letter-spacing: .22em; font-size: 10px;
+    }
+    .eyebrow:before { width: 30px; background: linear-gradient(90deg,#f6d47e,#bc882a); }
+    .eyebrow-index {
+      display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%;
+      border: 1px solid rgba(240,201,106,.5); color: #f6d982; letter-spacing: 0; font-size: 10px;
+    }
+    h1 {
+      font-size: clamp(46px, 5.8vw, 76px);
+      line-height: .96; letter-spacing: -.06em;
+      max-width: 700px; margin: 26px 0 22px;
+      text-shadow: 0 4px 26px rgba(0,0,0,.28);
+    }
+    h1 span {
+      color: transparent;
+      background: linear-gradient(100deg,#fff0bb 0%, #f0c96a 45%, #bb8729 100%);
+      background-clip: text; -webkit-background-clip: text;
+    }
+    .hero-copy { max-width: 475px; font-size: 15px; line-height: 1.8; color: #c0c9d5; margin-bottom: 28px; }
+    .hero-actions { gap: 12px; }
+    .hero-actions .button:first-child { min-width: 220px; }
+    .micro-line {
+      border-top: 1px solid rgba(240,201,106,.23);
+      padding-top: 20px; margin-top: 29px; gap: 14px 22px;
+      max-width: 470px; color: #d9dee5; font-size: 11px; letter-spacing: .015em;
+    }
+    .dot { width: 6px; height: 6px; background: var(--blue-bright); box-shadow: 0 0 12px rgba(240,201,106,.5); }
+    .hero-visual {
+      position: absolute; z-index: 1; top: 0; right: 0; bottom: 0;
+      width: 72%; height: 100%; min-height: 0; margin: 0; pointer-events: none;
+    }
+    .hero-photo { inset: 0; border-radius: 0; background: #0a0d12; }
+    .hero-photo img {
+      width: 100%; height: 100%; object-fit: cover; object-position: 61% 56%;
+      filter: contrast(1.1) saturate(.84) brightness(.87);
+      transform: scale(1.035);
+    }
+    .hero-photo:after {
+      background:
+        linear-gradient(90deg, #090d12 0%, rgba(9,13,18,.93) 14%, rgba(9,13,18,.72) 33%, rgba(9,13,18,.15) 61%, rgba(9,13,18,.1) 100%),
+        linear-gradient(0deg, rgba(6,9,13,.88) 0%, rgba(6,9,13,.15) 28%, transparent 57%),
+        linear-gradient(180deg, rgba(6,9,13,.28), transparent 30%);
+    }
+    .image-tag {
+      left: auto; right: 43px; top: 38px;
+      border: 1px solid rgba(240,201,106,.48); border-radius: 999px;
+      background: rgba(6,9,13,.48); color: #f7dc9b;
+      padding: 10px 15px; font-size: 9px; letter-spacing: .2em;
+      backdrop-filter: blur(18px);
+    }
+    .image-tag i { color: rgba(240,201,106,.55); font-style: normal; padding: 0 3px; }
+    .image-tag-dot { width: 5px; height: 5px; display: inline-block; border-radius: 50%; background: var(--green); box-shadow: 0 0 9px rgba(13,159,80,.7); margin-right: 7px; }
+    .hero-image-note {
+      position: absolute; z-index: 1; right: 43px; top: 105px;
+      width: 170px; padding: 16px 16px 17px;
+      border-left: 1px solid rgba(240,201,106,.68);
+      background: linear-gradient(90deg,rgba(5,8,12,.62),rgba(5,8,12,.05));
+      backdrop-filter: blur(4px); text-align: left;
+    }
+    .hero-image-note span {
+      display: block; color: #f0c96a; font-size: 8px; letter-spacing: .15em; line-height: 1.5; font-weight: 800; margin-bottom: 11px;
+    }
+    .hero-image-note strong { display:block; font-size: 18px; line-height:1.12; letter-spacing:-.04em; }
+    .hero-image-note small { display:block; color:#c5ccd7; font-size:9px; margin-top:14px; letter-spacing:.1em; }
+    .image-caption {
+      left: 48%; right: 46px; bottom: 80px; align-items: end;
+      padding-top: 17px; border-top: 1px solid rgba(240,201,106,.4);
+    }
+    .image-caption strong { font-size: 16px; letter-spacing: -.02em; }
+    .image-caption small { font-size: 11px; color: #d8dce3; }
+    .arrow-box {
+      pointer-events: auto; border-radius: 50%;
+      border: 1px solid rgba(240,201,106,.6);
+      background: linear-gradient(135deg,#f0c96a,#b5862c); color: #17130b;
+      box-shadow: 0 8px 24px rgba(0,0,0,.3);
+    }
+    .float-card {
+      z-index: 4; right: 24px; bottom: 20px;
+      color: #fff; background: rgba(10,14,19,.8);
+      border: 1px solid rgba(240,201,106,.45); border-radius: 15px;
+      backdrop-filter: blur(18px); box-shadow: 0 15px 40px rgba(0,0,0,.28);
+    }
+    .float-symbol { color: #17130b; background: linear-gradient(135deg,#ffe6a0,#ca982f); }
+    .float-card small { color: #bac3cf; }
+    .hero-ribbon {
+      z-index: 5; position: absolute; left: 5.2%; right: 5.2%; bottom: 0;
+      min-height: 58px; display: flex; align-items: center; justify-content: flex-start;
+      gap: 22px; border-top: 1px solid rgba(240,201,106,.27);
+      color: #e7e5de; background: linear-gradient(90deg,rgba(7,10,14,.75),rgba(7,10,14,.25));
+    }
+    .hero-ribbon > div { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+    .hero-ribbon > div span { color: #f0c96a; font-size: 9px; letter-spacing: .12em; font-weight: 900; }
+    .hero-ribbon b { font-size: 9px; letter-spacing: .11em; font-weight: 750; }
+    .hero-ribbon > i { width: 3px; height: 3px; border-radius: 50%; background: #0d9f50; box-shadow: 0 0 12px #0d9f50; }
+    section { padding: 92px 0; }
+    .countries { background: linear-gradient(120deg,#0d131a,#101720 55%,#0c1118); }
+    .section-head { margin-bottom: 38px; }
+    .section-head h2 { font-size: clamp(32px,3.7vw,46px); }
+    .section-head p { line-height: 1.8; }
+    .country-card { border-color: rgba(240,201,106,.18); border-radius: 19px; box-shadow: 0 12px 35px rgba(0,0,0,.18); }
+    .country-card:after { background: linear-gradient(0deg,rgba(4,7,11,.97),rgba(4,7,11,.22) 72%,rgba(4,7,11,.04)); }
+    .country-card:hover { border-color: rgba(240,201,106,.54); box-shadow: 0 17px 38px rgba(0,0,0,.3); }
+    .country-number { color: #f0c96a; }
+    .catalog-section { background: linear-gradient(160deg,#080b10,#0e151d 48%,#080b10); }
+    .catalog-tools { padding: 15px 17px; border: 1px solid rgba(240,201,106,.18); border-radius: 16px; background: rgba(255,255,255,.015); }
+    .filter-btn { border-radius: 999px; }
+    .filter-btn[aria-pressed="true"] { background: linear-gradient(135deg,#f6d98b,#bd8a2b); color: #17130b; border-color: #ecc568; }
+    .car-card { border-radius: 19px; border-color: rgba(240,201,106,.17); box-shadow: 0 15px 40px rgba(0,0,0,.19); }
+    .car-card:hover { border-color: rgba(240,201,106,.62); box-shadow: 0 22px 50px rgba(0,0,0,.34); }
+    .car-image { height: 220px; }
+    .car-image:after { content:""; position:absolute; inset:0; pointer-events:none; border-bottom:1px solid rgba(240,201,106,.3); background:linear-gradient(0deg,rgba(5,8,12,.28),transparent 50%); }
+    .car-market { border-color:rgba(240,201,106,.36); color:#f9dea0; }
+    .car-type { color: #f0c96a; }
+    .car-ask { border-radius: 50%; background: linear-gradient(140deg,#12a955,#087b3c); box-shadow: 0 8px 22px rgba(13,159,80,.18); }
+    .service-card { border-radius: 18px; background: linear-gradient(145deg,rgba(20,28,38,.96),rgba(10,14,20,.96)); border-color: rgba(240,201,106,.15); box-shadow: 0 15px 34px rgba(0,0,0,.12); }
+    .service-card:hover { border-color: rgba(240,201,106,.55); box-shadow: 0 20px 40px rgba(0,0,0,.24); }
+    .service-icon { border-radius: 50%; border: 1px solid rgba(240,201,106,.45); background: rgba(214,173,85,.07); width: 48px; height: 48px; color: #f0c96a; }
+    .service-link { color: #f0c96a; }
+    .steps { background: linear-gradient(110deg,#101720,#090d12); }
+    .step { padding-top: 28px; }
+    .step-no { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:50%; border:1px solid rgba(240,201,106,.55); color:#f5d785; }
+    .step h3 { margin-top: 18px; }
+    .about-art { border-radius: 24px; border:1px solid rgba(240,201,106,.24); box-shadow: 0 25px 60px rgba(0,0,0,.3); }
+    .about-badge { border-color:rgba(240,201,106,.36); }
+    .check { border-radius:50%; color:#17130b; background:linear-gradient(135deg,#f3d98d,#bd8a2b); }
+    .contact-box {
+      background:
+        radial-gradient(circle at 85% 15%, rgba(13,159,80,.12), transparent 28%),
+        radial-gradient(circle at 10% 100%, rgba(240,201,106,.14), transparent 30%),
+        linear-gradient(115deg,#141820,#1a1c1c);
+      border: 1px solid rgba(240,201,106,.44);
+      box-shadow: 0 25px 70px rgba(0,0,0,.25);
+    }
+    .contact-box:before {
+      content: ""; position:absolute; inset:12px; border:1px solid rgba(240,201,106,.12); border-radius:16px; pointer-events:none;
+    }
+    footer { border-top-color: rgba(240,201,106,.23); background:#07090d; }
+    .footer-bottom { border-top-color: rgba(240,201,106,.13); }
+    .footer-right a:hover { color: #f0c96a; }
+    @media (max-width: 960px) {
+      .hero-grid { min-height: 590px; }
+      .hero-grid > div:first-child { min-height: 545px; width: 66%; }
+      .hero-visual { width: 75%; }
+      .hero-image-note { right: 24px; }
+      .hero-ribbon { gap: 14px; }
+      .hero-ribbon b { font-size: 8px; }
+    }
+    @media (max-width: 720px) {
+      .hero { padding: 17px 0 38px; }
+      .hero-grid { min-height: 0; border-radius: 22px; padding-bottom: 58px; }
+      .hero-grid:before { inset: 8px; border-radius: 15px; }
+      .hero-grid > div:first-child {
+        min-height: 0; width: 100%; max-width: none;
+        padding: 305px 25px 28px; background: linear-gradient(0deg,#090d12 0%,rgba(9,13,18,.98) 45%,rgba(9,13,18,.13) 100%);
+      }
+      .hero-visual { width: 100%; height: 360px; top: 0; right: 0; bottom: auto; }
+      .hero-photo { border-radius: 22px 22px 0 0; }
+      .hero-photo img { object-position: 57% 58%; }
+      .hero-photo:after {
+        background: linear-gradient(0deg,#090d12 0%,rgba(9,13,18,.04) 55%,rgba(9,13,18,.1) 100%);
+      }
+      .hero-image-note { display:none; }
+      .image-tag { top: 20px; right: 21px; font-size: 8px; padding: 8px 11px; }
+      .image-caption { left: 20px; right: 20px; bottom: 18px; }
+      .image-caption strong { font-size: 15px; }
+      .image-caption small { font-size: 10px; }
+      .arrow-box { width: 38px; height: 38px; }
+      .float-card { display:none; }
+      .hero-ribbon { bottom:0; left:20px; right:20px; min-height:56px; gap:9px; overflow:hidden; }
+      .hero-ribbon > div { gap:5px; }
+      .hero-ribbon b { font-size:7px; letter-spacing:.04em; white-space:normal; line-height:1.2; }
+      .hero-ribbon > div span { font-size:8px; }
+      .hero-ribbon > i { flex:0 0 3px; }
+      h1 { font-size: clamp(40px, 10.4vw, 58px); margin:16px 0 16px; }
+      .hero-copy { font-size:13px; margin-bottom:20px; }
+      .micro-line { padding-top:15px; margin-top:19px; }
+      .hero-actions .button { min-width:0; }
+      section { padding: 64px 0; }
+      .car-image { height: 220px; }
+    }
+    @media (max-width: 400px) {
+      .hero-grid > div:first-child { padding-left: 18px; padding-right:18px; }
+      .hero-ribbon { left:14px; right:14px; gap:6px; }
+      .hero-ribbon b { font-size:6.5px; }
+      .hero-ribbon > div span { font-size:7px; }
+      .hero-ribbon > i { display:none; }
+    }
+
   </style>
 </head>
 <body>
@@ -218,6 +532,7 @@
       <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
       <div class="nav-links" id="navLinks">
         <a href="#directions">Направления</a>
+        <a href="#catalog">Каталог</a>
         <a href="#services">Услуги</a>
         <a href="#process">Как работаем</a>
         <a href="#contacts">Контакты</a>
@@ -233,9 +548,9 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">Ваш автомобиль — наш маршрут</div>
-          <h1>Найдём авто,<br>которое <span>ваше.</span></h1>
-          <p class="hero-copy">Подбор, покупка и доставка автомобилей из Кореи, Китая и Европы. Помогаем пройти путь от выбора до согласованных условий сделки.</p>
+          <div class="eyebrow"><span class="eyebrow-index">01</span> ПОДБОР · ПОКУПКА · ДОСТАВКА</div>
+          <h1>Автомобиль<br>с характером.<br><span>Выбор без компромиссов.</span></h1>
+          <p class="hero-copy">Подбор, покупка и доставка автомобилей из Кореи, Китая и Европы. От первого запроса до согласованных условий сделки — с вниманием к деталям.</p>
           <div class="hero-actions">
             <a class="button" href="https://t.me/alex_topcars" target="_blank" rel="noopener">Подобрать автомобиль <span aria-hidden="true">↗</span></a>
             <a class="button secondary" href="#services">Все услуги <span aria-hidden="true">↓</span></a>
@@ -247,10 +562,11 @@
         </div>
         <div class="hero-visual">
           <div class="hero-photo">
-            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85" alt="Современный спортивный автомобиль на дороге" fetchpriority="high">
-            <div class="image-tag">TOPCARS / AUTO SELECTION</div>
+            <img src="assets/porsche-hero.jpg" alt="Тёмно-серый Porsche 911 Turbo на фоне панорамы города" fetchpriority="high">
+            <div class="image-tag"><span class="image-tag-dot"></span> TOPCARS <i>/</i> PRIVATE AUTO SELECTION</div>
+            <div class="hero-image-note"><span>ПОДБОР ПОД ВАШ ЗАПРОС</span><strong>Характер.<br>Комплектация.<br>Ваш стиль.</strong><small>Корея · Китай · Европа</small></div>
             <div class="image-caption">
-              <div><strong>Путь к вашему авто начинается здесь</strong><small>Расскажите нам, что вы ищете</small></div>
+              <div><strong>Ваш следующий автомобиль начинается здесь</strong><small>Подберём вариант под ваши задачи и бюджет</small></div>
               <a class="arrow-box" href="https://t.me/alex_topcars" aria-label="Перейти в Telegram" target="_blank" rel="noopener">↗</a>
             </div>
           </div>
@@ -258,6 +574,14 @@
             <div class="float-symbol">✦</div>
             <div><b>Подбор под задачу</b><small>Модель • бюджет • пожелания</small></div>
           </div>
+        </div>
+
+        <div class="hero-ribbon" aria-label="Услуги TOPCARS">
+          <div><span>01</span><b>ИНДИВИДУАЛЬНЫЙ ПОДБОР</b></div>
+          <i></i>
+          <div><span>02</span><b>ИМПОРТ И ДОСТАВКА</b></div>
+          <i></i>
+          <div><span>03</span><b>TRADE-IN И АВТОВЫКУП</b></div>
         </div>
       </div>
     </section>
@@ -282,6 +606,122 @@
             <div class="country-content"><div class="country-number">03 / EUROPE</div><h3>Авто из Европы</h3><p>Подбор европейских марок под ваши требования.</p></div>
           </a>
         </div>
+      </div>
+    </section>
+
+
+    <section class="catalog-section" id="catalog">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Каталог автомобилей</div>
+            <h2>Модели для вашего<br>следующего маршрута.</h2>
+          </div>
+          <p>Выберите интересующее направление и отправьте запрос. Подберём комплектацию и уточним условия под ваш бюджет.</p>
+        </div>
+        <div class="catalog-tools">
+          <div class="catalog-filters" role="group" aria-label="Фильтр по направлению">
+            <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">Все автомобили</button>
+            <button class="filter-btn" type="button" data-filter="korea" aria-pressed="false">Корея</button>
+            <button class="filter-btn" type="button" data-filter="china" aria-pressed="false">Китай</button>
+            <button class="filter-btn" type="button" data-filter="europe" aria-pressed="false">Европа</button>
+          </div>
+          <div class="catalog-count" id="catalogCount" aria-live="polite">6 моделей для подбора</div>
+        </div>
+        <div class="catalog-grid" id="catalogGrid">
+          <article class="car-card" data-market="korea">
+            <div class="car-image">
+              <img src="https://images.unsplash.com/photo-1617469767053-d3b523a0b982?auto=format&fit=crop&w=900&q=82" alt="Иллюстративное фото кроссовера для подбора Kia Sportage" loading="lazy">
+              <span class="car-market">Корея</span>
+            </div>
+            <div class="car-body">
+              <div class="car-type">Кроссовер</div>
+              <h3>Kia Sportage</h3>
+              <p class="car-desc">Пример модели для подбора из корейского направления.</p>
+              <div class="car-meta">
+                <div><span class="car-price-label">Стоимость</span><span class="car-price">По запросу</span></div>
+                <a class="car-ask" href="https://t.me/alex_topcars" target="_blank" rel="noopener noreferrer" aria-label="Уточнить по Kia Sportage" title="Уточнить по Kia Sportage">↗</a>
+              </div>
+            </div>
+          </article>
+          <article class="car-card" data-market="korea">
+            <div class="car-image">
+              <img src="https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?auto=format&fit=crop&w=900&q=82" alt="Иллюстративное фото кроссовера для подбора Hyundai Tucson" loading="lazy">
+              <span class="car-market">Корея</span>
+            </div>
+            <div class="car-body">
+              <div class="car-type">Кроссовер</div>
+              <h3>Hyundai Tucson</h3>
+              <p class="car-desc">Варианты комплектаций и бюджета обсуждаются индивидуально.</p>
+              <div class="car-meta">
+                <div><span class="car-price-label">Стоимость</span><span class="car-price">По запросу</span></div>
+                <a class="car-ask" href="https://t.me/alex_topcars" target="_blank" rel="noopener noreferrer" aria-label="Уточнить по Hyundai Tucson" title="Уточнить по Hyundai Tucson">↗</a>
+              </div>
+            </div>
+          </article>
+          <article class="car-card" data-market="china">
+            <div class="car-image">
+              <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=82" alt="Иллюстративное фото автомобиля для подбора BYD Song Plus" loading="lazy">
+              <span class="car-market">Китай</span>
+            </div>
+            <div class="car-body">
+              <div class="car-type">Кроссовер</div>
+              <h3>BYD Song Plus</h3>
+              <p class="car-desc">Рассмотрим доступные варианты модели под ваш запрос.</p>
+              <div class="car-meta">
+                <div><span class="car-price-label">Стоимость</span><span class="car-price">По запросу</span></div>
+                <a class="car-ask" href="https://t.me/alex_topcars" target="_blank" rel="noopener noreferrer" aria-label="Уточнить по BYD Song Plus" title="Уточнить по BYD Song Plus">↗</a>
+              </div>
+            </div>
+          </article>
+          <article class="car-card" data-market="china">
+            <div class="car-image">
+              <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=82" alt="Иллюстративное фото автомобиля для подбора Li Auto L7" loading="lazy">
+              <span class="car-market">Китай</span>
+            </div>
+            <div class="car-body">
+              <div class="car-type">Семейный SUV</div>
+              <h3>Li Auto L7</h3>
+              <p class="car-desc">Запросите информацию по комплектациям и поставке.</p>
+              <div class="car-meta">
+                <div><span class="car-price-label">Стоимость</span><span class="car-price">По запросу</span></div>
+                <a class="car-ask" href="https://t.me/alex_topcars" target="_blank" rel="noopener noreferrer" aria-label="Уточнить по Li Auto L7" title="Уточнить по Li Auto L7">↗</a>
+              </div>
+            </div>
+          </article>
+          <article class="car-card" data-market="europe">
+            <div class="car-image">
+              <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=82" alt="Иллюстративное фото автомобиля для подбора BMW X5" loading="lazy">
+              <span class="car-market">Европа</span>
+            </div>
+            <div class="car-body">
+              <div class="car-type">Премиальный SUV</div>
+              <h3>BMW X5</h3>
+              <p class="car-desc">Подбор автомобиля по комплектации и бюджету.</p>
+              <div class="car-meta">
+                <div><span class="car-price-label">Стоимость</span><span class="car-price">По запросу</span></div>
+                <a class="car-ask" href="https://t.me/alex_topcars" target="_blank" rel="noopener noreferrer" aria-label="Уточнить по BMW X5" title="Уточнить по BMW X5">↗</a>
+              </div>
+            </div>
+          </article>
+          <article class="car-card" data-market="europe">
+            <div class="car-image">
+              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=82" alt="Иллюстративное фото автомобиля для подбора Mercedes-Benz E-Class" loading="lazy">
+              <span class="car-market">Европа</span>
+            </div>
+            <div class="car-body">
+              <div class="car-type">Бизнес-седан</div>
+              <h3>Mercedes-Benz E-Class</h3>
+              <p class="car-desc">Уточним желаемый год, оснащение и ориентир по бюджету.</p>
+              <div class="car-meta">
+                <div><span class="car-price-label">Стоимость</span><span class="car-price">По запросу</span></div>
+                <a class="car-ask" href="https://t.me/alex_topcars" target="_blank" rel="noopener noreferrer" aria-label="Уточнить по Mercedes-Benz E-Class" title="Уточнить по Mercedes-Benz E-Class">↗</a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="catalog-empty" id="catalogEmpty">В этой категории пока нет карточек.</div>
+        <p class="catalog-disclaimer">Важно: это примеры моделей, которые можно рассмотреть для подбора, а не подтверждённый список автомобилей в наличии. Фотографии иллюстративные; актуальные комплектация, год выпуска, цена, доступность и сроки доставки уточняются индивидуально.</p>
       </div>
     </section>
 
@@ -386,7 +826,7 @@
     </div>
     <div class="container footer-bottom">
       <span>© <span id="year"></span> TOPCARS</span>
-      <span class="note">Изображения загружаются с Unsplash. Примеры изображений не являются предложением конкретных автомобилей в продаже.</span>
+      <span class="note">Фотографии иллюстративные. Карточки показывают примеры моделей для подбора, а не подтверждённое наличие автомобилей.</span>
     </div>
   </footer>
   <script>
@@ -403,7 +843,25 @@
       toggle.setAttribute('aria-expanded', 'false');
       toggle.textContent = '☰';
     }));
-    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
+    const carCards = Array.from(document.querySelectorAll('.car-card'));
+    const catalogCount = document.getElementById('catalogCount');
+    const catalogEmpty = document.getElementById('catalogEmpty');
+    filterButtons.forEach(button => button.addEventListener('click', () => {
+      const selected = button.dataset.filter;
+      let visible = 0;
+      filterButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      carCards.forEach(card => {
+        const show = selected === 'all' || card.dataset.market === selected;
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+      if (catalogCount) catalogCount.textContent = `${visible} ${visible === 1 ? 'модель для подбора' : 'модели для подбора'}`;
+      if (catalogEmpty) catalogEmpty.classList.toggle('visible', visible === 0);
+    }));
+
+        document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
