@@ -19,7 +19,7 @@ Backend-обработчик Telegram-бота, связанного с сайт
 
 1. Войди в Render и выбери **New → Blueprint**.
 2. Выбери репозиторий `alextopcars/belgorod`. Render обнаружит файл `render.yaml`.
-3. В настройках сервиса добавь `TELEGRAM_BOT_TOKEN` — токен существующего бота из @BotFather. Не публикуй этот токен в GitHub и не отправляй его в чат.
+3. В настройках сервиса добавь `TELEGRAM_BOT_TOKEN` — новый токен существующего бота из @BotFather. Не публикуй этот токен в GitHub и не отправляй его в чат. `WEBHOOK_SECRET` Render сгенерирует автоматически; код безопасно преобразует его в допустимый формат Telegram.
 4. Пока сервис ещё не принимает заявки администратора, сначала запусти его с токеном, открой в Telegram @AlexTopCarsLeadBot и отправь команду `/myid`. Бот покажет твой числовой Chat ID.
 5. Добавь показанное число как `ADMIN_CHAT_ID` в Environment в Render. После сохранения Render перезапустит сервис.
 6. Сам владелец должен один раз открыть бота и нажать Start. Проверь вкладку Logs в Render и адрес `/health`: `telegram_token_configured`, `admin_chat_configured` и `webhook_url_configured` должны быть `true`.
