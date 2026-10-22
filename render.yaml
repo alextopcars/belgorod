@@ -9,7 +9,5 @@ services:
     envVars:
       - key: TELEGRAM_BOT_TOKEN
         sync: false
-      - key: ADMIN_CHAT_ID
-        sync: false
       - key: WEBHOOK_SECRET
         generateValue: true
