@@ -3,7 +3,6 @@
     "title": "MAZDA 6",
     "make": "MAZDA",
     "model": "6",
-    "image": "/belgorod/images/photo2026-10-2300-10-23.jpg",
     "imageAlt": "Porsche Cayenne, чёрный премиальный автомобиль",
     "active": true,
     "status": "stock",
@@ -14,6 +13,9 @@
     "transmission": "Автомат",
     "drive": "Передний",
     "priceRub": 2850000,
-    "priceNote": "В наличии"
+    "priceNote": "В наличии",
+    "images": [
+      "/belgorod/images/photo2026-10-2300-10-23.jpg"
+    ]
   }
 ]
