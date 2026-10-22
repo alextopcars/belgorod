@@ -8,6 +8,9 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import JSONResponse
 
 logging.basicConfig(level=os.getenv("LOG_LEVEL", "INFO"))
+# Telegram Bot API URLs include the bot token; prevent HTTP client logs from exposing it.
+logging.getLogger("httpx").setLevel(logging.WARNING)
+logging.getLogger("httpcore").setLevel(logging.WARNING)
 log = logging.getLogger("alex-topcars-bot")
 
 BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
