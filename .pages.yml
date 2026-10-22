@@ -25,12 +25,15 @@ content:
         label: Модель для фильтра
         type: string
         required: true
-      - name: image
-        label: Фотография
+      - name: images
+        label: Фотографии автомобиля (до 10, можно менять порядок)
         type: image
         required: true
         options:
           path: images
+          multiple:
+            max: 10
+          unique: true
           extensions: [jpg, jpeg, png, webp]
       - name: imageAlt
         label: Описание фотографии
