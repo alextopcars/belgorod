@@ -1,3 +1,4 @@
+import hashlib
 import logging
 import os
 from typing import Any
@@ -152,7 +153,7 @@ async def configure_webhook() -> None:
         "drop_pending_updates": False,
     }
     if WEBHOOK_SECRET:
-        payload["secret_token"] = WEBHOOK_SECRET
+        payload["secret_token"] = hashlib.sha256(WEBHOOK_SECRET.encode("utf-8")).hexdigest()
     try:
         result = await telegram("setWebhook", payload)
         log.info("Telegram webhook configured: %s", result.get("url", ""))
@@ -166,7 +167,7 @@ async def telegram_webhook(request: Request) -> dict[str, bool]:
         raise HTTPException(status_code=503, detail="Bot token is not configured")
     if WEBHOOK_SECRET:
         incoming_secret = request.headers.get("X-Telegram-Bot-Api-Secret-Token", "")
-        if incoming_secret != WEBHOOK_SECRET:
+        if incoming_secret != hashlib.sha256(WEBHOOK_SECRET.encode("utf-8")).hexdigest():
             raise HTTPException(status_code=403, detail="Invalid webhook secret")
     update = await request.json()
     try:
