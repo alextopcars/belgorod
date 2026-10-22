@@ -394,6 +394,10 @@
       });
     });
 
+    // Для заявок через бота укажите его username без символа @, когда он будет известен.
+    // Пока используется личный чат как надёжный запасной маршрут.
+    const TELEGRAM_PERSONAL_CHAT = 'https://t.me/+79192826666';
+    const TELEGRAM_BOT_USERNAME = '';
     const modal = document.getElementById('requestModal');
     const clientWish = document.getElementById('clientWish');
     function openRequest(carName) {
@@ -401,8 +405,14 @@
       modal.showModal();
       document.body.classList.add('modal-open');
     }
+    // Карточка автомобиля ведёт сразу в личный чат; Telegram подставит готовый текст сообщения.
     document.querySelectorAll('.car-detail').forEach(function (button) {
-      button.addEventListener('click', function () { openRequest(button.dataset.car); });
+      button.addEventListener('click', function () {
+        const carName = button.dataset.car || 'автомобиль';
+        const message = 'Здравствуйте! Хочу узнать подробнее об автомобиле: ' + carName + '.';
+        const url = TELEGRAM_PERSONAL_CHAT + '?text=' + encodeURIComponent(message);
+        window.open(url, '_blank', 'noopener,noreferrer');
+      });
     });
     document.querySelectorAll('a[href="https://t.me/alex_topcars"]').forEach(function (link) {
       if (link.classList.contains('btn-gold') && (link.textContent.includes('Оставить заявку') || link.textContent.includes('Узнать подробнее'))) {
@@ -429,7 +439,15 @@
       const contact = document.getElementById('clientContact').value.trim();
       const wish = clientWish.value.trim() || 'Нужен подбор автомобиля';
       const message = 'Здравствуйте! Меня зовут ' + name + '. Контакт: ' + contact + '. Запрос: ' + wish;
-      const url = 'https://t.me/share/url?url=https%3A%2F%2Ft.me%2Falex_topcars&text=' + encodeURIComponent(message);
+      const botUsername = TELEGRAM_BOT_USERNAME.trim().replace(/^@/, '');
+      let url;
+      if (botUsername) {
+        // Бот должен обрабатывать команду /start lead и продолжать сбор заявки в чате.
+        url = 'https://t.me/' + botUsername + '?start=lead';
+      } else {
+        // Запасной вариант до указания username бота — открыть личный чат с готовым сообщением.
+        url = TELEGRAM_PERSONAL_CHAT + '?text=' + encodeURIComponent(message);
+      }
       window.open(url, '_blank', 'noopener,noreferrer');
       modal.close();
       document.body.classList.remove('modal-open');
