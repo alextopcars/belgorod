@@ -96,6 +96,12 @@
     .car-photo:after{content:"";position:absolute;inset:40% 0 0;background:linear-gradient(0deg,rgba(4,7,10,.76),transparent)}
     .car-photo img{height:100%;width:100%;object-fit:cover;transition:transform .5s}
     .car-card:hover .car-photo img{transform:scale(1.05)}
+    .gallery-control{position:absolute;top:50%;transform:translateY(-50%);z-index:4;width:27px;height:32px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.3);border-radius:7px;background:rgba(5,9,13,.76);color:#fff;font-size:22px;line-height:1;cursor:pointer;backdrop-filter:blur(5px)}
+    .gallery-prev{left:8px}
+    .gallery-next{right:8px}
+    .gallery-count{position:absolute;right:45px;bottom:8px;z-index:4;padding:4px 7px;border:1px solid rgba(255,255,255,.17);border-radius:6px;background:rgba(5,9,13,.72);color:#fff;font-size:9px;font-variant-numeric:tabular-nums}
+    .gallery-control:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+    .gallery-control:hover{background:rgba(228,184,93,.95);color:#111}
     .stock{position:absolute;top:10px;left:10px;z-index:2;border-radius:5px;padding:4px 8px;font-size:9px;font-weight:800;color:#fff}
     .stock.in{background:#0d965b}
     .stock.order{background:#bb8d3b;color:#171006}
@@ -227,7 +233,7 @@
         <div class="filters" id="catalogFilters" aria-label="Фильтры каталога">
           <div class="field"><label for="makeFilter">Марка</label><select id="makeFilter"><option value="">Все марки</option><option>Porsche</option><option>BMW</option><option>Mercedes-Benz</option><option>Audi</option><option>Hyundai</option><option>Kia</option><option>Li Auto</option><option>BYD</option></select></div>
           <div class="field"><label for="modelFilter">Модель</label><select id="modelFilter"><option value="">Все модели</option><option value="Cayenne">Cayenne</option><option value="X5">X5</option><option value="E 200">E 200</option><option value="Q7">Q7</option><option value="Tucson">Tucson</option><option value="Sportage">Sportage</option><option value="L7">L7</option><option value="Song Plus">Song Plus</option></select></div>
-          <div class="field"><label for="priceFilter">Цена</label><select id="priceFilter"><option value="">Любая</option><option value="under8">До 8 млн ₽</option><option value="8to10">8–10 млн ₽</option><option value="over10">От 10 млн ₽</option></select></div>
+          <div class="field"><label for="priceFilter">Цена</label><select id="priceFilter"><option value="">Любая</option><option value="2to3">От 2 до 3 млн ₽</option><option value="4to5">От 4 до 5 млн ₽</option><option value="over6">От 6 млн ₽ и выше</option></select></div>
           <div class="field"><label for="yearFilter">Год выпуска</label><select id="yearFilter"><option value="">Любой</option><option value="2024">2024 и новее</option><option value="2022">2022 и новее</option><option value="2020">2020 и новее</option></select></div>
           <div class="field"><label for="fuelFilter">Тип топлива</label><select id="fuelFilter"><option value="">Любой</option><option value="Бензин">Бензин</option><option value="Дизель">Дизель</option><option value="Гибрид">Гибрид</option><option value="Электро">Электро</option></select></div>
           <button class="btn btn-gold filter-submit" id="applyFilters"><span>⌕</span> Найти</button>
@@ -386,7 +392,7 @@
       yearFilter.value = years.includes(selectedYear) ? selectedYear : '';
       setOptions(fuelFilter, 'Любой', uniqueValues(cars, 'fuel'), selectedFuel);
     }
-    function carCardHtml(car) {
+    function carCardHtml(car, carIndex) {
       const title = car.title || (String(car.make || '') + ' ' + String(car.model || '')).trim();
       const status = car.status === 'stock'
         ? '<span class="stock in">В наличии</span>'
@@ -394,14 +400,25 @@
       const detail = [car.year, car.engine, car.power].filter(Boolean).map(escapeHtml);
       const specs = [car.fuel, car.transmission, car.drive].filter(Boolean);
       const priceMillions = (Number(car.priceRub) || 0) / 1000000;
+      const images = (Array.isArray(car.images) ? car.images : (car.image ? [car.image] : []))
+        .filter(function (src) { return typeof src === 'string' && src.trim(); });
+      const firstImage = images[0] || '';
+      const galleryControls = images.length > 1
+        ? '<button type="button" class="gallery-control gallery-prev" data-car-index="' + carIndex +
+          '" data-direction="-1" aria-label="Предыдущее фото: ' + escapeHtml(title) + '">‹</button>' +
+          '<button type="button" class="gallery-control gallery-next" data-car-index="' + carIndex +
+          '" data-direction="1" aria-label="Следующее фото: ' + escapeHtml(title) + '">›</button>' +
+          '<span class="gallery-count" data-gallery-count="' + carIndex + '" aria-live="polite">1 / ' + images.length + '</span>'
+        : '';
       return '<article class="car-card" data-make="' + escapeHtml(car.make) +
         '" data-model="' + escapeHtml(car.model) +
         '" data-price="' + priceMillions +
         '" data-year="' + Number(car.year || 0) +
         '" data-fuel="' + escapeHtml(car.fuel) +
-        '" data-market="' + escapeHtml(car.status) + '">' +
-          '<div class="car-photo"><img loading="lazy" src="' + escapeHtml(car.image) +
-          '" alt="' + escapeHtml(car.imageAlt || title) + '">' + status +
+        '" data-market="' + escapeHtml(car.status) +
+        '" data-car-index="' + carIndex + '" data-gallery-index="0">' +
+          '<div class="car-photo"><img loading="lazy" data-gallery-image src="' + escapeHtml(firstImage) +
+          '" alt="' + escapeHtml(car.imageAlt || title) + '">' + galleryControls + status +
           '<button class="favorite" aria-label="Добавить ' + escapeHtml(title) +
           ' в избранное" aria-pressed="false">♡</button></div>' +
           '<div class="car-info"><h3 class="car-title">' + escapeHtml(title) + '</h3>' +
@@ -421,9 +438,9 @@
         const year = Number(card.dataset.year);
         const priceKey = priceFilter.value;
         const priceMatches = !priceKey ||
-          (priceKey === 'under8' && price < 8) ||
-          (priceKey === '8to10' && price >= 8 && price <= 10) ||
-          (priceKey === 'over10' && price > 10);
+          (priceKey === '2to3' && price >= 2 && price <= 3) ||
+          (priceKey === '4to5' && price >= 4 && price <= 5) ||
+          (priceKey === 'over6' && price >= 6);
         const show = (!makeFilter.value || card.dataset.make === makeFilter.value) &&
           (!modelFilter.value || card.dataset.model === modelFilter.value) &&
           priceMatches &&
@@ -451,6 +468,26 @@
     document.getElementById('applyFilters').addEventListener('click', applyFilters);
 
     carGrid.addEventListener('click', function (event) {
+      const galleryControl = event.target.closest('.gallery-control');
+      if (galleryControl) {
+        const carIndex = Number(galleryControl.dataset.carIndex);
+        const car = cars[carIndex];
+        const card = galleryControl.closest('.car-card');
+        const images = car && Array.isArray(car.images) ? car.images.filter(function (src) {
+          return typeof src === 'string' && src.trim();
+        }) : (car && car.image ? [car.image] : []);
+        if (!card || images.length < 2) return;
+        const currentIndex = Number(card.dataset.galleryIndex || 0);
+        const direction = Number(galleryControl.dataset.direction || 1);
+        const nextIndex = (currentIndex + direction + images.length) % images.length;
+        card.dataset.galleryIndex = String(nextIndex);
+        const image = card.querySelector('[data-gallery-image]');
+        image.src = images[nextIndex];
+        image.alt = (car.imageAlt || car.title || car.make + ' ' + car.model) + ' — фото ' + (nextIndex + 1);
+        const counter = card.querySelector('[data-gallery-count]');
+        if (counter) counter.textContent = (nextIndex + 1) + ' / ' + images.length;
+        return;
+      }
       const favorite = event.target.closest('.favorite');
       if (favorite) {
         const active = favorite.getAttribute('aria-pressed') === 'true';
@@ -476,7 +513,7 @@
         if (!Array.isArray(items)) throw new Error('Cars data must be an array');
         cars = items.filter(function (car) { return car && car.active !== false; });
         refreshFilterOptions();
-        carGrid.innerHTML = cars.map(carCardHtml).join('');
+        carGrid.innerHTML = cars.map(function (car, index) { return carCardHtml(car, index); }).join('');
         cards = Array.from(carGrid.querySelectorAll('.car-card'));
         applyFilters();
       })
