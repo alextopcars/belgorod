@@ -847,6 +847,22 @@
       .modal { padding:22px; }
     }
 
+  
+    /* Hero image framing and final first-person copy refinements */
+    .hero:before {
+      background-image: var(--hero-photo, url("hero-porsche.png"));
+      background-size: cover;
+      background-position: center 57%;
+      background-repeat: no-repeat;
+      background-color: #33392f;
+      transform: none;
+    }
+    .hero:after {
+      background:
+        linear-gradient(90deg,rgba(21,25,19,.76) 0%,rgba(21,25,19,.57) 31%,rgba(21,25,19,.16) 58%,rgba(21,25,19,.02) 100%),
+        linear-gradient(0deg,rgba(17,21,15,.78) 0%,rgba(17,21,15,.12) 24%,rgba(17,21,15,.03) 60%);
+    }
+
   </style>
 </head>
 <body>
@@ -920,7 +936,7 @@
 
     <section class="section services" id="services">
       <div class="container services-layout">
-        <div class="services-intro"><div class="eyebrow">Наши услуги</div><h2>Всё для удобной покупки автомобиля</h2><p>Я помогу с подбором, проверкой, покупкой и доставкой, а также с Trade-in и комиссионной продажей. Сначала обсудим задачу и согласуем план действий.</p><a class="btn btn-gold" href="https://t.me/alex_topcars" target="_blank" rel="noopener noreferrer">Узнать подробнее <span class="btn-arrow">→</span></a></div>
+        <div class="services-intro"><div class="eyebrow">Чем я помогаю</div><h2>Всё для удобной покупки автомобиля</h2><p>Я помогу с подбором, проверкой, покупкой и доставкой, а также с Trade-in и комиссионной продажей. Сначала я уточню ваши пожелания и предложу план действий.</p><a class="btn btn-gold" href="https://t.me/alex_topcars" target="_blank" rel="noopener noreferrer">Узнать подробнее <span class="btn-arrow">→</span></a></div>
         <div class="services-grid">
           <article class="service-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10.5" cy="8" r="5.5"/><path d="m15 12 6 6M2 22c.8-4 3.8-6 8.5-6 2 0 3.5.4 4.8 1.1"/></svg><h3>Подбор авто</h3><p>Я подберу варианты под ваш бюджет и запрос.</p></article>
           <article class="service-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 21 6v6c0 5-3.7 8.6-9 10-5.3-1.4-9-5-9-10V6l9-4Z"/><path d="m8 12 2.5 2.5L16 9"/></svg><h3>Покупка</h3><p>Помогу проверить доступные данные, документы и условия сделки.</p></article>
@@ -937,7 +953,7 @@
         <div class="process-grid">
           <article class="process-step"><div class="step-number">01 / ЗАЯВКА</div><h3>Обсуждаю запрос</h3><p>Уточняю ваш бюджет, пожелания и сроки. Согласую план подбора.</p></article>
           <article class="process-step"><div class="step-number">02 / ПОДБОР</div><h3>Подбираю варианты</h3><p>Подбираю предложения и проверяю доступную информацию об истории и состоянии.</p></article>
-          <article class="process-step"><div class="step-number">03 / ПОКУПКА</div><h3>Согласуем и оформляем</h3><p>Показываю результаты проверки и согласую автомобиль с вами до покупки.</p></article>
+          <article class="process-step"><div class="step-number">03 / ПОКУПКА</div><h3>Я согласую условия</h3><p>Показываю результаты проверки и согласую автомобиль с вами до покупки.</p></article>
           <article class="process-step"><div class="step-number">04 / ДОСТАВКА</div><h3>Сопровождаю до передачи авто</h3><p>Организую доставку и сопровождаю вас до передачи ключей.</p></article>
         </div>
       </div>
