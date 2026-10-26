@@ -952,13 +952,49 @@
       .brand .brand-mark.brand-logo { width:126px; height:57px; max-height:57px; }
     }
 
+  
+    /* FINAL FIX: use repository-hosted full vector wordmark, never a temporary image URL */
+    .header .brand {
+      width: 250px !important;
+      min-width: 250px !important;
+      flex: 0 0 250px !important;
+      height: 112px !important;
+    }
+    .header .brand .brand-mark.brand-logo {
+      display: block !important;
+      width: 250px !important;
+      height: 112px !important;
+      max-width: 100% !important;
+      max-height: 112px !important;
+      object-fit: contain !important;
+      object-position: center !important;
+    }
+    .contact-brand .brand .brand-mark.brand-logo {
+      width: 242px !important;
+      height: 108px !important;
+      max-height: 108px !important;
+      object-fit: contain !important;
+    }
+    @media(max-width:1100px) {
+      .header .brand { width: 194px !important; min-width: 194px !important; flex-basis: 194px !important; height: 87px !important; }
+      .header .brand .brand-mark.brand-logo { width: 194px !important; height: 87px !important; max-height: 87px !important; }
+    }
+    @media(max-width:820px) {
+      .header .brand { width: 146px !important; min-width: 146px !important; flex-basis: 146px !important; height: 66px !important; }
+      .header .brand .brand-mark.brand-logo { width: 146px !important; height: 66px !important; max-height: 66px !important; }
+    }
+    @media(max-width:520px) {
+      .header .brand { width: 128px !important; min-width: 128px !important; flex-basis: 128px !important; height: 58px !important; }
+      .header .brand .brand-mark.brand-logo { width: 128px !important; height: 58px !important; max-height: 58px !important; }
+    }
+
   </style>
 </head>
 <body>
   <header class="header">
     <div class="container header-inner">
       <a class="brand" href="#home" aria-label="ALEX.TOPCARS — Автомобиль ближе, чем кажется">
-        <img class="brand-mark brand-logo" src="https://pikaso.cdnpk.net/private/production/5843572502/3780335982.png?token=exp=1793404800~hmac=85f57533a84d766764190ae7812a50f5713a77aeee77dcd3f30f6e045dc07c8b&v=6" onerror="this.onerror=null;this.src='alex-topcars-logo.svg?v=5'" alt="ALEX.TOPCARS — Автомобиль ближе, чем кажется">
+        <img class="brand-mark brand-logo" src="alex-topcars-logo.svg?v=7" alt="Полный логотип ALEX.TOPCARS: монограмма AT, силуэт автомобиля и слоган">
       </a>
       <nav class="nav" id="navLinks" aria-label="Основная навигация">
         <a class="active" href="#home">Главная</a>
@@ -1049,7 +1085,7 @@
 
     <section class="contact-banner" id="contacts">
       <div class="container contact-inner">
-        <div class="contact-brand"><a class="brand" href="#home" aria-label="ALEX.TOPCARS — Автомобиль ближе, чем кажется"><img class="brand-mark brand-logo" src="https://pikaso.cdnpk.net/private/production/5843572502/3780335982.png?token=exp=1793404800~hmac=85f57533a84d766764190ae7812a50f5713a77aeee77dcd3f30f6e045dc07c8b&v=6" onerror="this.onerror=null;this.src='alex-topcars-logo.svg?v=5'" alt="ALEX.TOPCARS — Автомобиль ближе, чем кажется"></a></div>
+        <div class="contact-brand"><a class="brand" href="#home" aria-label="ALEX.TOPCARS — Автомобиль ближе, чем кажется"><img class="brand-mark brand-logo" src="alex-topcars-logo.svg?v=7" alt="Полный логотип ALEX.TOPCARS: монограмма AT, силуэт автомобиля и слоган"></a></div>
         <div class="contact-cta"><strong>Расскажите мне о вашем запросе</strong><p>Расскажите, какой автомобиль вы ищете. Я уточню бюджет, сроки и подходящие варианты в Telegram.</p><a class="btn btn-gold" href="https://t.me/alex_topcars" target="_blank" rel="noopener noreferrer">Оставить заявку <span class="btn-arrow">→</span></a></div>
         <div class="contact-links">
           <a href="https://t.me/alex_topcars" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.64 6.86-1.56 7.35c-.12.52-.43.65-.87.4l-2.41-1.78-1.16 1.12c-.13.13-.24.24-.49.24l.17-2.45 4.46-4.03c.19-.17-.04-.27-.29-.1L8.98 13.1l-2.38-.74c-.52-.16-.53-.52.11-.78l9.28-3.58c.43-.16.81.1.65.86Z"/></svg><span>Telegram<br><small>@alex_topcars</small></span></a>
