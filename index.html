@@ -297,6 +297,85 @@
       .benefit{border-right-color:rgba(62,76,51,.14)!important}
     }
 
+      /* Roomier catalogue cards and an immersive image viewer */
+    .catalog-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+    .car-card{border-radius:20px;box-shadow:0 8px 26px rgba(40,45,33,.065)}
+    .car-photo{height:clamp(230px,25vw,320px);cursor:zoom-in;isolation:isolate}
+    .car-photo:after{pointer-events:none;background:linear-gradient(0deg,rgba(24,30,20,.26),transparent 35%)}
+    .car-photo img{object-fit:cover;object-position:center;transition:transform .55s ease,filter .3s}
+    .car-card:hover .car-photo img{transform:scale(1.035);filter:saturate(1.04)}
+    .car-info{padding:19px 20px 20px}
+    .car-title{font-size:16px;letter-spacing:-.025em;margin-bottom:7px}
+    .car-subtitle{font-size:12px;margin-bottom:12px}
+    .car-specs{font-size:10px;gap:10px;padding-bottom:14px}
+    .car-bottom{padding-top:15px}
+    .car-price{font-size:19px}
+    .car-bottom small{font-size:10px}
+    .car-detail{margin-top:15px;padding:11px 15px;font-size:11px}
+    .stock{top:13px;left:13px;padding:6px 10px;font-size:10px;border-radius:7px}
+    .favorite{top:12px;right:12px;width:36px;height:36px;font-size:20px}
+    .gallery-control{width:36px;height:42px;font-size:26px;border-radius:10px;opacity:.96}
+    .gallery-prev{left:12px}.gallery-next{right:12px}
+    .gallery-count{right:57px;bottom:13px;padding:5px 9px;font-size:10px;border-radius:8px}
+    .photo-viewer{padding:0;border:1px solid rgba(217,180,90,.35);border-radius:22px;width:min(1120px,calc(100% - 36px));max-width:1120px;max-height:calc(100dvh - 32px);overflow:auto;background:#262e22;color:#fffdf6;box-shadow:0 30px 100px rgba(20,26,17,.3)}
+    .photo-viewer::backdrop{background:rgba(27,33,23,.76);backdrop-filter:blur(9px)}
+    .photo-viewer-inner{padding:clamp(16px,2.5vw,28px)}
+    .photo-viewer-head{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:16px}
+    .photo-viewer-heading{min-width:0}
+    .photo-viewer-kicker{display:block;color:#dec17a;font-size:9px;font-weight:800;letter-spacing:.2em;margin-bottom:6px}
+    .photo-viewer-head h2{margin:0;color:#fffdf6;font-size:clamp(18px,2.8vw,27px);line-height:1.15;letter-spacing:-.035em}
+    .photo-viewer-tools{display:flex;align-items:center;gap:14px;flex:0 0 auto}
+    .photo-viewer-counter{font-size:11px;font-variant-numeric:tabular-nums;color:#e1e5d8;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:8px 12px}
+    .photo-viewer-close{display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(255,255,255,.18);border-radius:50%;background:rgba(255,255,255,.07);color:#fffdf6;font-size:27px;line-height:1;cursor:pointer}
+    .photo-viewer-close:hover{background:rgba(217,180,90,.2);border-color:#d9b45a}
+    .photo-viewer-stage{position:relative;display:flex;align-items:center;justify-content:center;min-height:260px;height:min(66vh,700px);border-radius:15px;overflow:hidden;background:#171c15}
+    .photo-viewer-stage>img{display:block;width:100%;height:100%;object-fit:contain}
+    .photo-viewer-arrow{position:absolute;z-index:2;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:48px;height:56px;border:1px solid rgba(255,255,255,.25);border-radius:13px;background:rgba(31,39,27,.78);color:white;font-size:35px;line-height:1;cursor:pointer;backdrop-filter:blur(8px);transition:background .2s,transform .2s}
+    .photo-viewer-arrow:hover{background:#b9933e;transform:translateY(-50%) scale(1.04)}
+    .viewer-prev{left:16px}.viewer-next{right:16px}
+    .photo-viewer-thumbs{display:flex;gap:9px;overflow-x:auto;padding:15px 1px 3px;scrollbar-width:thin;scrollbar-color:#9b874d transparent}
+    .viewer-thumb{flex:0 0 92px;height:64px;border:2px solid transparent;border-radius:9px;overflow:hidden;padding:0;background:#171c15;cursor:pointer;opacity:.68;transition:opacity .2s,border-color .2s}
+    .viewer-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+    .viewer-thumb:hover{opacity:1}
+    .viewer-thumb.active{border-color:#d9b45a;opacity:1;box-shadow:0 0 0 2px rgba(217,180,90,.15)}
+    .photo-viewer-note{font-size:10px;line-height:1.5;color:#c2c9b6;margin:11px 0 0}
+    body.photo-viewer-open{overflow:hidden}
+    @media(max-width:1100px){
+      .catalog-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+      .car-info{padding:16px}
+      .car-photo{height:clamp(210px,25vw,275px)}
+    }
+    @media(max-width:820px){
+      .catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+      .car-photo{height:clamp(205px,34vw,285px)}
+      .car-info{padding:15px}
+      .car-title{font-size:14px}
+      .car-price{font-size:17px}
+      .photo-viewer-stage{height:min(58vh,600px)}
+    }
+    @media(max-width:520px){
+      .catalog-grid{grid-template-columns:minmax(0,1fr);gap:17px}
+      .car-card{border-radius:18px}
+      .car-photo{height:clamp(230px,65vw,340px)}
+      .car-info{padding:17px 17px 18px}
+      .car-title{font-size:16px}
+      .car-subtitle{font-size:11px}
+      .car-specs{font-size:10px}
+      .car-price{font-size:19px}
+      .car-bottom small{display:block;font-size:10px}
+      .car-detail{padding:11px 15px;font-size:11px}
+      .photo-viewer{width:calc(100% - 16px);max-height:calc(100dvh - 16px);border-radius:15px}
+      .photo-viewer-inner{padding:10px}
+      .photo-viewer-head{gap:8px;margin-bottom:10px}
+      .photo-viewer-tools{gap:7px}
+      .photo-viewer-close{width:36px;height:36px}
+      .photo-viewer-stage{height:48vh;min-height:210px;border-radius:10px}
+      .photo-viewer-arrow{width:36px;height:44px;border-radius:10px;font-size:29px}
+      .viewer-prev{left:8px}.viewer-next{right:8px}
+      .viewer-thumb{flex-basis:72px;height:52px}
+      .photo-viewer-note{font-size:9px;margin-top:8px}
+    }
+
   </style>
 </head>
 <body>
@@ -409,6 +488,28 @@
   <footer class="copyright">
     <div class="container copyright-inner"><span>© <span id="year"></span> alex.topcars. Автомобили с характером.</span><div class="legal-links"><a href="#contacts">Политика конфиденциальности</a><a href="#contacts">Условия работы</a></div></div>
   </footer>
+
+  <dialog class="photo-viewer" id="photoViewer" aria-label="Галерея автомобиля">
+    <div class="photo-viewer-inner">
+      <div class="photo-viewer-head">
+        <div class="photo-viewer-heading">
+          <span class="photo-viewer-kicker">ГАЛЕРЕЯ АВТОМОБИЛЯ</span>
+          <h2 id="photoViewerTitle">Автомобиль</h2>
+        </div>
+        <div class="photo-viewer-tools">
+          <span class="photo-viewer-counter" id="photoViewerCounter">1 / 1</span>
+          <button class="photo-viewer-close" type="button" id="photoViewerClose" aria-label="Закрыть галерею">×</button>
+        </div>
+      </div>
+      <div class="photo-viewer-stage">
+        <button class="photo-viewer-arrow viewer-prev" type="button" id="photoViewerPrev" aria-label="Предыдущее фото">‹</button>
+        <img id="photoViewerImage" src="" alt="">
+        <button class="photo-viewer-arrow viewer-next" type="button" id="photoViewerNext" aria-label="Следующее фото">›</button>
+      </div>
+      <div class="photo-viewer-thumbs" id="photoViewerThumbs" aria-label="Миниатюры фотографий"></div>
+      <p class="photo-viewer-note">Нажмите на миниатюру или используйте стрелки, чтобы посмотреть другие фотографии.</p>
+    </div>
+  </dialog>
 
   <dialog class="modal" id="requestModal" aria-labelledby="modalTitle">
     <form id="requestForm">
@@ -619,12 +720,88 @@
         showToast(active ? 'Автомобиль удалён из избранного' : 'Автомобиль добавлен в избранное');
         return;
       }
+      const photoSurface = event.target.closest('.car-photo');
+      if (photoSurface) {
+        const card = photoSurface.closest('.car-card');
+        if (card) openPhotoViewer(Number(card.dataset.carIndex), Number(card.dataset.galleryIndex || 0));
+        return;
+      }
       const detail = event.target.closest('.car-detail');
       if (detail) {
         const carName = detail.dataset.car || 'автомобиль';
         const message = 'Здравствуйте! Хочу узнать подробнее об автомобиле: ' + carName + '.';
         window.open('https://t.me/+79192826666?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
       }
+    });
+
+    const photoViewer = document.getElementById('photoViewer');
+    const photoViewerTitle = document.getElementById('photoViewerTitle');
+    const photoViewerImage = document.getElementById('photoViewerImage');
+    const photoViewerCounter = document.getElementById('photoViewerCounter');
+    const photoViewerThumbs = document.getElementById('photoViewerThumbs');
+    let viewerCarIndex = 0;
+    let viewerImageIndex = 0;
+    let viewerImages = [];
+
+    function setViewerImage(index) {
+      if (!viewerImages.length) return;
+      viewerImageIndex = (index + viewerImages.length) % viewerImages.length;
+      const car = cars[viewerCarIndex];
+      const title = car.title || (String(car.make || '') + ' ' + String(car.model || '')).trim();
+      photoViewerImage.src = viewerImages[viewerImageIndex];
+      photoViewerImage.alt = title + ' — фото ' + (viewerImageIndex + 1);
+      photoViewerCounter.textContent = (viewerImageIndex + 1) + ' / ' + viewerImages.length;
+      photoViewerThumbs.querySelectorAll('.viewer-thumb').forEach(function (thumb, thumbIndex) {
+        const active = thumbIndex === viewerImageIndex;
+        thumb.classList.toggle('active', active);
+        if (active) thumb.setAttribute('aria-current', 'true');
+        else thumb.removeAttribute('aria-current');
+      });
+    }
+
+    function openPhotoViewer(carIndex, imageIndex) {
+      const car = cars[carIndex];
+      if (!car) return;
+      viewerCarIndex = carIndex;
+      viewerImages = (Array.isArray(car.images) ? car.images : (car.image ? [car.image] : []))
+        .filter(function (src) { return typeof src === 'string' && src.trim(); });
+      if (!viewerImages.length) return;
+      const title = car.title || (String(car.make || '') + ' ' + String(car.model || '')).trim();
+      photoViewerTitle.textContent = title;
+      photoViewerThumbs.innerHTML = viewerImages.map(function (src, index) {
+        return '<button class="viewer-thumb' + (index === imageIndex ? ' active' : '') +
+          '" type="button" data-viewer-index="' + index +
+          '" aria-label="Открыть фото ' + (index + 1) + ' автомобиля ' + escapeHtml(title) + '">' +
+          '<img loading="lazy" src="' + escapeHtml(src) + '" alt=""></button>';
+      }).join('');
+      setViewerImage(imageIndex || 0);
+      photoViewer.showModal();
+      document.body.classList.add('photo-viewer-open');
+    }
+
+    document.getElementById('photoViewerClose').addEventListener('click', function () {
+      photoViewer.close();
+    });
+    document.getElementById('photoViewerPrev').addEventListener('click', function () {
+      setViewerImage(viewerImageIndex - 1);
+    });
+    document.getElementById('photoViewerNext').addEventListener('click', function () {
+      setViewerImage(viewerImageIndex + 1);
+    });
+    photoViewerThumbs.addEventListener('click', function (event) {
+      const thumb = event.target.closest('.viewer-thumb');
+      if (thumb) setViewerImage(Number(thumb.dataset.viewerIndex || 0));
+    });
+    photoViewer.addEventListener('click', function (event) {
+      if (event.target === photoViewer) photoViewer.close();
+    });
+    photoViewer.addEventListener('close', function () {
+      document.body.classList.remove('photo-viewer-open');
+    });
+    document.addEventListener('keydown', function (event) {
+      if (!photoViewer.open) return;
+      if (event.key === 'ArrowLeft') setViewerImage(viewerImageIndex - 1);
+      if (event.key === 'ArrowRight') setViewerImage(viewerImageIndex + 1);
     });
 
     fetch('data/cars.json', {cache: 'no-store'})
