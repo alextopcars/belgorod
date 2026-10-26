@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#343c2d">
-  <meta name="description" content="alex.topcars — подбор и покупка автомобиля под ваши задачи. Организуем проверку, доставку, Trade-in и комиссионную продажу с сопровождением сделки.">
+  <meta name="theme-color" content="#f7f6ef">
+  <meta name="description" content="alex.topcars — я подберу автомобиль под ваши задачи и бюджет, помогу с проверкой, покупкой, доставкой и сопровождением сделки.">
   <meta property="og:title" content="alex.topcars — автомобиль, который подходит именно вам">
-  <meta property="og:description" content="Подберём, проверим и организуем покупку автомобиля под ваш бюджет и задачи.">
+  <meta property="og:description" content="Я подберу автомобиль, помогу проверить варианты и согласую условия покупки под ваш бюджет и задачи.">
   <meta property="og:type" content="website">
   <title>alex.topcars — подбор, покупка и доставка автомобилей</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -60,7 +60,7 @@
     .menu-toggle{display:none;background:transparent;border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:20px}
     /* Hero */
     .hero{position:relative;min-height:495px;isolation:isolate;overflow:hidden;border-bottom:1px solid var(--line);background:#090e13}
-    .hero:before{content:"";position:absolute;z-index:-2;inset:0;background-image:var(--hero-photo, url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2200&q=90"));background-size:auto 132%;background-position:right 57%;background-repeat:no-repeat;background-color:#05090d;transform:scale(1.01)}
+    .hero:before{content:"";position:absolute;z-index:-2;inset:0;background-image:var(--hero-photo, url("hero-porsche.png"));background-size:auto 132%;background-position:right 57%;background-repeat:no-repeat;background-color:#05090d;transform:scale(1.01)}
     .hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(4,8,12,.97) 0%,rgba(4,8,12,.82) 24%,rgba(4,8,12,.26) 55%,rgba(4,8,12,.08) 100%),linear-gradient(0deg,#05090d 0%,rgba(5,9,13,.18) 19%,rgba(5,9,13,0) 45%)}
     .hero-content{min-height:495px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding-top:18px;padding-bottom:64px}
     .hero .eyebrow{margin-bottom:18px}
@@ -622,6 +622,231 @@
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 
+  
+    /* ALEX.TOPCARS — warm editorial light theme inspired by the supplied reference */
+    :root {
+      --bg:#f7f6ef; --bg-2:#efede3; --panel:#fffefa; --panel-2:#f0eee5;
+      --gold:#b58b45; --gold-light:#e6c47c; --gold-dark:#8f6b31;
+      --text:#272b23; --muted:#77796f; --line:rgba(72,77,58,.16);
+      --max:1320px; --radius:14px; --hero-photo:url("hero-porsche.png");
+    }
+    html { scroll-padding-top:80px; }
+    body { background:var(--bg); color:var(--text); }
+    .header {
+      height:78px; position:absolute; top:3px; left:0; right:0;
+      background:linear-gradient(180deg,rgba(27,31,25,.43),rgba(27,31,25,.04));
+      backdrop-filter:blur(5px); border-bottom:1px solid rgba(255,255,255,.2);
+    }
+    .header-inner { min-height:78px; }
+    .brand-name { color:#fffdf7; font-size:18px; letter-spacing:.08em; }
+    .brand-name span { color:var(--gold-light); }
+    .brand-mark { filter:drop-shadow(0 3px 10px rgba(0,0,0,.2)); }
+    .nav { gap:clamp(14px,2vw,30px); }
+    .nav a { color:rgba(255,255,255,.9); font-size:11px; }
+    .nav a:hover,.nav a.active { color:#f2d79a; }
+    .header-socials { color:rgba(255,255,255,.9); }
+    .social-link svg { color:var(--gold-light); }
+    .header-phone { border-color:rgba(236,204,137,.6); color:#fffaf0; background:rgba(20,23,18,.15); }
+    .header-phone svg { color:var(--gold-light); }
+    .hero {
+      min-height:625px; padding-top:78px; background:#33392f;
+      border-bottom:0; isolation:isolate;
+    }
+    .hero:before {
+      background-image:var(--hero-photo);
+      background-size:cover; background-position:center 57%; background-repeat:no-repeat;
+      background-color:#31372e; transform:none; z-index:-2;
+    }
+    .hero:after {
+      background:
+        linear-gradient(90deg,rgba(21,25,19,.76) 0%,rgba(21,25,19,.57) 31%,rgba(21,25,19,.16) 58%,rgba(21,25,19,.02) 100%),
+        linear-gradient(0deg,rgba(17,21,15,.8) 0%,rgba(17,21,15,.12) 24%,rgba(17,21,15,.03) 60%);
+      z-index:-1;
+    }
+    .hero-content { min-height:625px; padding-top:82px; padding-bottom:138px; justify-content:center; }
+    .hero .eyebrow { color:#f1d69b; font-size:9px; letter-spacing:.19em; margin-bottom:20px; }
+    .hero h1 {
+      font-size:clamp(47px,5.6vw,75px); font-weight:450; line-height:.98;
+      letter-spacing:-.055em; max-width:580px; margin:0 0 22px;
+      color:#fffdf8;
+    }
+    .hero h1 span { color:#e6c17b; font-family:Georgia,"Times New Roman",serif; font-style:italic; font-weight:400; }
+    .hero-copy { color:rgba(255,255,255,.86); max-width:390px; font-size:13px; line-height:1.75; margin-bottom:23px; }
+    .hero-actions { gap:11px; }
+    .hero .btn { min-height:43px; padding:13px 24px; font-size:10px; }
+    .btn { border-radius:999px; letter-spacing:.01em; }
+    .btn-gold { background:linear-gradient(135deg,#f0d79c,#c39a51); border-color:#d1ad68; color:#2e2b20; box-shadow:0 7px 20px rgba(123,94,42,.14); }
+    .btn-gold:hover { background:linear-gradient(135deg,#f5e0ac,#d3aa60); }
+    .btn-outline { background:rgba(20,24,18,.15); border-color:rgba(226,198,137,.65); color:inherit; }
+    .hero .btn-outline { color:#fffaf0; }
+    .hero-foot {
+      background:rgba(248,247,240,.97); border-top:1px solid rgba(181,139,69,.3);
+      color:#34382e; backdrop-filter:blur(15px);
+    }
+    .benefits { grid-template-columns:repeat(4,minmax(0,1fr)); min-height:90px; }
+    .benefit { border-color:#d9d4c5; padding:14px 20px; }
+    .benefit:first-child { padding-left:0; }
+    .benefit-icon { color:#a7813f; border:0; border-radius:0; width:32px; height:32px; }
+    .benefit-icon svg { width:25px; height:25px; }
+    .benefit strong { color:#393d33; font-size:10px; font-weight:650; }
+    .benefit small { color:#818275; font-size:9px; }
+    .section { padding:62px 0; border-bottom:1px solid #dedacc; }
+    .section-head { margin-bottom:23px; gap:25px; }
+    .section-head h2 { font-size:clamp(29px,3vw,41px); line-height:1.08; font-weight:500; letter-spacing:-.04em; color:#2d3229; margin:10px 0 8px; }
+    .section-head p { font-size:11px; line-height:1.8; color:#77796f; }
+    .eyebrow { color:#a57d3c; font-size:9px; letter-spacing:.18em; }
+    .eyebrow:before { background:linear-gradient(90deg,#c39a50,#e3c783); }
+    .catalog { background:var(--paper, #f7f6ef); background:radial-gradient(ellipse at 75% 10%,rgba(199,169,105,.09),transparent 38%),var(--bg); }
+    .filters { background:#fffdf7; border:1px solid #e0dccf; border-radius:13px; box-shadow:0 7px 20px rgba(47,50,39,.035); }
+    .field { background:#f8f7f1; border-color:#e7e3d7; }
+    .field label { color:#77796f; }
+    .field select,.field input { color:#30342b; }
+    .field select option { background:#fffefa; color:#272b23; }
+    .filter-submit { min-height:43px; }
+    .catalog-meta { color:#77796f; }
+    .car-card { background:#fffefa; border:1px solid rgba(93,88,68,.12); box-shadow:0 8px 24px rgba(52,53,39,.065); border-radius:12px; }
+    .car-card:hover { border-color:rgba(181,139,69,.55); box-shadow:0 14px 30px rgba(52,53,39,.12); }
+    .car-photo { background:#dedbd0; height:165px; }
+    .car-photo:after { background:linear-gradient(0deg,rgba(22,25,19,.4),transparent 65%); }
+    .car-info { padding:14px 13px; }
+    .car-title { color:#2a2e26; font-size:13px; }
+    .car-subtitle { color:#858579; }
+    .car-specs { color:#77796f; border-bottom-color:#e9e5da; }
+    .car-price { color:#30352a; font-size:14px; }
+    .car-bottom small { color:#858579; }
+    .car-detail { border-color:#ded7c5; color:#84672f; }
+    .stock.in { background:#49513b; }
+    .stock.order { background:#e2c27b; color:#312818; }
+    .favorite { background:rgba(33,39,29,.55); border-color:rgba(255,255,255,.65); color:white; }
+    .gallery-control { background:rgba(42,48,37,.75); }
+    .empty-state { color:#77796f; border-color:#d8d4c7; background:#fffdf7; }
+    .catalog-more .btn-outline { color:#fffdf7; background:var(--olive, #48503d); border-color:var(--olive, #48503d); }
+    .catalog-more .btn-outline:hover { background:#30372a; }
+    .services { background:#efede4; color:#2a2f26; }
+    .services-layout { gap:38px; }
+    .services-intro h2 { color:#2d3229; font-size:clamp(29px,3vw,39px); font-weight:500; }
+    .services-intro p { color:#77796f; font-size:12px; line-height:1.8; }
+    .services .service-card { background:#faf9f3; border:1px solid #ded9ca; border-radius:12px; }
+    .service-card:hover { background:#fffefa; border-color:#c39a50; }
+    .service-card svg { color:#a57d3c; }
+    .service-card h3 { color:#30342b; font-size:11px; }
+    .service-card p { color:#77796f; }
+    .process { background:#f8f7f1; color:#2a2e25; }
+    .process .section-head h2 { color:#2d3229; }
+    .process-step { background:#fffefa; border-color:#e1dccf; }
+    .step-number { color:#987336; }
+    .process-step h3 { color:#32372d; }
+    .process-step p { color:#797b70; line-height:1.7; }
+    .contact-banner { background:#303a2e; border-bottom-color:#48503d; }
+    .contact-banner:before { background:linear-gradient(90deg,rgba(34,43,31,.92),rgba(38,47,34,.78) 53%,rgba(38,47,34,.63)); }
+    .contact-inner { color:#fffdf7; }
+    .contact-brand p,.contact-cta p { color:rgba(255,255,255,.78); }
+    .contact-cta strong { color:#f0d59b; }
+    .contact-links a { border-color:rgba(236,211,155,.23); background:rgba(255,255,255,.04); }
+    .contact-links a:hover { border-color:#d9b76e; background:rgba(255,255,255,.08); }
+    .contact-links svg { color:#e3c17b; }
+    .copyright { background:#252e23; }
+    .copyright-inner { color:rgba(255,253,246,.72); }
+    .legal-links a:hover { color:#f2d79a; }
+    .modal { background:#fffdf7; color:#282d24; border-color:#c39a50; }
+    .modal h2 { color:#282d24; }
+    .modal p { color:#74766b; }
+    .modal .field { background:#f8f7f1; border-color:#ded9ca; }
+    .modal .field input,.modal .field textarea,.modal .field select { color:#2a2e25; }
+    .modal .field input::placeholder,.modal .field textarea::placeholder { color:#9a9a8e; }
+    .toast { background:#35412d; border-color:#c39a50; color:white; }
+    @media(max-width:1100px) {
+      .header-inner { gap:13px; }
+      .brand { min-width:auto; }
+      .nav { gap:14px; }
+      .header-socials { display:none; }
+      .catalog-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+      .car-photo { height:clamp(210px,29vw,290px); }
+      .services-layout { grid-template-columns:1fr; gap:24px; }
+      .services-intro { display:grid; grid-template-columns:1fr 1fr; align-items:end; gap:10px 25px; }
+      .services-intro .eyebrow { grid-column:1/-1; }
+      .services-intro h2 { margin:7px 0 0; }
+      .services-intro p { margin:0; }
+      .services-intro .btn { justify-self:start; margin-top:8px; }
+    }
+    @media(max-width:820px) {
+      .header { height:70px; position:absolute; }
+      .header-inner { height:70px; }
+      .nav { display:none; position:absolute; top:70px; left:0; right:0; height:auto; padding:16px 24px; background:rgba(38,46,35,.98); border-bottom:1px solid rgba(228,196,124,.35); flex-direction:column; align-items:stretch; gap:2px; }
+      .nav.open { display:flex; }
+      .nav a { height:auto; padding:10px 0; font-size:13px; }
+      .nav a.active:after { display:none; }
+      .menu-toggle { display:block; color:#fff9ec; border-color:rgba(255,255,255,.3); }
+      .hero { min-height:690px; }
+      .hero-content { min-height:690px; padding-top:100px; padding-bottom:195px; justify-content:flex-start; }
+      .hero:before { background-size:cover; background-position:62% center; }
+      .hero:after { background:linear-gradient(90deg,rgba(22,27,20,.82),rgba(22,27,20,.44)),linear-gradient(0deg,rgba(19,24,17,.97),rgba(19,24,17,.1) 50%,transparent 70%); }
+      .benefits { grid-template-columns:repeat(2,minmax(0,1fr)); padding:8px 0; }
+      .benefit { padding:10px 12px; border-right:0; border-bottom:1px solid #d7d2c3; }
+      .benefit:nth-child(odd) { border-right:1px solid #d7d2c3; }
+      .benefit:nth-last-child(-n+2) { border-bottom:0; }
+      .benefit:first-child { padding-left:12px; }
+      .benefit strong { font-size:10px; }
+      .benefit small { font-size:9px; }
+      .section { padding:54px 0; }
+      .section-head { align-items:flex-start; flex-direction:column; gap:12px; }
+      .section-head .top-link { align-self:flex-start; }
+      .filters { grid-template-columns:repeat(3,minmax(0,1fr)); }
+      .catalog-meta { align-items:flex-start; flex-direction:column; }
+      .services-intro { display:block; }
+      .services-intro h2 { margin:12px 0; }
+      .services-intro p { margin-bottom:17px; }
+      .services-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+      .process-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .contact-inner { grid-template-columns:1fr 1fr; }
+      .contact-links { grid-column:1/-1; grid-template-columns:repeat(3,minmax(0,1fr)); }
+    }
+    @media(max-width:520px) {
+      .container { width:calc(100% - 28px); }
+      .header { height:64px; }
+      .header-inner { gap:9px; }
+      .brand-name { font-size:15px; }
+      .brand-mark { width:37px;height:36px; }
+      .header-phone { width:40px;height:40px;padding:8px;justify-content:center;overflow:hidden;font-size:0;gap:0; }
+      .header-phone svg { width:17px;height:17px;flex-shrink:0; }
+      .menu-toggle { width:40px;height:40px;padding:7px; }
+      .nav { top:64px; }
+      .hero { min-height:750px; }
+      .hero-content { min-height:640px; padding-top:90px; padding-bottom:226px; }
+      .hero h1 { font-size:clamp(42px,11vw,58px); max-width:500px; line-height:1; }
+      .hero-copy { font-size:14px; max-width:350px; }
+      .hero-actions { flex-direction:column; align-items:flex-start; width:min(100%,340px); }
+      .hero .btn { width:100%; min-height:48px; }
+      .benefits { padding:8px 0; }
+      .benefit { gap:9px; padding:9px 7px!important; }
+      .benefit-icon { width:30px;height:30px; }
+      .benefit-icon svg { width:18px;height:18px; }
+      .benefit strong { font-size:9px; }
+      .benefit small { font-size:8px; }
+      .filters { grid-template-columns:repeat(2,minmax(0,1fr)); padding:8px; gap:8px; }
+      .filter-submit { grid-column:1/-1; min-height:45px; }
+      .catalog-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+      .car-photo { height:clamp(130px,38vw,200px); }
+      .car-info { padding:10px; }
+      .car-title { font-size:11px; }
+      .car-price { font-size:12px; }
+      .car-detail { padding:8px; font-size:9px; }
+      .services-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; }
+      .service-card { min-height:135px; padding:13px 10px; }
+      .service-card h3 { font-size:11px; }
+      .service-card p { font-size:9px; }
+      .process-grid { grid-template-columns:1fr; }
+      .process-step { padding:16px; }
+      .process-step h3 { font-size:14px; }
+      .process-step p { font-size:11px; }
+      .contact-inner { grid-template-columns:1fr; gap:24px; padding-top:32px; padding-bottom:30px; }
+      .contact-links { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+      .contact-cta { border-left:0; border-top:1px solid rgba(255,255,255,.18); padding:20px 0 0; }
+      .copyright-inner { min-height:0; padding:18px 0; flex-direction:column; align-items:flex-start; gap:10px; font-size:10px; }
+      .legal-links { gap:14px; flex-wrap:wrap; }
+      .modal { padding:22px; }
+    }
+
   </style>
 </head>
 <body>
@@ -635,7 +860,7 @@
         <a class="active" href="#home">Главная</a>
         <a href="#catalog">Каталог</a>
         <a href="#services">Услуги</a>
-        <a href="#process">Почему мы</a>
+        <a href="#process">Как я работаю</a>
         <a href="#contacts">Контакты</a>
       </nav>
       <div class="header-socials">
@@ -656,18 +881,18 @@
       <div class="container hero-content">
         <div class="eyebrow">Подбор и покупка доступны каждому</div>
         <h1>Мечта ближе,<br><span>чем кажется</span></h1>
-        <p class="hero-copy">Подберём автомобиль под ваши желания и бюджет. Поможем сравнить варианты, организуем покупку и сопроводим вас на каждом этапе.</p>
+        <p class="hero-copy">Я подберу автомобиль под ваши желания и бюджет. Помогу сравнить варианты, организую покупку и буду сопровождать вас на каждом этапе.</p>
         <div class="hero-actions">
           <a class="btn btn-gold" href="#catalog">Перейти в каталог <span class="btn-arrow">→</span></a>
-          <a class="btn btn-outline" href="https://t.me/AlexTopCarsLeadBot?start=lead" target="_blank" rel="noopener noreferrer">Оставить заявку</a>
+          <a class="btn btn-outline" href="https://t.me/alex_topcars" target="_blank" rel="noopener noreferrer">Оставить заявку</a>
         </div>
       </div>
       <div class="hero-foot">
         <div class="container benefits">
           <div class="benefit"><span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M4 6h16M4 18h16"/></svg></span><div><strong>Проверка до покупки</strong><small>История, состояние и документы</small></div></div>
-          <div class="benefit"><span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 21 6v6c0 5-3.7 8.6-9 10-5.3-1.4-9-5-9-10V6l9-4Z"/><path d="m8 12 2.5 2.5L16 9"/></svg></span><div><strong>Подбор под бюджет</strong><small>Учитываем ваши задачи и приоритеты</small></div></div>
-          <div class="benefit"><span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h11v11H3zM14 10h4l3 3v5h-7z"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/><path d="M5 7V4h9v3"/></svg></span><div><strong>Доставка по России</strong><small>Сопровождаем до передачи ключей</small></div></div>
-          <div class="benefit"><span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m12 2.5 3 6.1 6.7 1-4.8 4.7 1.1 6.7-6-3.2-6 3.2 1.1-6.7-4.8-4.7 6.7-1 3-6.1Z"/></svg></span><div><strong>Персональный менеджер</strong><small>На связи на каждом этапе</small></div></div>
+          <div class="benefit"><span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 21 6v6c0 5-3.7 8.6-9 10-5.3-1.4-9-5-9-10V6l9-4Z"/><path d="m8 12 2.5 2.5L16 9"/></svg></span><div><strong>Подбор под бюджет</strong><small>Учитываю ваши задачи и приоритеты</small></div></div>
+          <div class="benefit"><span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h11v11H3zM14 10h4l3 3v5h-7z"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/><path d="M5 7V4h9v3"/></svg></span><div><strong>Доставка по России</strong><small>Сопровождаю до передачи ключей</small></div></div>
+          <div class="benefit"><span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m12 2.5 3 6.1 6.7 1-4.8 4.7 1.1 6.7-6-3.2-6 3.2 1.1-6.7-4.8-4.7 6.7-1 3-6.1Z"/></svg></span><div><strong>Личное сопровождение</strong><small>Я на связи на согласованных этапах</small></div></div>
         </div>
       </div>
     </section>
@@ -675,7 +900,7 @@
     <section class="section catalog" id="catalog">
       <div class="container">
         <div class="section-head">
-          <div><div class="eyebrow">Каталог автомобилей</div><h2>Найдите свой следующий автомобиль</h2><p>Предложения с характеристиками и стоимостью, которые можно сравнить. Не нашли подходящий вариант? Подберём автомобиль под ваши задачи и бюджет.</p></div>
+          <div><div class="eyebrow">Каталог автомобилей</div><h2>Найдите свой следующий автомобиль</h2><p>В каталоге собраны предложения с характеристиками для сравнения. Не нашли подходящий вариант? Я подберу автомобиль под ваши задачи и бюджет.</p></div>
           <a class="btn btn-outline top-link" href="#catalogFilters">Смотреть весь каталог <span class="btn-arrow">→</span></a>
         </div>
         <div class="filters" id="catalogFilters" aria-label="Фильтры каталога">
@@ -686,34 +911,34 @@
           <div class="field"><label for="fuelFilter">Тип топлива</label><select id="fuelFilter"><option value="">Любой</option><option value="Бензин">Бензин</option><option value="Дизель">Дизель</option><option value="Гибрид">Гибрид</option><option value="Электро">Электро</option></select></div>
           <button class="btn btn-gold filter-submit" id="applyFilters"><span>⌕</span> Найти</button>
         </div>
-        <div class="catalog-meta"><span id="catalogCount" aria-live="polite">Загрузка каталога…</span><span>Цены и наличие уточняйте у менеджера</span></div>
+        <div class="catalog-meta"><span id="catalogCount" aria-live="polite">Загрузка каталога…</span><span>Я уточню цену и наличие до согласования</span></div>
         <div class="catalog-grid" id="carGrid"></div>
         <div class="empty-state" id="catalogEmpty">По выбранным параметрам ничего не найдено. Измените фильтры или оставьте заявку на индивидуальный подбор.</div>
-        <div class="catalog-more"><a class="btn btn-outline" href="https://t.me/AlexTopCarsLeadBot?start=lead" target="_blank" rel="noopener noreferrer">Не нашли подходящий автомобиль? <span class="btn-arrow">→</span></a></div>
+        <div class="catalog-more"><a class="btn btn-outline" href="https://t.me/alex_topcars" target="_blank" rel="noopener noreferrer">Не нашли подходящий автомобиль? <span class="btn-arrow">→</span></a></div>
       </div>
     </section>
 
     <section class="section services" id="services">
       <div class="container services-layout">
-        <div class="services-intro"><div class="eyebrow">Наши услуги</div><h2>Всё для удобной покупки автомобиля</h2><p>Подбор, проверка, покупка, доставка и продажа вашего текущего автомобиля. Обсудим задачу и согласуем понятный план действий до начала сделки.</p><a class="btn btn-gold" href="https://t.me/AlexTopCarsLeadBot?start=services" target="_blank" rel="noopener noreferrer">Узнать подробнее <span class="btn-arrow">→</span></a></div>
+        <div class="services-intro"><div class="eyebrow">Наши услуги</div><h2>Всё для удобной покупки автомобиля</h2><p>Я помогу с подбором, проверкой, покупкой и доставкой, а также с Trade-in и комиссионной продажей. Сначала обсудим задачу и согласуем план действий.</p><a class="btn btn-gold" href="https://t.me/alex_topcars" target="_blank" rel="noopener noreferrer">Узнать подробнее <span class="btn-arrow">→</span></a></div>
         <div class="services-grid">
-          <article class="service-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10.5" cy="8" r="5.5"/><path d="m15 12 6 6M2 22c.8-4 3.8-6 8.5-6 2 0 3.5.4 4.8 1.1"/></svg><h3>Подбор авто</h3><p>Найдём лучший вариант под ваш бюджет и запросы.</p></article>
-          <article class="service-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 21 6v6c0 5-3.7 8.6-9 10-5.3-1.4-9-5-9-10V6l9-4Z"/><path d="m8 12 2.5 2.5L16 9"/></svg><h3>Покупка</h3><p>Проверка, оформление, юридическая чистота.</p></article>
-          <article class="service-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h13v11H2zM15 10h4l3 3v5h-7z"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg><h3>Доставка</h3><p>По всей России и из-за рубежа.</p></article>
-          <article class="service-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h15M15 3l4 4-4 4M20 17H5m4-4-4 4 4 4"/></svg><h3>Trade-in</h3><p>Обмен вашего авто на новое.</p></article>
-          <article class="service-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11c1.7 0 3-1.3 3-3s-1.3-3-3-3-3 1.3-3 3M8 11c1.7 0 3-1.3 3-3S9.7 5 8 5 5 6.3 5 8s1.3 3 3 3ZM2 20v-2c0-2.2 2.4-4 6-4s6 1.8 6 4v2M14 14c4.4-.7 8 1.1 8 4v2"/></svg><h3>Комиссионная продажа</h3><p>Продадим авто на выгодных условиях.</p></article>
+          <article class="service-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10.5" cy="8" r="5.5"/><path d="m15 12 6 6M2 22c.8-4 3.8-6 8.5-6 2 0 3.5.4 4.8 1.1"/></svg><h3>Подбор авто</h3><p>Я подберу варианты под ваш бюджет и запрос.</p></article>
+          <article class="service-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 21 6v6c0 5-3.7 8.6-9 10-5.3-1.4-9-5-9-10V6l9-4Z"/><path d="m8 12 2.5 2.5L16 9"/></svg><h3>Покупка</h3><p>Помогу проверить доступные данные, документы и условия сделки.</p></article>
+          <article class="service-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h13v11H2zM15 10h4l3 3v5h-7z"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg><h3>Доставка</h3><p>Организую доставку по согласованному маршруту.</p></article>
+          <article class="service-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h15M15 3l4 4-4 4M20 17H5m4-4-4 4 4 4"/></svg><h3>Trade-in</h3><p>Помогу рассмотреть обмен вашего автомобиля на другой.</p></article>
+          <article class="service-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11c1.7 0 3-1.3 3-3s-1.3-3-3-3-3 1.3-3 3M8 11c1.7 0 3-1.3 3-3S9.7 5 8 5 5 6.3 5 8s1.3 3 3 3ZM2 20v-2c0-2.2 2.4-4 6-4s6 1.8 6 4v2M14 14c4.4-.7 8 1.1 8 4v2"/></svg><h3>Комиссионная продажа</h3><p>Помогу организовать комиссионную продажу на согласованных условиях.</p></article>
         </div>
       </div>
     </section>
 
     <section class="section process" id="process">
       <div class="container">
-        <div class="section-head"><div><div class="eyebrow">Как мы работаем</div><h2>От первого запроса до передачи ключей</h2><p>Четыре последовательных шага: согласуем ожидания, покажем варианты, проверим автомобиль и сопроводим оформление.</p></div></div>
+        <div class="section-head"><div><div class="eyebrow">Как я работаю</div><h2>От первого запроса до передачи ключей</h2><p>На каждом этапе я уточняю детали, подбираю варианты, согласую условия и сопровождаю оформление.</p></div></div>
         <div class="process-grid">
-          <article class="process-step"><div class="step-number">01 / ЗАЯВКА</div><h3>Обсуждаем запрос</h3><p>Уточняем бюджет, пожелания и сроки. Согласуем план подбора.</p></article>
-          <article class="process-step"><div class="step-number">02 / ПОДБОР</div><h3>Находим варианты</h3><p>Собираем подходящие предложения, проверяем историю и состояние.</p></article>
-          <article class="process-step"><div class="step-number">03 / ПОКУПКА</div><h3>Согласуем и оформляем</h3><p>Показываем результаты проверки и согласуем автомобиль до покупки.</p></article>
-          <article class="process-step"><div class="step-number">04 / ДОСТАВКА</div><h3>Передаём автомобиль</h3><p>Организуем доставку и сопровождаем вас до передачи ключей.</p></article>
+          <article class="process-step"><div class="step-number">01 / ЗАЯВКА</div><h3>Обсуждаю запрос</h3><p>Уточняю ваш бюджет, пожелания и сроки. Согласую план подбора.</p></article>
+          <article class="process-step"><div class="step-number">02 / ПОДБОР</div><h3>Подбираю варианты</h3><p>Подбираю предложения и проверяю доступную информацию об истории и состоянии.</p></article>
+          <article class="process-step"><div class="step-number">03 / ПОКУПКА</div><h3>Согласуем и оформляем</h3><p>Показываю результаты проверки и согласую автомобиль с вами до покупки.</p></article>
+          <article class="process-step"><div class="step-number">04 / ДОСТАВКА</div><h3>Сопровождаю до передачи авто</h3><p>Организую доставку и сопровождаю вас до передачи ключей.</p></article>
         </div>
       </div>
     </section>
@@ -721,7 +946,7 @@
     <section class="contact-banner" id="contacts">
       <div class="container contact-inner">
         <div class="contact-brand"><a class="brand" href="#home"><img class="brand-mark" src="favicon.svg" alt="" aria-hidden="true"><span class="brand-name"><span>alex.</span>topcars</span></a><p>Автомобиль ближе, чем кажется.</p></div>
-        <div class="contact-cta"><strong>Начнём с вашего запроса</strong><p>Расскажите, какой автомобиль ищете. Обсудим бюджет, сроки и подходящие варианты в Telegram.</p><a class="btn btn-gold" href="https://t.me/AlexTopCarsLeadBot?start=lead" target="_blank" rel="noopener noreferrer">Оставить заявку <span class="btn-arrow">→</span></a></div>
+        <div class="contact-cta"><strong>Расскажите мне о вашем запросе</strong><p>Расскажите, какой автомобиль вы ищете. Я уточню бюджет, сроки и подходящие варианты в Telegram.</p><a class="btn btn-gold" href="https://t.me/alex_topcars" target="_blank" rel="noopener noreferrer">Оставить заявку <span class="btn-arrow">→</span></a></div>
         <div class="contact-links">
           <a href="https://t.me/alex_topcars" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.64 6.86-1.56 7.35c-.12.52-.43.65-.87.4l-2.41-1.78-1.16 1.12c-.13.13-.24.24-.49.24l.17-2.45 4.46-4.03c.19-.17-.04-.27-.29-.1L8.98 13.1l-2.38-.74c-.52-.16-.53-.52.11-.78l9.28-3.58c.43-.16.81.1.65.86Z"/></svg><span>Telegram<br><small>@alex_topcars</small></span></a>
           <a href="https://www.instagram.com/alex.topcars/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram<br><small>@alex.topcars</small></span></a>
@@ -732,7 +957,7 @@
   </main>
 
   <footer class="copyright">
-    <div class="container copyright-inner"><span>© <span id="year"></span> alex.topcars. Автомобили с характером.</span><div class="legal-links"><a href="#contacts">Политика конфиденциальности</a><a href="#contacts">Условия работы</a></div></div>
+    <div class="container copyright-inner"><span>© <span id="year"></span> alex.topcars. Автомобиль ближе, чем кажется.</span><div class="legal-links"><a href="#contacts">Политика конфиденциальности</a><a href="#contacts">Условия работы</a></div></div>
   </footer>
 
   <dialog class="photo-viewer" id="photoViewer" aria-label="Галерея автомобиля">
@@ -759,13 +984,13 @@
 
   <dialog class="modal" id="requestModal" aria-labelledby="modalTitle">
     <form id="requestForm">
-      <div class="modal-head"><div><div class="eyebrow">Персональный подбор</div><h2 id="modalTitle">Подберём ваш автомобиль</h2></div><button class="modal-close" type="button" id="closeModal" aria-label="Закрыть">×</button></div>
-      <p id="modalDescription">Оставьте контакты и пожелания — подготовим сообщение для связи с менеджером в Telegram.</p>
+      <div class="modal-head"><div><div class="eyebrow">Персональный подбор</div><h2 id="modalTitle">Я подберу ваш автомобиль</h2></div><button class="modal-close" type="button" id="closeModal" aria-label="Закрыть">×</button></div>
+      <p id="modalDescription">Оставьте контакты и пожелания — я подготовлю текст сообщения для связи со мной в Telegram.</p>
       <div class="field"><label for="clientName">Как к вам обращаться</label><input id="clientName" name="name" placeholder="Ваше имя" required autocomplete="name"></div>
       <div class="field"><label for="clientContact">Телефон или Telegram</label><input id="clientContact" name="contact" placeholder="+7 или @username" required></div>
       <div class="field"><label for="clientWish">Что ищем?</label><textarea id="clientWish" name="wish" placeholder="Марка, модель, бюджет, год выпуска"></textarea></div>
       <button class="btn btn-gold" type="submit">Продолжить в Telegram <span class="btn-arrow">→</span></button>
-      <p class="modal-note">Нажимая кнопку, вы подготовите текст заявки и перейдёте в Telegram для отправки менеджеру.</p>
+      <p class="modal-note">После нажатия откроется Telegram с подготовленным текстом — останется проверить и отправить сообщение.</p>
     </form>
   </dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -1063,7 +1288,7 @@
 
     // Для заявок через бота укажите его username без символа @, когда он будет известен.
     // Пока используется личный чат как надёжный запасной маршрут.
-    const TELEGRAM_PERSONAL_CHAT = 'https://t.me/+79192826666';
+    const TELEGRAM_PERSONAL_CHAT = 'https://t.me/alex_topcars';
     const TELEGRAM_BOT_USERNAME = '';
     const modal = document.getElementById('requestModal');
     const clientWish = document.getElementById('clientWish');
