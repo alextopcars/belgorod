@@ -1,6 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs><linearGradient id="g" x1="12" y1="5" x2="52" y2="59" gradientUnits="userSpaceOnUse"><stop stop-color="#ffe2a0"/><stop offset=".52" stop-color="#e4b85d"/><stop offset="1" stop-color="#996c2a"/></linearGradient></defs>
-  <rect width="64" height="64" rx="13" fill="#05090d"/>
-  <path d="M32 5 57 59H45L32 29 19 59H7L32 5Z" fill="url(#g)"/>
-  <path d="m32 5 7 17-7 18-7-18 7-17Z" fill="#05090d"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ALEX.TOPCARS AT">
+  <defs>
+    <linearGradient id="gold" x1="8" y1="4" x2="55" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff0bd"/>
+      <stop offset=".28" stop-color="#e8c36e"/>
+      <stop offset=".58" stop-color="#ad772d"/>
+      <stop offset=".82" stop-color="#f5d993"/>
+      <stop offset="1" stop-color="#a97528"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#252e23"/>
+  <path d="M8 50 25 12h5l17 38H38L27.5 27 17 50Z" fill="url(#gold)"/>
+  <path d="M28 20h29v7H46v24h-8V27H28Z" fill="url(#gold)"/>
+  <path d="M5 42C19 32 34 27 54 28" fill="none" stroke="url(#gold)" stroke-width="2.8" stroke-linecap="round"/>
 </svg>
