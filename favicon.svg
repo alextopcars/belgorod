@@ -1,15 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ALEX.TOPCARS AT">
-  <defs>
-    <linearGradient id="gold" x1="8" y1="4" x2="55" y2="60" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#fff0bd"/>
-      <stop offset=".28" stop-color="#e8c36e"/>
-      <stop offset=".58" stop-color="#ad772d"/>
-      <stop offset=".82" stop-color="#f5d993"/>
-      <stop offset="1" stop-color="#a97528"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="14" fill="#252e23"/>
-  <path d="M8 50 25 12h5l17 38H38L27.5 27 17 50Z" fill="url(#gold)"/>
-  <path d="M28 20h29v7H46v24h-8V27H28Z" fill="url(#gold)"/>
-  <path d="M5 42C19 32 34 27 54 28" fill="none" stroke="url(#gold)" stroke-width="2.8" stroke-linecap="round"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#10130f"/><path d="M10 52 29 11l5-1 19 42H42L32 27 21 52Z" fill="#d9b36b"/><path d="M32 19h22v7H45v17h-8V26H32Z" fill="#f3d99a"/><path d="M13 48c10-8 22-15 38-22" fill="none" stroke="#ffe4a4" stroke-width="2.5"/></svg>
