@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#05090d">
-  <meta name="description" content="alex.topcars — подбор, покупка и доставка автомобилей из Кореи, Китая и Европы. Автовыкуп, Trade-in и комиссионная продажа.">
-  <meta property="og:title" content="alex.topcars — автомобили с характером">
-  <meta property="og:description" content="Премиальный автоподбор. Подбор, покупка и доставка автомобилей под ключ.">
+  <meta name="theme-color" content="#343c2d">
+  <meta name="description" content="alex.topcars — подбор и покупка автомобиля под ваши задачи. Организуем проверку, доставку, Trade-in и комиссионную продажу с сопровождением сделки.">
+  <meta property="og:title" content="alex.topcars — автомобиль, который подходит именно вам">
+  <meta property="og:description" content="Подберём, проверим и организуем покупку автомобиля под ваш бюджет и задачи.">
   <meta property="og:type" content="website">
-  <title>alex.topcars — подбор и доставка автомобилей</title>
+  <title>alex.topcars — подбор, покупка и доставка автомобилей</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{--bg:#05090d;--bg-2:#080e14;--panel:#0d141b;--panel-2:#111b24;--gold:#e4b85d;--gold-light:#ffd989;--gold-dark:#906b2b;--text:#f7f8fa;--muted:#aab3bd;--line:rgba(255,255,255,.12);--max:1240px;--radius:16px}
     *{box-sizing:border-box}
@@ -376,6 +376,252 @@
       .photo-viewer-note{font-size:9px;margin-top:8px}
     }
 
+  
+    /* ALEX.TOPCARS — premium responsive redesign */
+    :root{
+      --bg:#f7f6f0;--bg-2:#fcfbf6;--panel:#fffefa;--panel-2:#efeee4;
+      --gold:#c59a43;--gold-light:#e5c77f;--gold-dark:#98712b;
+      --text:#22291e;--muted:#68705f;--line:rgba(55,67,44,.15);
+      --max:1320px;--radius:22px;--olive:#586347;--olive-dark:#303a29;--khaki:#aaa47d;
+    }
+    html{scroll-padding-top:92px}
+    body{font-family:Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:15px;line-height:1.65;letter-spacing:-.012em;background:linear-gradient(180deg,#fbfaf5 0%,#f3f2e9 100%);color:var(--text);overflow-x:hidden}
+    .container{width:min(var(--max),calc(100% - clamp(28px,5vw,88px)))}
+    .section{padding:clamp(66px,7vw,104px) 0;border-bottom:1px solid var(--line)}
+    .section-head{gap:30px;margin-bottom:32px;align-items:flex-end}
+    .section-head h2,.services-intro h2{font-size:clamp(31px,4vw,52px);line-height:1.08;letter-spacing:-.055em;margin:14px 0 13px;font-weight:750}
+    .section-head p{font-size:15px;line-height:1.75;max-width:650px;color:var(--muted)}
+    .eyebrow{font-size:11px;letter-spacing:.19em;font-weight:800;color:var(--olive)}
+    .eyebrow:before{width:34px;height:2px}
+    .btn{min-height:50px;padding:14px 23px;font-size:13px;font-weight:750;letter-spacing:-.01em;gap:13px;border-radius:999px}
+    .btn-gold{background:linear-gradient(135deg,#f2dca1 0%,#d9b45f 48%,#bd8a32 100%);color:#2a2a1d;box-shadow:0 10px 24px rgba(145,113,43,.18)}
+    .btn-gold:hover{box-shadow:0 14px 29px rgba(145,113,43,.25)}
+    .btn-outline{border-color:rgba(80,91,63,.34);background:rgba(255,254,250,.82);color:var(--olive-dark)}
+    .btn-outline:hover{border-color:var(--gold-dark);background:#f4ecd8}
+    .btn-arrow{font-size:20px}
+    a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid rgba(197,154,67,.75);outline-offset:3px}
+    /* Header */
+    .header{height:82px;background:rgba(252,251,246,.92);border-bottom:1px solid rgba(95,104,75,.15);box-shadow:0 6px 26px rgba(39,45,31,.05);backdrop-filter:blur(20px)}
+    .header-inner{gap:26px}
+    .brand{gap:12px;min-width:220px}
+    .brand-mark{width:48px;height:48px;object-fit:contain}
+    .brand-name{font-size:20px;letter-spacing:-.045em;font-weight:800}
+    .brand-name span{color:var(--gold-dark)}
+    .nav{gap:clamp(16px,2vw,30px)}
+    .nav a{font-size:12px;font-weight:600;color:#59614f}
+    .nav a.active:after{height:2px;border-radius:2px}
+    .header-socials{font-size:11px;gap:15px}
+    .social-link{gap:7px}
+    .header-phone{padding:11px 15px;font-size:12px;border-color:rgba(150,115,46,.44);background:#fffdf7}
+    .menu-toggle{border-radius:12px;width:42px;height:42px}
+    /* Hero: high-resolution full-bleed image */
+    .hero{height:min(920px,calc(100vh - 82px));height:min(920px,calc(100svh - 82px));min-height:650px;border-bottom:0;isolation:isolate;background:#272e22}
+    .hero:before{background-image:url("https://images.unsplash.com/photo-1612594018234-3bf6b2d36c64?auto=format&fit=crop&w=2600&q=92"),url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2600&q=92");background-size:cover,cover;background-position:center 54%,center 56%;background-repeat:no-repeat,no-repeat;transform:scale(1.005)}
+    .hero:after{background:linear-gradient(90deg,rgba(17,23,15,.88) 0%,rgba(17,23,15,.70) 29%,rgba(17,23,15,.34) 48%,rgba(17,23,15,.04) 78%),linear-gradient(0deg,rgba(18,24,15,.91) 0%,rgba(18,24,15,.22) 24%,transparent 55%)}
+    .hero-content{height:100%;min-height:inherit;justify-content:center;align-items:flex-start;padding-top:clamp(44px,6vh,82px);padding-bottom:clamp(150px,19vh,208px)}
+    .hero .eyebrow{color:#ead292;margin-bottom:23px;font-size:11px}
+    .hero .eyebrow:before{background:linear-gradient(90deg,#e5c77f,#b48b39)}
+    .hero h1{max-width:690px;margin:0 0 23px;color:#fffdf7;font-size:clamp(46px,6.2vw,84px);line-height:.99;letter-spacing:-.065em;font-weight:800;text-shadow:0 3px 24px rgba(0,0,0,.2)}
+    .hero h1 span{color:#e7c675}
+    .hero-copy{max-width:475px;color:rgba(255,253,247,.86);font-size:clamp(15px,1.3vw,18px);line-height:1.75;margin:0 0 30px;text-wrap:pretty}
+    .hero-actions{gap:14px}
+    .hero .btn{min-height:54px;padding:15px 25px}
+    .hero .btn-outline{border-color:rgba(255,253,247,.55);background:rgba(15,20,13,.18);color:#fffdf7;backdrop-filter:blur(10px)}
+    .hero .btn-outline:hover{background:rgba(255,253,247,.14);border-color:#fffdf7}
+    .hero-foot{border-top:1px solid rgba(255,255,255,.17);background:linear-gradient(90deg,rgba(29,37,24,.95),rgba(29,37,24,.84));backdrop-filter:blur(14px)}
+    .benefits{min-height:106px}
+    .benefit{gap:14px;padding:17px 22px;border-right-color:rgba(255,255,255,.15)}
+    .benefit:first-child{padding-left:0}
+    .benefit-icon{width:40px;height:40px;border-radius:50%;border-color:rgba(229,199,127,.7);color:#e5c77f;background:rgba(255,255,255,.04)}
+    .benefit-icon svg{width:21px;height:21px}
+    .benefit strong{font-size:12px;line-height:1.4;color:#fffdf6}
+    .benefit small{font-size:11px;line-height:1.45;color:rgba(255,253,246,.72);margin-top:5px}
+    /* Catalog */
+    .catalog{background:linear-gradient(180deg,#faf9f3,#f5f3eb)}
+    .section-head .top-link{flex:0 0 auto;margin-bottom:2px}
+    .filters{grid-template-columns:repeat(5,minmax(0,1fr)) auto;gap:10px;padding:12px;background:#eeeee2;border:1px solid rgba(75,86,59,.14);border-radius:18px;margin:28px 0 22px;box-shadow:0 10px 26px rgba(39,45,31,.04)}
+    .field{padding:10px 13px;gap:5px;border-radius:11px;border-color:rgba(75,86,59,.13);background:#fffefa;box-shadow:none}
+    .field label{font-size:10px;color:#707764;font-weight:650}
+    .field select,.field input,.field textarea{font-size:13px;color:var(--olive-dark);line-height:1.5}
+    .field select option{background:#fffefa;color:var(--olive-dark)}
+    .filter-submit{align-self:stretch;padding:0 24px;border-radius:12px}
+    .catalog-meta{font-size:12px;color:var(--muted);margin:0 0 18px}
+    .catalog-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+    .car-card{border:1px solid rgba(75,86,59,.13);border-radius:22px;background:#fffefa;box-shadow:0 10px 32px rgba(39,45,31,.055);transition:transform .28s,border-color .28s,box-shadow .28s}
+    .car-card:hover{transform:translateY(-5px);border-color:rgba(197,154,67,.58);box-shadow:0 19px 44px rgba(39,45,31,.13)}
+    .car-photo{height:clamp(235px,24vw,350px);background:#e4e2d7}
+    .car-photo:after{background:linear-gradient(0deg,rgba(18,24,15,.32),transparent 38%)}
+    .car-photo img{object-fit:cover;object-position:center;transition:transform .55s ease}
+    .car-info{padding:21px 22px 22px}
+    .car-title{font-size:17px;line-height:1.3;font-weight:750;margin-bottom:8px;color:#252c21}
+    .car-subtitle{font-size:12px;color:#707765;margin-bottom:13px}
+    .car-specs{font-size:11px;line-height:1.5;gap:10px;padding-bottom:15px;border-bottom-color:rgba(72,83,57,.12);color:#5d6654}
+    .car-spec:before{width:5px;height:5px;background:var(--gold-dark)}
+    .car-bottom{padding-top:15px}
+    .car-price{font-size:20px;color:#89651e;font-weight:800}
+    .car-bottom small{font-size:11px;color:#777d6d}
+    .car-detail{margin-top:16px;padding:12px 15px;font-size:12px;min-height:45px}
+    .stock{border-radius:8px;padding:6px 10px;font-size:10px;backdrop-filter:blur(8px)}
+    .stock.in{background:#526344}
+    .stock.order{background:#e5c77f;color:#2c2d20}
+    .favorite{width:38px;height:38px;font-size:21px;box-shadow:0 4px 16px rgba(0,0,0,.13)}
+    .gallery-control{width:38px;height:44px;border-radius:12px}
+    .gallery-count{font-size:10px;border-radius:8px}
+    .empty-state{padding:40px;background:#fffefa;border:1px dashed rgba(75,86,59,.28);border-radius:18px}
+    .catalog-more{margin-top:30px}
+    /* Services */
+    .services{background:linear-gradient(180deg,#ececdf,#f4f3eb);border-bottom-color:rgba(71,83,54,.13)}
+    .services-layout{grid-template-columns:minmax(250px,.8fr) minmax(0,1.7fr);gap:clamp(28px,4vw,58px);align-items:center}
+    .services-intro h2{color:var(--olive-dark);font-weight:800}
+    .services-intro p{font-size:15px;line-height:1.75;color:var(--muted);max-width:430px;margin:0 0 24px}
+    .services-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+    .service-card{min-height:170px;padding:20px 18px;border:1px solid rgba(73,84,58,.16);border-radius:18px;background:linear-gradient(145deg,#fffefa,#f5f4ec);box-shadow:0 10px 28px rgba(41,46,34,.045)}
+    .service-card:hover{border-color:rgba(197,154,67,.65);background:#fffdf6;transform:translateY(-3px)}
+    .service-card svg{width:30px;height:30px;color:var(--gold-dark);margin-bottom:18px}
+    .service-card h3{font-size:14px;line-height:1.35;font-weight:750;margin:0 0 8px;color:var(--olive-dark)}
+    .service-card p{font-size:12px;line-height:1.6;color:#707665}
+    /* Steps */
+    .process{background:#faf9f4}
+    .process-grid{gap:16px;margin-top:34px}
+    .process-step{min-height:190px;padding:24px;border:1px solid rgba(73,84,58,.15);border-radius:20px;background:linear-gradient(145deg,#fffefa,#f5f4ec);box-shadow:0 10px 26px rgba(41,46,34,.04)}
+    .step-number{font-size:11px;letter-spacing:.1em;color:var(--gold-dark);font-weight:800}
+    .process-step h3{font-size:17px;font-weight:750;letter-spacing:-.025em;color:var(--olive-dark);margin:18px 0 9px}
+    .process-step p{font-size:13px;line-height:1.7;color:var(--muted)}
+    /* Contact and footer */
+    .contact-banner{background:#303a29;border-bottom:0}
+    .contact-banner:before{background:linear-gradient(90deg,rgba(37,46,30,.96),rgba(48,58,41,.88) 56%,rgba(36,43,29,.93)),url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1800&q=80") center 55%/cover;opacity:1}
+    .contact-inner{grid-template-columns:1fr 1.2fr 1fr;gap:clamp(20px,3vw,42px);padding-top:54px;padding-bottom:54px}
+    .contact-brand .brand{margin-bottom:13px}
+    .contact-brand .brand-name{color:#fffdf6}
+    .contact-brand p{font-size:14px;line-height:1.7;color:rgba(255,253,246,.72)}
+    .contact-cta{border-left-color:rgba(255,255,255,.18);padding-left:clamp(20px,3vw,42px)}
+    .contact-cta strong{font-size:20px;line-height:1.3;letter-spacing:-.03em;color:#fffdf6}
+    .contact-cta p{font-size:13px;line-height:1.7;color:rgba(255,253,246,.72);margin-bottom:18px}
+    .contact-links{gap:15px}
+    .contact-links a{font-size:12px;line-height:1.45;color:#fffdf6}
+    .contact-links small{font-size:11px;color:rgba(255,253,246,.67)}
+    .contact-links svg{width:20px;height:20px;color:#e5c77f}
+    .copyright{background:#242c20}
+    .copyright-inner{min-height:64px;font-size:11px;color:rgba(255,253,246,.68)}
+    .legal-links{gap:22px}
+    /* Dialogs */
+    .modal{width:min(480px,calc(100% - 28px));padding:30px;border-color:rgba(197,154,67,.6);border-radius:22px;background:#fffdf7;color:var(--text)}
+    .modal h2{font-size:clamp(25px,3vw,32px);line-height:1.08;font-weight:800}
+    .modal p{font-size:13px;line-height:1.65}
+    .modal .field{padding:12px 14px;margin-bottom:12px;border-radius:12px;background:#fff;border-color:var(--line)}
+    .modal .field input,.modal .field textarea,.modal .field select{font-size:14px}
+    .modal .btn{width:100%;margin-top:7px}
+    .toast{border-radius:14px;background:#303a29;border-color:#c59a43;color:#fffdf7;padding:15px 18px;font-size:13px}
+    /* Gallery */
+    .photo-viewer{border-radius:24px;background:#293225}
+    .photo-viewer-inner{padding:clamp(16px,3vw,30px)}
+    .photo-viewer-stage{background:#1d241a}
+    .photo-viewer-arrow{width:50px;height:58px}
+    /* Responsive refinements */
+    @media(max-width:1100px){
+      .header-inner{gap:14px}.brand{min-width:auto}
+      .nav{gap:15px}.nav a{font-size:11px}
+      .header-socials{display:none}
+      .catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+      .car-photo{height:clamp(230px,32vw,330px)}
+      .services-layout{grid-template-columns:1fr}
+      .services-intro{display:grid;grid-template-columns:1fr 1fr;column-gap:30px;align-items:end}
+      .services-intro .eyebrow{grid-column:1/-1}
+      .services-intro h2{margin-bottom:0}
+      .services-intro p{margin-bottom:3px}
+      .services-intro .btn{margin-top:16px;justify-self:start}
+      .contact-inner{grid-template-columns:1fr 1fr}
+      .contact-links{grid-column:1/-1;grid-template-columns:repeat(3,1fr)}
+    }
+    @media(max-width:820px){
+      .header{height:72px}
+      html{scroll-padding-top:80px}
+      .nav{top:72px;gap:0}
+      .nav a{font-size:13px}
+      .hero{height:auto;min-height:760px}
+      .hero-content{height:auto;min-height:650px;padding-top:72px;padding-bottom:205px;justify-content:flex-start}
+      .hero:before{background-position:58% center,58% center}
+      .hero:after{background:linear-gradient(90deg,rgba(17,23,15,.88),rgba(17,23,15,.64) 52%,rgba(17,23,15,.15)),linear-gradient(0deg,rgba(18,24,15,.95),rgba(18,24,15,.12) 38%,transparent 60%)}
+      .benefits{grid-template-columns:repeat(2,minmax(0,1fr));padding:9px 0}
+      .benefit{padding:12px 14px;border-right:0}
+      .benefit:nth-child(odd){border-right:1px solid rgba(255,255,255,.14)}
+      .benefit:first-child{padding-left:14px}
+      .section{padding:64px 0}
+      .section-head{align-items:flex-start;flex-direction:column;gap:12px}
+      .section-head .top-link{align-self:flex-start}
+      .filters{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+      .filter-submit{min-height:48px}
+      .catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+      .car-photo{height:clamp(210px,36vw,290px)}
+      .car-info{padding:17px}
+      .car-title{font-size:15px}
+      .services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .service-card{min-height:150px}
+      .process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .contact-inner{grid-template-columns:1fr 1fr;padding-top:38px;padding-bottom:38px}
+    }
+    @media(max-width:520px){
+      body{font-size:14px}
+      .container{width:calc(100% - 28px)}
+      .header{height:66px}
+      .header-inner{gap:9px}
+      .brand{gap:7px}.brand-mark{width:34px;height:36px}.brand-name{font-size:15px}
+      .nav{top:66px}
+      .header-phone{width:40px;height:40px;padding:8px;justify-content:center;overflow:hidden;font-size:0;gap:0}
+      .header-phone svg{width:17px;height:17px;flex-shrink:0}
+      .menu-toggle{width:40px;height:40px;padding:7px}
+      .hero{min-height:790px}
+      .hero-content{min-height:645px;padding-top:62px;padding-bottom:218px}
+      .hero:before{background-position:61% center,61% center}
+      .hero:after{background:linear-gradient(90deg,rgba(17,23,15,.88),rgba(17,23,15,.69) 58%,rgba(17,23,15,.28)),linear-gradient(0deg,rgba(18,24,15,.96),rgba(18,24,15,.12) 38%,transparent 61%)}
+      .hero h1{font-size:clamp(42px,11vw,58px);max-width:500px;line-height:1}
+      .hero-copy{font-size:15px;max-width:355px;margin-bottom:24px}
+      .hero-actions{align-items:stretch;flex-direction:column;width:min(100%,360px);gap:10px}
+      .hero .btn{width:100%;min-height:52px}
+      .benefits{padding:7px 0}
+      .benefit{gap:9px;padding:9px 7px!important}
+      .benefit-icon{width:30px;height:30px}
+      .benefit-icon svg{width:17px;height:17px}
+      .benefit strong{font-size:10px}
+      .benefit small{font-size:9px;line-height:1.35;margin-top:3px}
+      .section{padding:58px 0}
+      .section-head h2,.services-intro h2{font-size:clamp(30px,8.5vw,38px)}
+      .section-head p,.services-intro p{font-size:13px;line-height:1.7}
+      .filters{grid-template-columns:repeat(2,minmax(0,1fr));padding:8px;gap:8px;margin:22px 0 17px}
+      .field{padding:9px 10px}
+      .filter-submit{grid-column:1/-1;min-height:46px}
+      .catalog-meta{gap:10px;align-items:flex-start;flex-direction:column;font-size:11px}
+      .catalog-grid{grid-template-columns:minmax(0,1fr);gap:18px}
+      .car-photo{height:clamp(235px,68vw,355px)}
+      .car-info{padding:18px}
+      .car-title{font-size:17px}
+      .car-subtitle{font-size:11px}
+      .car-specs{font-size:10px}
+      .car-price{font-size:20px}
+      .services-intro{display:block}
+      .services-intro h2{margin:14px 0}
+      .services-intro p{margin-bottom:21px}
+      .services-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+      .service-card{padding:15px 12px;min-height:146px;border-radius:15px}
+      .service-card svg{width:26px;height:26px;margin-bottom:14px}
+      .service-card h3{font-size:12px}
+      .service-card p{font-size:10px;line-height:1.5}
+      .process-grid{grid-template-columns:1fr;gap:10px;margin-top:23px}
+      .process-step{min-height:0;padding:19px}
+      .process-step h3{font-size:16px;margin:11px 0 6px}
+      .process-step p{font-size:12px}
+      .contact-inner{grid-template-columns:1fr;gap:24px;padding-top:32px;padding-bottom:30px}
+      .contact-cta{border-left:0;border-top:1px solid rgba(255,255,255,.18);padding:22px 0 0}
+      .contact-links{grid-column:auto;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+      .copyright-inner{min-height:0;padding:19px 0;align-items:flex-start;flex-direction:column;gap:10px;font-size:10px}
+      .legal-links{flex-wrap:wrap;gap:14px}
+      .modal{padding:21px}
+      .photo-viewer{width:calc(100% - 14px);max-height:calc(100dvh - 14px);border-radius:16px}
+      .photo-viewer-stage{height:48vh;min-height:210px}
+      .photo-viewer-arrow{width:36px;height:43px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
   </style>
 </head>
 <body>
@@ -409,19 +655,19 @@
     <section class="hero" id="home">
       <div class="container hero-content">
         <div class="eyebrow">Премиальный автоподбор</div>
-        <h1>Подбор, покупка<br>и доставка<br><span>автомобилей</span></h1>
-        <p class="hero-copy">Из Кореи, Китая и Европы.<br>Автовыкуп, Trade-in,<br>комиссионная продажа.</p>
+        <h1>Автомобиль,<br>который подходит<br><span>именно вам</span></h1>
+        <p class="hero-copy">Подберём, проверим и организуем покупку автомобиля из Кореи, Китая и Европы — под ваш бюджет и задачи.</p>
         <div class="hero-actions">
-          <a class="btn btn-gold" href="https://t.me/AlexTopCarsLeadBot?start=lead" target="_blank" rel="noopener noreferrer">Оставить заявку <span class="btn-arrow">→</span></a>
-          <a class="btn btn-outline" href="#catalog">Выбрать автомобиль</a>
+          <a class="btn btn-gold" href="https://t.me/AlexTopCarsLeadBot?start=lead" target="_blank" rel="noopener noreferrer">Подобрать автомобиль <span class="btn-arrow">→</span></a>
+          <a class="btn btn-outline" href="#catalog">Смотреть каталог</a>
         </div>
       </div>
       <div class="hero-foot">
         <div class="container benefits">
-          <div class="benefit"><span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M4 6h16M4 18h16"/></svg></span><div><strong>Автомобили</strong><small>из Кореи, Китая и Европы</small></div></div>
-          <div class="benefit"><span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 21 6v6c0 5-3.7 8.6-9 10-5.3-1.4-9-5-9-10V6l9-4Z"/><path d="m8 12 2.5 2.5L16 9"/></svg></span><div><strong>Гарантия</strong><small>на все автомобили</small></div></div>
-          <div class="benefit"><span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h11v11H3zM14 10h4l3 3v5h-7z"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/><path d="M5 7V4h9v3"/></svg></span><div><strong>Доставка</strong><small>по всей России</small></div></div>
-          <div class="benefit"><span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m12 2.5 3 6.1 6.7 1-4.8 4.7 1.1 6.7-6-3.2-6 3.2 1.1-6.7-4.8-4.7 6.7-1 3-6.1Z"/></svg></span><div><strong>Индивидуальный</strong><small>подход к каждому клиенту</small></div></div>
+          <div class="benefit"><span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M4 6h16M4 18h16"/></svg></span><div><strong>Проверка до покупки</strong><small>История, состояние и документы</small></div></div>
+          <div class="benefit"><span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 21 6v6c0 5-3.7 8.6-9 10-5.3-1.4-9-5-9-10V6l9-4Z"/><path d="m8 12 2.5 2.5L16 9"/></svg></span><div><strong>Подбор под бюджет</strong><small>Учитываем ваши задачи и приоритеты</small></div></div>
+          <div class="benefit"><span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h11v11H3zM14 10h4l3 3v5h-7z"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/><path d="M5 7V4h9v3"/></svg></span><div><strong>Доставка по России</strong><small>Сопровождаем до передачи ключей</small></div></div>
+          <div class="benefit"><span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m12 2.5 3 6.1 6.7 1-4.8 4.7 1.1 6.7-6-3.2-6 3.2 1.1-6.7-4.8-4.7 6.7-1 3-6.1Z"/></svg></span><div><strong>Персональный менеджер</strong><small>На связи на каждом этапе</small></div></div>
         </div>
       </div>
     </section>
@@ -429,7 +675,7 @@
     <section class="section catalog" id="catalog">
       <div class="container">
         <div class="section-head">
-          <div><div class="eyebrow">Каталог автомобилей</div><h2>Актуальные предложения</h2><p>Проверенные автомобили с полной историей. Выбирайте из доступных вариантов или оставьте заявку — мы подберём идеальный вариант под ваш бюджет.</p></div>
+          <div><div class="eyebrow">Каталог автомобилей</div><h2>Найдите свой следующий автомобиль</h2><p>Предложения с характеристиками и стоимостью, которые можно сравнить. Не нашли подходящий вариант? Подберём автомобиль под ваши задачи и бюджет.</p></div>
           <a class="btn btn-outline top-link" href="#catalogFilters">Смотреть весь каталог <span class="btn-arrow">→</span></a>
         </div>
         <div class="filters" id="catalogFilters" aria-label="Фильтры каталога">
@@ -449,7 +695,7 @@
 
     <section class="section services" id="services">
       <div class="container services-layout">
-        <div class="services-intro"><div class="eyebrow">Наши услуги</div><h2>Полный цикл автомобильных решений</h2><p>Мы берём на себя все заботы — от подбора до доставки автомобиля. Ваш комфорт и уверенность в каждой сделке — наш приоритет.</p><a class="btn btn-gold" href="https://t.me/AlexTopCarsLeadBot?start=services" target="_blank" rel="noopener noreferrer">Узнать подробнее <span class="btn-arrow">→</span></a></div>
+        <div class="services-intro"><div class="eyebrow">Наши услуги</div><h2>Всё для удобной покупки автомобиля</h2><p>Подбор, проверка, покупка, доставка и продажа вашего текущего автомобиля. Обсудим задачу и согласуем понятный план действий до начала сделки.</p><a class="btn btn-gold" href="https://t.me/AlexTopCarsLeadBot?start=services" target="_blank" rel="noopener noreferrer">Узнать подробнее <span class="btn-arrow">→</span></a></div>
         <div class="services-grid">
           <article class="service-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10.5" cy="8" r="5.5"/><path d="m15 12 6 6M2 22c.8-4 3.8-6 8.5-6 2 0 3.5.4 4.8 1.1"/></svg><h3>Подбор авто</h3><p>Найдём лучший вариант под ваш бюджет и запросы.</p></article>
           <article class="service-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 21 6v6c0 5-3.7 8.6-9 10-5.3-1.4-9-5-9-10V6l9-4Z"/><path d="m8 12 2.5 2.5L16 9"/></svg><h3>Покупка</h3><p>Проверка, оформление, юридическая чистота.</p></article>
@@ -462,7 +708,7 @@
 
     <section class="section process" id="process">
       <div class="container">
-        <div class="section-head"><div><div class="eyebrow">Почему выбирают нас</div><h2>От запроса до следующего ключа</h2><p>Понятный процесс, прозрачные условия и персональный менеджер на каждом этапе.</p></div></div>
+        <div class="section-head"><div><div class="eyebrow">Как мы работаем</div><h2>От первого запроса до передачи ключей</h2><p>Четыре последовательных шага: согласуем ожидания, покажем варианты, проверим автомобиль и сопроводим оформление.</p></div></div>
         <div class="process-grid">
           <article class="process-step"><div class="step-number">01 / ЗАЯВКА</div><h3>Обсуждаем запрос</h3><p>Уточняем бюджет, пожелания и сроки. Согласуем план подбора.</p></article>
           <article class="process-step"><div class="step-number">02 / ПОДБОР</div><h3>Находим варианты</h3><p>Собираем подходящие предложения, проверяем историю и состояние.</p></article>
@@ -475,7 +721,7 @@
     <section class="contact-banner" id="contacts">
       <div class="container contact-inner">
         <div class="contact-brand"><a class="brand" href="#home"><img class="brand-mark" src="favicon.svg" alt="" aria-hidden="true"><span class="brand-name"><span>alex.</span>topcars</span></a><p>Автомобиль ближе, чем кажется.</p></div>
-        <div class="contact-cta"><strong>Остались вопросы?</strong><p>Оставьте заявку — мы свяжемся с вами в ближайшее время.</p><a class="btn btn-gold" href="https://t.me/AlexTopCarsLeadBot?start=lead" target="_blank" rel="noopener noreferrer">Оставить заявку <span class="btn-arrow">→</span></a></div>
+        <div class="contact-cta"><strong>Начнём с вашего запроса</strong><p>Расскажите, какой автомобиль ищете. Обсудим бюджет, сроки и подходящие варианты в Telegram.</p><a class="btn btn-gold" href="https://t.me/AlexTopCarsLeadBot?start=lead" target="_blank" rel="noopener noreferrer">Оставить заявку <span class="btn-arrow">→</span></a></div>
         <div class="contact-links">
           <a href="https://t.me/alex_topcars" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.64 6.86-1.56 7.35c-.12.52-.43.65-.87.4l-2.41-1.78-1.16 1.12c-.13.13-.24.24-.49.24l.17-2.45 4.46-4.03c.19-.17-.04-.27-.29-.1L8.98 13.1l-2.38-.74c-.52-.16-.53-.52.11-.78l9.28-3.58c.43-.16.81.1.65.86Z"/></svg><span>Telegram<br><small>@alex_topcars</small></span></a>
           <a href="https://www.instagram.com/alex.topcars/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram<br><small>@alex.topcars</small></span></a>
@@ -524,21 +770,12 @@
   </dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="assets/hero-part-0.js"></script>
-  <script src="assets/hero-part-1.js"></script>
-  <script src="assets/hero-part-2.js"></script>
-  <script src="assets/hero-part-3.js"></script>
-  <script src="assets/hero-part-4.js"></script>
   <script src="assets/mark-part-0.js"></script>
   <script src="assets/mark-part-1.js"></script>
   <script src="assets/mark-part-2.js"></script>
   <script>
     (function () {
-      const heroParts = window.ALEX_TOPCARS_HERO_PARTS || [];
       const markParts = window.ALEX_TOPCARS_MARK_PARTS || [];
-      if (heroParts.length === 5 && heroParts.every(Boolean)) {
-        document.documentElement.style.setProperty('--hero-photo', 'url("data:image/webp;base64,' + heroParts.join('') + '")');
-      }
       if (markParts.length === 3 && markParts.every(Boolean)) {
         const mark = 'data:image/webp;base64,' + markParts.join('');
         document.querySelectorAll('.brand-mark').forEach(function (img) { img.src = mark; });
