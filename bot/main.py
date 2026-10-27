@@ -245,6 +245,12 @@ async def website_lead(request: Request) -> JSONResponse:
 
 @app.on_event("startup")
 async def configure_webhook() -> None:
+    log.info(
+        "Startup configuration: telegram_token_configured=%s admin_chat_configured=%s webhook_url_configured=%s",
+        bool(BOT_TOKEN),
+        bool(ADMIN_CHAT_ID),
+        bool(PUBLIC_URL),
+    )
     if not BOT_TOKEN:
         log.warning("TELEGRAM_BOT_TOKEN is missing. Add it in the hosting environment.")
         return
