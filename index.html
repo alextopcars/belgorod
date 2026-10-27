@@ -211,6 +211,65 @@ button,a{-webkit-tap-highlight-color:transparent}
  .footer-links{gap:13px 18px}.footer-bottom{display:block;line-height:1.9}.footer-bottom span{display:block}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+/* Catalog gallery replacing the previous About block */
+.car-showcase{background:#ece9df;color:#172019}
+.showcase-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:36px;margin-bottom:32px}
+.showcase-heading h2{margin:10px 0 0;font-size:clamp(34px,4.2vw,55px);line-height:1.05;font-weight:600;letter-spacing:-.06em}
+.showcase-heading h2 span{font-family:"Playfair Display",Georgia,serif;color:#a77b35;font-style:italic;font-weight:500}
+.showcase-heading>p{max-width:465px;margin:0;color:#6e7469;font-size:13px;line-height:1.85}
+.showcase-card{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(320px,.75fr);background:#f8f6ef;border:1px solid #ded8c7;border-radius:22px;overflow:hidden;box-shadow:0 18px 48px #2227180a}
+.showcase-gallery{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:repeat(2,minmax(180px,1fr));gap:8px;padding:10px;background:#d9d6ca;min-height:510px}
+.showcase-photo{position:relative;display:block;overflow:hidden;min-height:0;background:#c6c7be;border-radius:10px}
+.showcase-photo-main{grid-row:span 2}
+.showcase-photo img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;transition:transform .4s}
+.showcase-photo:hover img{transform:scale(1.04)}
+.showcase-photo:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#0c100d9c);pointer-events:none}
+.showcase-photo-label{position:absolute;z-index:1;left:15px;bottom:13px;color:#fff;font-size:9px;letter-spacing:.13em;text-transform:uppercase;font-weight:800}
+.showcase-details{padding:clamp(26px,3.1vw,45px);display:flex;flex-direction:column;align-items:flex-start}
+.showcase-detail-top{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;margin-bottom:29px}
+.showcase-stock{position:static;background:#253324;color:#f8d995;border:0}
+.showcase-code{font-size:9px;letter-spacing:.15em;color:#929184}
+.showcase-details h3{font-size:clamp(34px,3.2vw,45px);line-height:1.05;letter-spacing:-.055em;margin:8px 0 5px}
+.showcase-subtitle{font-size:12px;color:#777b70;margin:0}
+.showcase-price{font-size:27px;font-weight:800;letter-spacing:-.045em;margin:23px 0 20px;color:#283429}
+.showcase-specs{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:0 16px;border-top:1px solid #ddd8c9;border-bottom:1px solid #ddd8c9}
+.showcase-specs>div{padding:11px 0;border-bottom:1px solid #e5e0d4;display:flex;flex-direction:column;gap:3px}
+.showcase-specs>div:nth-last-child(-n+2){border-bottom:0}
+.showcase-specs span{font-size:10px;color:#838578}
+.showcase-specs b{font-size:12px;color:#30382f}
+.showcase-description{font-size:11px;color:#777b70;line-height:1.8;margin:20px 0}
+.showcase-cta{width:100%;padding:16px 20px}
+.showcase-phone{font-size:11px;font-weight:800;color:#6f5428;margin:14px auto 0}
+.showcase-footnote{font-size:9px;color:#9a9a8e;line-height:1.6;margin-top:23px}
+.showcase-bottom{display:flex;justify-content:space-between;align-items:center;gap:22px;background:#263124;color:#fff;border-radius:0 0 18px 18px;padding:22px 28px;margin-top:2px}
+.showcase-bottom-label{display:block;color:#e3c47f;text-transform:uppercase;letter-spacing:.15em;font-size:9px;margin-bottom:5px}
+.showcase-bottom strong{font-size:13px;font-weight:600}
+.showcase-bottom-btn{white-space:nowrap}
+@media(max-width:980px){
+ .showcase-card{grid-template-columns:1fr}
+ .showcase-gallery{min-height:480px}
+ .showcase-details{padding:30px}
+ .showcase-details h3{font-size:38px}
+}
+@media(max-width:620px){
+ .showcase-heading{display:block}
+ .showcase-heading h2{font-size:39px}
+ .showcase-heading>p{margin-top:14px;font-size:12px}
+ .showcase-card{border-radius:16px}
+ .showcase-gallery{min-height:0;grid-template-rows:repeat(2,160px);grid-template-columns:1.1fr 1fr;padding:7px;gap:6px}
+ .showcase-photo{border-radius:7px}
+ .showcase-photo-main{grid-row:span 2}
+ .showcase-photo-label{font-size:8px;left:9px;bottom:9px;letter-spacing:.06em}
+ .showcase-details{padding:22px}
+ .showcase-detail-top{margin-bottom:22px}
+ .showcase-code{font-size:8px}
+ .showcase-details h3{font-size:34px}
+ .showcase-price{font-size:25px;margin:18px 0}
+ .showcase-bottom{display:block;padding:21px;margin-top:10px;border-radius:14px}
+ .showcase-bottom-btn{margin-top:16px}
+}
+
 </style>
 </head>
 <body>
@@ -218,7 +277,7 @@ button,a{-webkit-tap-highlight-color:transparent}
  <div class="container header-inner">
   <a class="brand" href="#home" aria-label="ALEX.TOPCARS — на главную"><img src="assets/alex-topcars-gold.svg?v=20261027-b" width="224" height="100" alt="ALEX.TOPCARS — золотая монограмма AT, автомобиль и слоган"></a>
   <nav class="nav" id="mainNav" aria-label="Основная навигация">
-   <a class="active" href="#home">Главная</a><a href="#catalog">Каталог</a><a href="#services">Услуги</a><a href="#about">Обо мне</a><a href="#contacts">Контакты</a>
+   <a class="active" href="#home">Главная</a><a href="#catalog">Каталог</a><a href="#services">Услуги</a><a href="#gallery">Автомобили</a><a href="#contacts">Контакты</a>
   </nav>
   <div class="header-contacts">
    <div class="header-social"><a class="header-social-link" href="https://t.me/alex_topcars" target="_blank" rel="noopener"><span class="social-dot">➤</span> Telegram</a></div>
@@ -296,17 +355,57 @@ button,a{-webkit-tap-highlight-color:transparent}
   </div>
  </div>
 </section>
-<section class="section about" id="about">
- <div class="container about-grid">
-  <div class="about-photo"><img src="images/photo2026-10-2300-19-36.jpg?v=20261026-r3" alt="Автомобиль крупным планом" loading="lazy"><div class="about-stamp"><b>ALEX.TOPCARS</b>ЛИЧНЫЙ ПОДБОР И СОПРОВОЖДЕНИЕ</div></div>
-  <div class="about-copy"><div class="kicker">Мой подход</div><h2>Я помогаю выбрать<br>не просто автомобиль</h2><p>Для меня важно, чтобы выбор соответствовал вашим задачам и бюджету. Я объясняю варианты простым языком, обсуждаю условия до принятия решения и сопровождаю вас на согласованных этапах сделки.</p><p>Без лишнего давления и обещаний «идеального варианта»: только предметный разговор, проверяемая информация и понятный следующий шаг.</p>
-   <div class="about-points">
-    <div class="about-point"><i>✧</i><div><b>Индивидуальный подход</b><span>Учитываю ваши приоритеты</span></div></div>
-    <div class="about-point"><i>◇</i><div><b>Понятные условия</b><span>Обсуждаем всё заранее</span></div></div>
-    <div class="about-point"><i>⌕</i><div><b>Внимание к деталям</b><span>Сравниваю доступные сведения</span></div></div>
-    <div class="about-point"><i>↗</i><div><b>На связи лично</b><span>Отвечаю на ваши вопросы</span></div></div>
+<section class="section car-showcase" id="gallery">
+ <div class="container">
+  <div class="showcase-heading">
+   <div>
+    <div class="kicker">Автомобиль в деталях</div>
+    <h2>Выбирайте глазами.<br><span>Решайте уверенно.</span></h2>
    </div>
-   <a class="btn btn-gold" href="https://t.me/alex_topcars" target="_blank" rel="noopener">Написать мне в Telegram <span class="btn-arrow">→</span></a>
+   <p>Собрал фотографии автомобиля с разных ракурсов. Хотите уточнить комплектацию, состояние или подобрать похожий вариант под свой бюджет — напишите мне напрямую.</p>
+  </div>
+  <article class="showcase-card">
+   <div class="showcase-gallery" aria-label="Фотографии Mazda 6">
+    <a class="showcase-photo showcase-photo-main" href="images/photo2026-10-2300-10-23.jpg?v=20261027-c" target="_blank" rel="noopener" aria-label="Открыть фото Mazda 6">
+     <img src="images/photo2026-10-2300-10-23.jpg?v=20261027-c" alt="Mazda 6 — общий вид автомобиля" loading="lazy">
+     <span class="showcase-photo-label">01 / Общий вид</span>
+    </a>
+    <a class="showcase-photo" href="images/photo2026-10-2300-19-36.jpg?v=20261027-c" target="_blank" rel="noopener" aria-label="Открыть второе фото Mazda 6">
+     <img src="images/photo2026-10-2300-19-36.jpg?v=20261027-c" alt="Mazda 6 — вид сбоку и сзади" loading="lazy">
+     <span class="showcase-photo-label">02 / Экстерьер</span>
+    </a>
+    <a class="showcase-photo" href="images/photo2026-10-2300-20-48.jpg?v=20261027-c" target="_blank" rel="noopener" aria-label="Открыть третье фото Mazda 6">
+     <img src="images/photo2026-10-2300-20-48.jpg?v=20261027-c" alt="Mazda 6 — дополнительный ракурс" loading="lazy">
+     <span class="showcase-photo-label">03 / Детали</span>
+    </a>
+    <a class="showcase-photo" href="images/photo2026-10-2300-27-33.jpg?v=20261027-c" target="_blank" rel="noopener" aria-label="Открыть четвёртое фото Mazda 6">
+     <img src="images/photo2026-10-2300-27-33.jpg?v=20261027-c" alt="Mazda 6 — ещё один ракурс автомобиля" loading="lazy">
+     <span class="showcase-photo-label">04 / Обзор</span>
+    </a>
+   </div>
+   <div class="showcase-details">
+    <div class="showcase-detail-top"><span class="stock showcase-stock">В наличии*</span><span class="showcase-code">ALEX.TOPCARS / 001</span></div>
+    <div class="kicker">Mazda · седан</div>
+    <h3>Mazda 6</h3>
+    <p class="showcase-subtitle">Максимальная комплектация</p>
+    <div class="showcase-price">2 850 000 ₽</div>
+    <div class="showcase-specs">
+     <div><span>Год</span><b>2023</b></div>
+     <div><span>Двигатель</span><b>2.5 л</b></div>
+     <div><span>Мощность</span><b>191 л.с.</b></div>
+     <div><span>Топливо</span><b>Бензин</b></div>
+     <div><span>Коробка</span><b>Автомат</b></div>
+     <div><span>Привод</span><b>Передний</b></div>
+    </div>
+    <p class="showcase-description">Расскажу подробнее об автомобиле и уточню актуальность предложения перед тем, как вы примете решение.</p>
+    <a class="btn btn-gold showcase-cta" href="https://t.me/alex_topcars" target="_blank" rel="noopener">Написать мне в Telegram <span class="btn-arrow">↗</span></a>
+    <a class="showcase-phone" href="tel:+79192826666">Или позвоните: +7 919 282-66-66</a>
+    <div class="showcase-footnote">* Наличие и цена подлежат подтверждению. Фотографии показывают один автомобиль с разных ракурсов.</div>
+   </div>
+  </article>
+  <div class="showcase-bottom">
+   <div><span class="showcase-bottom-label">Ищете другую марку?</span><strong>Подберу подходящий вариант под ваш бюджет.</strong></div>
+   <a class="btn btn-outline showcase-bottom-btn" href="https://t.me/alex_topcars" target="_blank" rel="noopener">Запросить подбор <span class="btn-arrow">→</span></a>
   </div>
  </div>
 </section>
@@ -345,7 +444,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 <footer class="footer">
  <div class="container footer-main">
   <div><a href="#home"><img class="footer-logo" src="assets/alex-topcars-gold.svg?v=20261027-b" alt="ALEX.TOPCARS — полный золотой логотип" loading="lazy"></a><div class="footer-copy">Подбор автомобилей под ваш запрос, покупка и сопровождение сделки.</div></div>
-  <nav class="footer-links" aria-label="Навигация в подвале"><a href="#home">Главная</a><a href="#catalog">Каталог</a><a href="#services">Услуги</a><a href="#about">Обо мне</a><a href="#contacts">Контакты</a></nav>
+  <nav class="footer-links" aria-label="Навигация в подвале"><a href="#home">Главная</a><a href="#catalog">Каталог</a><a href="#services">Услуги</a><a href="#gallery">Автомобили</a><a href="#contacts">Контакты</a></nav>
   <div class="footer-social"><a href="https://t.me/alex_topcars" target="_blank" rel="noopener">Telegram ↗</a><a href="https://www.instagram.com/alex.topcars/" target="_blank" rel="noopener">Instagram ↗</a></div>
  </div>
  <div class="container footer-bottom"><span>© <span id="year"></span> ALEX.TOPCARS. Все права защищены.</span><span><a href="privacy.html?v=20261026-redesign">Политика конфиденциальности</a> · <a href="tel:+79192826666">+7 919 282-66-66</a></span></div>
