@@ -309,37 +309,23 @@ button,a{-webkit-tap-highlight-color:transparent}
 <section class="section catalog" id="catalog">
  <div class="container">
   <div class="section-head">
-   <div><div class="kicker">Каталог автомобилей</div><h2>Выберите свой<br>идеальный автомобиль</h2></div>
-   <p>Показываю доступный вариант и принимаю запросы на подбор под заказ. Если нужной модели здесь нет, я найду варианты на рынке Кореи, Китая или Европы.</p>
+   <div><div class="kicker">Каталог автомобилей</div><h2>Автомобили из Кореи,<br>Китая и Европы</h2></div>
+   <p>Я подберу автомобиль под ваш запрос и бюджет на рынках Кореи, Китая или Европы. Выберите направление — и обсудим подходящие варианты лично.</p>
   </div>
-  <div class="catalog-toolbar">
-   <div class="catalog-tabs" role="group" aria-label="Фильтр каталога"><button class="catalog-tab active" data-filter="all">Все варианты</button><button class="catalog-tab" data-filter="stock">В наличии</button><button class="catalog-tab" data-filter="order">Под заказ</button></div>
-   <div class="catalog-hint">Актуальную стоимость подтверждаю перед сделкой</div>
-  </div>
-  <div class="vehicle-grid" id="vehicleGrid">
-   <article class="vehicle-card" data-kind="stock">
-    <div class="vehicle-photo"><img src="images/photo2026-10-2300-10-23.jpg?v=20261026-r3" alt="Mazda 6 — автомобиль из каталога" loading="lazy"><span class="stock">В наличии</span></div>
-    <div class="vehicle-body">
-     <div class="vehicle-top"><div><h3>Mazda 6</h3><div class="vehicle-subtitle">Максимальная комплектация</div></div></div>
-     <div class="vehicle-price">2 850 000 ₽</div>
-     <div class="vehicle-specs"><span>2023 год</span><span>2.5 л</span><span>191 л.с.</span><span>Бензин</span><span>Автомат</span></div>
-     <div class="vehicle-footer"><small>Передний привод</small><a class="text-link" href="https://t.me/alex_topcars" target="_blank" rel="noopener">Запросить детали <span>↗</span></a></div>
-    </div>
-   </article>
    <article class="order-card" data-kind="order">
-    <div><div class="kicker">01 / Корея</div><h3>Автомобиль<br>из Кореи</h3><p>Я подберу модели и комплектации, сравню предложения и согласую с вами условия до покупки.</p></div>
+    <div><div class="kicker">01 / КОРЕЯ</div><h3>Автомобили<br>из Кореи</h3><p>Я подберу модели и комплектации, сравню предложения и согласую с вами условия до покупки.</p></div>
     <a class="btn btn-gold" href="https://t.me/alex_topcars" target="_blank" rel="noopener">Обсудить подбор <span class="btn-arrow">→</span></a>
    </article>
    <article class="order-card" data-kind="order">
-    <div><div class="kicker">02 / Китай</div><h3>Автомобиль<br>из Китая</h3><p>Помогу выбрать подходящий вариант, разобраться в комплектациях и пройти путь покупки с сопровождением.</p></div>
+    <div><div class="kicker">02 / КИТАЙ</div><h3>Автомобили<br>из Китая</h3><p>Помогу выбрать подходящий вариант, разобраться в комплектациях и пройти путь покупки с сопровождением.</p></div>
     <a class="btn btn-gold" href="https://t.me/alex_topcars" target="_blank" rel="noopener">Обсудить подбор <span class="btn-arrow">→</span></a>
    </article>
    <article class="order-card" data-kind="order">
-    <div><div class="kicker">03 / Европа</div><h3>Автомобиль<br>из Европы</h3><p>Подберу предложения под ваш запрос и заранее объясню согласованные этапы и расходы.</p></div>
+    <div><div class="kicker">03 / ЕВРОПА</div><h3>Автомобили<br>из Европы</h3><p>Подберу предложения под ваш запрос и заранее объясню согласованные этапы и расходы.</p></div>
     <a class="btn btn-gold" href="https://t.me/alex_topcars" target="_blank" rel="noopener">Обсудить подбор <span class="btn-arrow">→</span></a>
    </article>
   </div>
-  <p class="catalog-footnote">Информация о наличии и цене требует подтверждения перед заключением сделки. Варианты под заказ не являются объявлением о наличии конкретного автомобиля.</p>
+  <p class="catalog-footnote">Я подбираю варианты индивидуально и подтверждаю актуальную стоимость и условия до покупки.</p>
  </div>
 </section>
 <section class="section services" id="services">
@@ -454,7 +440,6 @@ const menuToggle=document.getElementById('menuToggle');
 const mainNav=document.getElementById('mainNav');
 menuToggle.addEventListener('click',()=>{const open=mainNav.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));menuToggle.textContent=open?'×':'☰';});
 mainNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mainNav.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.textContent='☰';}));
-document.querySelectorAll('.catalog-tab').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.catalog-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const filter=btn.dataset.filter;document.querySelectorAll('#vehicleGrid [data-kind]').forEach(card=>{card.style.display=(filter==='all'||card.dataset.kind===filter)?'':'none';});}));
 document.getElementById('year').textContent=new Date().getFullYear();
 document.getElementById('requestForm').addEventListener('submit',event=>{
  event.preventDefault();
