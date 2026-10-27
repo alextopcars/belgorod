@@ -456,7 +456,7 @@ button,a{-webkit-tap-highlight-color:transparent}
    </div>
   </div>
   <form class="contact-form" id="requestForm">
-   <h3>Запрос на подбор</h3><p>Заполните форму — я подготовлю сообщение для личного чата Telegram.</p>
+   <h3>Запрос на подбор</h3><p>Заполните форму — откроется Telegram-бот, который поможет оформить заявку менеджеру.</p>
    <div class="form-grid">
     <div class="field"><label for="name">Как к вам обращаться</label><input id="name" name="name" placeholder="Ваше имя" autocomplete="name" required></div>
     <div class="field"><label for="budget">Бюджет</label><select id="budget" name="budget"><option value="Пока обсуждаю">Пока обсуждаю</option><option>До 2 млн ₽</option><option>2–3 млн ₽</option><option>3–5 млн ₽</option><option>5 млн ₽ и выше</option></select></div>
@@ -550,9 +550,9 @@ document.getElementById('requestForm').addEventListener('submit',event=>{
  const message='Здравствуйте! Я с сайта ALEX.TOPCARS.\nИмя: '+values.get('name')+'\nЗапрос: '+values.get('direction')+'\nБюджет: '+values.get('budget')+'\nПожелания: '+(values.get('details')||'не указаны');
  let copied=false;
  try{const area=document.createElement('textarea');area.value=message;area.style.position='fixed';area.style.opacity='0';document.body.appendChild(area);area.select();copied=document.execCommand('copy');area.remove();}catch(e){}
- window.open('https://t.me/+79192826666?text='+encodeURIComponent(message),'_blank','noopener');
- if(copied){alert('Текст заявки скопирован. Вставьте его в открывшийся диалог Telegram и отправьте сообщение.');}
- else{alert('Telegram откроется в новой вкладке. При необходимости скопируйте данные заявки из формы и отправьте их в чате.');}
+ window.open('https://t.me/AlexTopCarsLeadBot?start=lead','_blank','noopener');
+ if(copied){alert('Откроется Telegram-бот AlexTopCarsLeadBot. Когда бот спросит, какой автомобиль вы ищете, вставьте скопированный текст заявки и отправьте его. Затем ответьте на вопросы об имени и контакте.');}
+ else{alert('Откроется Telegram-бот AlexTopCarsLeadBot. Укажите в боте желаемый автомобиль, бюджет, имя и контакт.');}
 });
 </script>
 </body>
