@@ -1,10 +1,12 @@
 import hashlib
 import logging
 import os
+import time
 from typing import Any
 
 import httpx
 from fastapi import FastAPI, HTTPException, Request
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 logging.basicConfig(level=os.getenv("LOG_LEVEL", "INFO"))
@@ -20,6 +22,23 @@ PUBLIC_URL = os.getenv("RENDER_EXTERNAL_URL", "").rstrip("/")
 
 TELEGRAM_API = f"https://api.telegram.org/bot{BOT_TOKEN}" if BOT_TOKEN else ""
 app = FastAPI(title="AlexTopCarsLeadBot", docs_url=None, redoc_url=None)
+
+# The public site is hosted as a GitHub Pages project site. The origin excludes
+# the repository path, e.g. https://alextopcars.github.io/belgorod/.
+SITE_ORIGINS = ["https://alextopcars.github.io"]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=SITE_ORIGINS,
+    allow_credentials=False,
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["content-type"],
+    max_age=600,
+)
+
+# Soft in-memory anti-spam limit for the public form. The form has a honeypot too.
+website_lead_attempts: dict[str, list[float]] = {}
+WEBSITE_LEAD_WINDOW_SECONDS = 600
+WEBSITE_LEAD_MAX_ATTEMPTS = 8
 
 # In-memory conversation state is sufficient for a small first version.
 # For durable multi-instance use, move this to Redis or a database.
@@ -141,6 +160,88 @@ async def health() -> JSONResponse:
         "webhook_url_configured": bool(PUBLIC_URL),
     })
 
+
+
+@app.post("/website/lead")
+async def website_lead(request: Request) -> JSONResponse:
+    """Forward the website form directly to the manager's Telegram chat."""
+    origin = request.headers.get("origin", "")
+    if origin not in SITE_ORIGINS:
+        raise HTTPException(status_code=403, detail="Origin is not allowed")
+
+    content_length = request.headers.get("content-length", "")
+    if content_length.isdigit() and int(content_length) > 16000:
+        raise HTTPException(status_code=413, detail="Request is too large")
+
+    try:
+        payload = await request.json()
+    except (ValueError, RuntimeError):
+        raise HTTPException(status_code=400, detail="Invalid JSON payload")
+    if not isinstance(payload, dict):
+        raise HTTPException(status_code=400, detail="Invalid lead payload")
+
+    # Quietly discard likely bot submissions.
+    if str(payload.get("website", "")).strip():
+        return JSONResponse({"ok": True})
+
+    def clean(value: Any, limit: int) -> str:
+        if value is None:
+            return ""
+        if not isinstance(value, (str, int, float)):
+            return ""
+        text_value = str(value).replace("\\x00", "").strip()
+        return text_value[:limit]
+
+    name = clean(payload.get("name"), 120)
+    contact = clean(payload.get("contact"), 250)
+    budget = clean(payload.get("budget"), 100) or "не указан"
+    direction = clean(payload.get("direction"), 120) or "Подбор автомобиля"
+    details = clean(payload.get("details"), 1800) or "не указаны"
+
+    if not name or not contact:
+        raise HTTPException(status_code=422, detail="Укажите имя и контакт для связи")
+    if len(name) < 2 or len(contact) < 4:
+        raise HTTPException(status_code=422, detail="Проверьте имя и контакт для связи")
+
+    forwarded = request.headers.get("x-forwarded-for", "").split(",")[0].strip()
+    client_ip = forwarded or (request.client.host if request.client else "unknown")
+    now = time.monotonic()
+    recent = [
+        stamp for stamp in website_lead_attempts.get(client_ip, [])
+        if now - stamp < WEBSITE_LEAD_WINDOW_SECONDS
+    ]
+    if len(recent) >= WEBSITE_LEAD_MAX_ATTEMPTS:
+        website_lead_attempts[client_ip] = recent
+        raise HTTPException(status_code=429, detail="Слишком много заявок. Попробуйте позже.")
+    recent.append(now)
+    website_lead_attempts[client_ip] = recent
+    if len(website_lead_attempts) > 2000:
+        website_lead_attempts.clear()
+        website_lead_attempts[client_ip] = recent
+
+    if not BOT_TOKEN:
+        log.error("Website lead rejected: TELEGRAM_BOT_TOKEN is not configured")
+        raise HTTPException(status_code=503, detail="Telegram delivery is not configured")
+    if not ADMIN_CHAT_ID:
+        log.error("Website lead rejected: ADMIN_CHAT_ID is not configured")
+        raise HTTPException(status_code=503, detail="Manager notifications are not configured")
+
+    message = (
+        "🚘 НОВАЯ ЗАЯВКА С САЙТА ALEX.TOPCARS\\n\\n"
+        f"Имя: {name}\\n"
+        f"Контакт: {contact}\\n"
+        f"Запрос: {direction}\\n"
+        f"Бюджет: {budget}\\n"
+        f"Пожелания: {details}"
+    )
+    try:
+        await send_message(int(ADMIN_CHAT_ID), message)
+    except (ValueError, RuntimeError, httpx.HTTPError):
+        log.exception("Unable to forward website lead to manager")
+        raise HTTPException(status_code=503, detail="Не удалось доставить заявку менеджеру")
+
+    log.info("Website lead delivered to manager via Telegram")
+    return JSONResponse({"ok": True, "message": "Заявка отправлена менеджеру"})
 
 @app.on_event("startup")
 async def configure_webhook() -> None:
