@@ -473,7 +473,7 @@ button,a{-webkit-tap-highlight-color:transparent}
    <div class="form-trap" aria-hidden="true"><label for="website">Не заполняйте это поле</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
    <button class="btn btn-gold" type="submit">Отправить заявку менеджеру <span class="btn-arrow">→</span></button>
    <p class="form-status" id="formStatus" role="status" aria-live="polite" hidden></p>
-   <div class="form-note" id="formNote">После отправки заявка автоматически поступит менеджеру в Telegram. Если доставка временно недоступна, сайт предложит запасной способ связи.</div>
+   <div class="form-note" id="formNote">После отправки заявка автоматически поступит менеджеру в Telegram. Если отправка временно недоступна, сайт предложит запасной способ связи.</div>
   </form>
  </div>
 </section>
@@ -544,7 +544,7 @@ function renderStockCar(car){
  actions.append(contact,details);body.append(actions);
  card.append(gallery);if(images.length>1)card.append(thumbs);card.append(body);return card;
 }
-fetch('data/cars.json?v=20261027-stock',{cache:'no-store'})
+fetch('data/cars.json?v=20261027-stock-live',{cache:'no-store'})
  .then(response=>{if(!response.ok)throw new Error('Не удалось загрузить каталог');return response.json();})
  .then(items=>{
   const available=(Array.isArray(items)?items:[]).filter(car=>car&&car.active===true&&car.status==='stock'&&Number.isFinite(Number(car.priceRub))&&Number(car.priceRub)>0);
