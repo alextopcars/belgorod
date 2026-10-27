@@ -189,7 +189,7 @@ async def website_lead(request: Request) -> JSONResponse:
             return ""
         if not isinstance(value, (str, int, float)):
             return ""
-        text_value = str(value).replace("\\x00", "").strip()
+        text_value = str(value).replace("\x00", "").strip()
         return text_value[:limit]
 
     name = clean(payload.get("name"), 120)
@@ -227,11 +227,11 @@ async def website_lead(request: Request) -> JSONResponse:
         raise HTTPException(status_code=503, detail="Manager notifications are not configured")
 
     message = (
-        "🚘 НОВАЯ ЗАЯВКА С САЙТА ALEX.TOPCARS\\n\\n"
-        f"Имя: {name}\\n"
-        f"Контакт: {contact}\\n"
-        f"Запрос: {direction}\\n"
-        f"Бюджет: {budget}\\n"
+        "🚘 НОВАЯ ЗАЯВКА С САЙТА ALEX.TOPCARS\n\n"
+        f"Имя: {name}\n"
+        f"Контакт: {contact}\n"
+        f"Запрос: {direction}\n"
+        f"Бюджет: {budget}\n"
         f"Пожелания: {details}"
     )
     try:
