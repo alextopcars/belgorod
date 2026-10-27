@@ -155,6 +155,12 @@ button,a{-webkit-tap-highlight-color:transparent}
 .field textarea{min-height:90px;resize:vertical}
 .contact-form .btn{margin-top:16px;width:100%}
 .form-note{font-size:10px;color:#898b82;margin-top:10px;line-height:1.6}
+.form-status{padding:12px 14px;margin:12px 0 0;border-radius:10px;font-size:12px;line-height:1.6}
+.form-status[hidden]{display:none!important}
+.form-status.success{background:#e9f3e5;color:#2c5a29;border:1px solid #b8d4ad}
+.form-status.error{background:#fff1e8;color:#814422;border:1px solid #e5c2a8}
+.form-status a{font-weight:800;text-decoration:underline}
+.form-trap{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 .footer{background:#0b100c;color:#deddd3}
 .footer-main{display:grid;grid-template-columns:1fr auto auto;gap:48px;align-items:center;padding:30px 0}
 .footer-logo{width:198px;height:88px;object-fit:contain}
@@ -456,15 +462,18 @@ button,a{-webkit-tap-highlight-color:transparent}
    </div>
   </div>
   <form class="contact-form" id="requestForm">
-   <h3>Запрос на подбор</h3><p>Заполните форму — откроется Telegram-бот, который поможет оформить заявку менеджеру.</p>
+   <h3>Запрос на подбор</h3><p>Заявка сразу поступит менеджеру в Telegram. Оставьте имя и контакт, чтобы мы могли ответить.</p>
    <div class="form-grid">
-    <div class="field"><label for="name">Как к вам обращаться</label><input id="name" name="name" placeholder="Ваше имя" autocomplete="name" required></div>
+    <div class="field"><label for="name">Как к вам обращаться</label><input id="name" name="name" placeholder="Ваше имя" autocomplete="name" required maxlength="120"></div>
+    <div class="field"><label for="contact">Телефон или Telegram</label><input id="contact" name="contact" placeholder="+7 900 000-00-00 или @username" autocomplete="tel" required maxlength="250"></div>
     <div class="field"><label for="budget">Бюджет</label><select id="budget" name="budget"><option value="Пока обсуждаю">Пока обсуждаю</option><option>До 2 млн ₽</option><option>2–3 млн ₽</option><option>3–5 млн ₽</option><option>5 млн ₽ и выше</option></select></div>
-    <div class="field full"><label for="direction">Что вас интересует</label><select id="direction" name="direction"><option>Подбор автомобиля</option><option>Автомобиль из Кореи</option><option>Автомобиль из Китая</option><option>Автомобиль из Европы</option><option>Автовыкуп</option><option>Trade-in</option><option>Комиссионная продажа</option></select></div>
-    <div class="field full"><label for="details">Пожелания</label><textarea id="details" name="details" placeholder="Марка, модель, год, комплектация или другие пожелания"></textarea></div>
+    <div class="field"><label for="direction">Что вас интересует</label><select id="direction" name="direction"><option>Подбор автомобиля</option><option>Автомобиль из Кореи</option><option>Автомобиль из Китая</option><option>Автомобиль из Европы</option><option>Автовыкуп</option><option>Trade-in</option><option>Комиссионная продажа</option></select></div>
+    <div class="field full"><label for="details">Пожелания</label><textarea id="details" name="details" placeholder="Марка, модель, год, комплектация или другие пожелания" maxlength="1800"></textarea></div>
    </div>
-   <button class="btn btn-gold" type="submit">Открыть Telegram и отправить заявку <span class="btn-arrow">→</span></button>
-   <div class="form-note">Форма не отправляет данные на сервер и не сохраняет их на сайте. Текст заявки будет подготовлен в вашем браузере; после открытия Telegram проверьте и отправьте его вручную.</div>
+   <div class="form-trap" aria-hidden="true"><label for="website">Не заполняйте это поле</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+   <button class="btn btn-gold" type="submit">Отправить заявку менеджеру <span class="btn-arrow">→</span></button>
+   <p class="form-status" id="formStatus" role="status" aria-live="polite" hidden></p>
+   <div class="form-note" id="formNote">После отправки заявка автоматически поступит менеджеру в Telegram. Если доставка временно недоступна, сайт предложит запасной способ связи.</div>
   </form>
  </div>
 </section>
@@ -544,15 +553,49 @@ fetch('data/cars.json?v=20261027-stock',{cache:'no-store'})
   stockGrid.innerHTML='';available.forEach(car=>stockGrid.append(renderStockCar(car)));
  })
  .catch(error=>{stockCount.textContent='Не удалось обновить список автомобилей';renderStockEmpty();console.error(error);});
-document.getElementById('requestForm').addEventListener('submit',event=>{
+const LEAD_API_URL='https://alex-topcars-lead-bot-mg47.onrender.com/website/lead';
+const requestForm=document.getElementById('requestForm');
+const formStatus=document.getElementById('formStatus');
+const formSubmit=requestForm.querySelector('button[type="submit"]');
+const originalSubmitLabel=formSubmit.innerHTML;
+requestForm.addEventListener('submit',async event=>{
  event.preventDefault();
- const form=event.currentTarget;const values=new FormData(form);
- const message='Здравствуйте! Я с сайта ALEX.TOPCARS.\nИмя: '+values.get('name')+'\nЗапрос: '+values.get('direction')+'\nБюджет: '+values.get('budget')+'\nПожелания: '+(values.get('details')||'не указаны');
- let copied=false;
- try{const area=document.createElement('textarea');area.value=message;area.style.position='fixed';area.style.opacity='0';document.body.appendChild(area);area.select();copied=document.execCommand('copy');area.remove();}catch(e){}
- window.open('https://t.me/AlexTopCarsLeadBot?start=lead','_blank','noopener');
- if(copied){alert('Откроется Telegram-бот AlexTopCarsLeadBot. Когда бот спросит, какой автомобиль вы ищете, вставьте скопированный текст заявки и отправьте его. Затем ответьте на вопросы об имени и контакте.');}
- else{alert('Откроется Telegram-бот AlexTopCarsLeadBot. Укажите в боте желаемый автомобиль, бюджет, имя и контакт.');}
+ const values=new FormData(requestForm);
+ const payload={
+  name:String(values.get('name')||'').trim(),
+  contact:String(values.get('contact')||'').trim(),
+  budget:String(values.get('budget')||'').trim(),
+  direction:String(values.get('direction')||'').trim(),
+  details:String(values.get('details')||'').trim(),
+  website:String(values.get('website')||'').trim()
+ };
+ formStatus.hidden=true;
+ formStatus.textContent='';
+ formSubmit.disabled=true;
+ formSubmit.textContent='Отправляем заявку…';
+ try{
+  const response=await fetch(LEAD_API_URL,{
+   method:'POST',
+   headers:{'Content-Type':'application/json'},
+   body:JSON.stringify(payload)
+  });
+  const result=await response.json().catch(()=>({}));
+  if(!response.ok||result.ok!==true){
+   throw new Error(result.detail||'Не удалось отправить заявку.');
+  }
+  requestForm.reset();
+  formStatus.className='form-status success';
+  formStatus.textContent='Готово! Заявка доставлена менеджеру в Telegram. Мы свяжемся с вами по указанному контакту.';
+  formStatus.hidden=false;
+ }catch(error){
+  formStatus.className='form-status error';
+  formStatus.innerHTML='Сейчас не удалось отправить заявку через сайт. <a href="https://t.me/AlexTopCarsLeadBot?start=lead" target="_blank" rel="noopener noreferrer">Откройте Telegram-бота и оставьте заявку там</a> — он проведёт вас по шагам.';
+  formStatus.hidden=false;
+  console.error('Не удалось отправить заявку в Telegram:',error);
+ }finally{
+  formSubmit.disabled=false;
+  formSubmit.innerHTML=originalSubmitLabel;
+ }
 });
 </script>
 </body>
