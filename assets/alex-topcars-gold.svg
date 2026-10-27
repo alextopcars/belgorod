@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 620" role="img" aria-labelledby="title desc">
+<title id="title">ALEX.TOPCARS — золотой логотип AT</title>
+<desc id="desc">Золотая монограмма AT с контуром спортивного автомобиля, названием ALEX.TOPCARS и слоганом «Автомобиль ближе, чем кажется» на прозрачном фоне.</desc>
+<defs>
+ <linearGradient id="gold" x1="0" y1="0" x2="0.9" y2="1">
+  <stop offset="0" stop-color="#fff2bb"/><stop offset=".14" stop-color="#f4d17a"/><stop offset=".29" stop-color="#a76512"/>
+  <stop offset=".44" stop-color="#ffe7a0"/><stop offset=".59" stop-color="#c58528"/><stop offset=".75" stop-color="#f7d98a"/><stop offset="1" stop-color="#875016"/>
+ </linearGradient>
+ <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0" stop-color="#6f3e08"/><stop offset=".45" stop-color="#fff0b0"/><stop offset="1" stop-color="#71420c"/>
+ </linearGradient>
+ <linearGradient id="carGold" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#fff0af"/><stop offset=".4" stop-color="#d59c3f"/><stop offset="1" stop-color="#976018"/>
+ </linearGradient>
+ <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+  <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+  <feOffset dy="3" result="offset"/>
+  <feComponentTransfer><feFuncA type="linear" slope=".36"/></feComponentTransfer>
+  <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+ </filter>
+</defs>
+<g filter="url(#shadow)" stroke-linejoin="round">
+ <!-- AT monogram -->
+ <path d="M488 302 L636 35 Q642 24 649 37 L814 304 L749 304 L642 115 L545 302 Z"
+       fill="url(#gold)" stroke="#6b410f" stroke-width="5"/>
+ <path d="M642 37 L654 57 L747 226 L716 239 L642 109 L549 281 L535 281 Z"
+       fill="url(#edge)" opacity=".85"/>
+ <path d="M759 104 L1119 104 L1119 151 L974 151 L974 302 L912 302 L912 151 L759 151 Z"
+       fill="url(#gold)" stroke="#6b410f" stroke-width="5"/>
+ <path d="M774 113 H1104 V136 H960 V289 H928 V136 H774 Z" fill="url(#edge)" opacity=".42"/>
+ <!-- flowing speed arc -->
+ <path d="M258 378 C422 323 560 225 724 198 C771 190 812 190 857 196 C665 227 499 320 411 378 Z"
+       fill="url(#gold)" stroke="#75450e" stroke-width="4"/>
+ <path d="M271 369 C424 315 562 231 735 204" fill="none" stroke="#fff0b2" stroke-width="4" opacity=".85"/>
+ <!-- elegant sports-car outline -->
+ <path d="M498 392 C584 373 692 343 788 310 C865 284 930 263 1003 271 C1070 278 1120 312 1173 330
+          C1240 329 1321 340 1407 364 C1431 370 1450 381 1465 394
+          L1460 423 L1433 423 C1422 393 1398 380 1370 380 C1340 380 1317 398 1311 423
+          L754 423 C744 392 719 379 690 379 C661 379 640 398 634 423 L516 423 Z"
+       fill="none" stroke="url(#carGold)" stroke-width="8" stroke-linecap="round"/>
+ <path d="M814 310 C878 286 926 277 978 284 C1036 291 1070 316 1113 333 L898 333 C864 332 838 326 814 310 Z"
+       fill="none" stroke="url(#carGold)" stroke-width="4"/>
+ <path d="M1117 336 C1190 336 1260 347 1320 363" fill="none" stroke="url(#carGold)" stroke-width="4"/>
+ <path d="M541 423 L613 423 M1342 423 L1420 423" stroke="#f8d98e" stroke-width="5"/>
+</g>
+<!-- wordmark -->
+<g fill="url(#gold)" stroke="#6d420d" stroke-width="1.4" paint-order="stroke fill">
+ <text x="800" y="518" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="116" letter-spacing="14">ALEX.TOPCARS</text>
+</g>
+<!-- tagline divider and motto -->
+<g fill="url(#gold)" stroke="none">
+ <rect x="74" y="568" width="210" height="5" rx="2.5"/>
+ <rect x="1316" y="568" width="210" height="5" rx="2.5"/>
+</g>
+<text x="800" y="581" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="32" letter-spacing="9" fill="url(#gold)">АВТОМОБИЛЬ БЛИЖЕ, ЧЕМ КАЖЕТСЯ</text>
+</svg>
