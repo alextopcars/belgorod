@@ -10,7 +10,7 @@
       "/belgorod/images/photo2026-10-2300-27-33.jpg"
     ],
     "imageAlt": "MAZDA 6, максимальная комплектация",
-    "active": true,
+    "active": false,
     "status": "stock",
     "year": 2023,
     "engine": "2.5",
@@ -19,6 +19,6 @@
     "transmission": "Автомат",
     "drive": "Передний",
     "priceRub": 2850000,
-    "priceNote": "В наличии"
+    "priceNote": "Демо-запись — скрыта до подтверждения наличия и цены"
   }
 ]
