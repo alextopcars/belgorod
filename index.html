@@ -367,6 +367,17 @@ button,a{-webkit-tap-highlight-color:transparent}
 @media(max-width:760px){.import-ad-grid{grid-template-columns:1fr}.import-ad-card{height:285px}.stock-empty{min-height:245px}.inventory-bar{padding:12px 14px}}
 @media(max-width:560px){.stock-grid{grid-template-columns:1fr}.stock-car-card{max-width:480px;width:100%;margin-inline:auto}.stock-empty-actions{align-items:stretch;flex-direction:column;width:100%}.stock-empty-actions a{width:100%;text-align:center}.stock-car-gallery{aspect-ratio:1.35}.inventory-channel-link{width:100%;margin-left:18px}}
 
+
+.dkp-promo{background:linear-gradient(130deg,#172016,#0d120e);color:#f8f4e9;position:relative;overflow:hidden}
+.dkp-promo:before{content:"ДКП";position:absolute;right:-1%;top:50%;transform:translateY(-55%);font-family:Georgia,serif;font-size:clamp(130px,25vw,330px);font-weight:bold;letter-spacing:-.1em;color:#d9b36b0d;pointer-events:none}
+.dkp-promo-inner{position:relative;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+.dkp-promo h2{font-size:clamp(31px,4vw,48px);line-height:1.05;letter-spacing:-.05em;margin:12px 0}
+.dkp-promo p{color:#c4c9bd;font-size:13px;line-height:1.8;max-width:730px;margin:0}
+.dkp-promo .kicker{color:var(--gold2)}
+.dkp-promo-actions{display:flex;flex-direction:column;align-items:stretch;gap:10px;min-width:230px}
+.dkp-promo-note{font-size:10px;color:#aeb4a6;line-height:1.65;margin-top:16px}
+.dkp-promo-link{font-size:11px;color:var(--gold2);font-weight:800;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:760px){.dkp-promo-inner{grid-template-columns:1fr}.dkp-promo-actions{min-width:0;align-items:stretch}.dkp-promo-actions .btn{width:100%}}
 </style>
 </head>
 <body>
