@@ -198,6 +198,9 @@ async def website_lead(request: Request) -> JSONResponse:
     direction = clean(payload.get("direction"), 120) or "Подбор автомобиля"
     details = clean(payload.get("details"), 1800) or "не указаны"
 
+    if payload.get("pdConsent") is not True:
+        raise HTTPException(status_code=422, detail="Необходимо согласие на обработку персональных данных")
+    consent_version = clean(payload.get("consentVersion"), 40) or "не указана"
     if not name or not contact:
         raise HTTPException(status_code=422, detail="Укажите имя и контакт для связи")
     if len(name) < 2 or len(contact) < 4:
@@ -232,7 +235,8 @@ async def website_lead(request: Request) -> JSONResponse:
         f"Контакт: {contact}\n"
         f"Запрос: {direction}\n"
         f"Бюджет: {budget}\n"
-        f"Пожелания: {details}"
+        f"Пожелания: {details}\n"
+        f"Согласие на обработку персональных данных: подтверждено; версия текста: {consent_version}"
     )
     try:
         await send_message(int(ADMIN_CHAT_ID), message)
