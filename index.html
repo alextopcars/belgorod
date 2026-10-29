@@ -10,9 +10,6 @@
 <meta property="og:type" content="website">
 <title>ALEX.TOPCARS — автомобиль ближе, чем кажется</title>
 <link rel="icon" href="favicon.svg?v=20261026-redesign" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#0a0d0b;--deep:#121711;--green:#263124;--green2:#3c4935;--gold:#d9b36b;--gold2:#f3d99a;--paper:#f4f2ea;--white:#fffefa;--muted:#b9bbb2;--darkmuted:#73766e;--line:rgba(243,217,154,.19);--max:1440px}
 *{box-sizing:border-box}
@@ -155,6 +152,12 @@ button,a{-webkit-tap-highlight-color:transparent}
 .field textarea{min-height:90px;resize:vertical}
 .contact-form .btn{margin-top:16px;width:100%}
 .form-note{font-size:10px;color:#898b82;margin-top:10px;line-height:1.6}
+.privacy-consent{display:flex;align-items:flex-start;gap:10px;margin-top:17px;color:#5f665a;font-size:11px;line-height:1.65;cursor:pointer}
+.privacy-consent input{flex:0 0 17px;width:17px;height:17px;margin:2px 0 0;accent-color:#a77d39;cursor:pointer}
+.privacy-consent a{color:#87632e;text-decoration:underline;text-underline-offset:2px}
+.privacy-consent a:hover{color:#5c421d}
+.legal-disclosure{font-size:10px;line-height:1.65;color:#777d70;margin-top:8px}
+
 .form-status{padding:12px 14px;margin:12px 0 0;border-radius:10px;font-size:12px;line-height:1.6}
 .form-status[hidden]{display:none!important}
 .form-status.success{background:#e9f3e5;color:#2c5a29;border:1px solid #b8d4ad}
@@ -471,9 +474,11 @@ button,a{-webkit-tap-highlight-color:transparent}
     <div class="field full"><label for="details">Пожелания</label><textarea id="details" name="details" placeholder="Марка, модель, год, комплектация или другие пожелания" maxlength="1800"></textarea></div>
    </div>
    <div class="form-trap" aria-hidden="true"><label for="website">Не заполняйте это поле</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+   <label class="privacy-consent" for="pdConsent"><input id="pdConsent" name="pdConsent" type="checkbox" required><span>Я даю отдельное согласие на обработку указанных мной персональных данных для ответа на заявку и связи со мной. <a href="consent.html" target="_blank" rel="noopener">Текст согласия</a>. <a href="privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a>.</span></label>
+   <div class="legal-disclosure">Заявка передаётся через технический сервис формы и направляется менеджеру в Telegram. Не указывайте в форме паспортные, банковские и другие избыточные сведения.</div>
    <button class="btn btn-gold" type="submit">Отправить заявку менеджеру <span class="btn-arrow">→</span></button>
    <p class="form-status" id="formStatus" role="status" aria-live="polite" hidden></p>
-   <div class="form-note" id="formNote">После отправки заявка автоматически поступит менеджеру в Telegram. Если отправка временно недоступна, сайт предложит запасной способ связи.</div>
+   <div class="form-note" id="formNote">Отправляя заявку, вы подтверждаете согласие, указанное выше. Доставка заявки выполняется через подключённые технические сервисы, перечисленные в политике обработки персональных данных.</div>
   </form>
  </div>
 </section>
@@ -484,7 +489,7 @@ button,a{-webkit-tap-highlight-color:transparent}
   <nav class="footer-links" aria-label="Навигация в подвале"><a href="#home">Главная</a><a href="#import">Под заказ</a><a href="#catalog">В наличии</a><a href="#services">Услуги</a><a href="#contacts">Контакты</a></nav>
   <div class="footer-social"><a href="https://t.me/alex_topcars" target="_blank" rel="noopener">Telegram-канал ↗</a><a href="https://www.instagram.com/alex.topcars/" target="_blank" rel="noopener">Instagram ↗</a></div>
  </div>
- <div class="container footer-bottom"><span>© <span id="year"></span> ALEX.TOPCARS. Все права защищены.</span><span><a href="privacy.html?v=20261026-redesign">Политика конфиденциальности</a> · <a href="tel:+79192826666">+7 919 282-66-66</a></span></div>
+ <div class="container footer-bottom"><span>© <span id="year"></span> ALEX.TOPCARS. Все права защищены.</span><span><a href="privacy.html">Политика обработки персональных данных</a> · <a href="consent.html">Согласие на обработку ПДн</a> · <a href="operator.html">Сведения об исполнителе</a> · <a href="tel:+79192826666">+7 919 282-66-66</a></span></div>
 </footer>
 <script>
 const menuToggle=document.getElementById('menuToggle');
@@ -567,8 +572,16 @@ requestForm.addEventListener('submit',async event=>{
   budget:String(values.get('budget')||'').trim(),
   direction:String(values.get('direction')||'').trim(),
   details:String(values.get('details')||'').trim(),
-  website:String(values.get('website')||'').trim()
+  website:String(values.get('website')||'').trim(),
+  pdConsent:values.get('pdConsent')==='on',
+  consentVersion:'2026-10-29'
  };
+ if(payload.pdConsent!==true){
+  formStatus.className='form-status error';
+  formStatus.textContent='Чтобы отправить заявку, необходимо дать отдельное согласие на обработку персональных данных.';
+  formStatus.hidden=false;
+  return;
+ }
  formStatus.hidden=true;
  formStatus.textContent='';
  formSubmit.disabled=true;

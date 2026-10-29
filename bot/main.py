@@ -2,6 +2,7 @@ import hashlib
 import logging
 import os
 import time
+from datetime import datetime, timezone
 from typing import Any
 
 import httpx
@@ -198,6 +199,10 @@ async def website_lead(request: Request) -> JSONResponse:
     direction = clean(payload.get("direction"), 120) or "Подбор автомобиля"
     details = clean(payload.get("details"), 1800) or "не указаны"
 
+    if payload.get("pdConsent") is not True:
+        raise HTTPException(status_code=422, detail="Необходимо согласие на обработку персональных данных")
+    consent_version = clean(payload.get("consentVersion"), 40) or "не указана"
+    consent_received_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
     if not name or not contact:
         raise HTTPException(status_code=422, detail="Укажите имя и контакт для связи")
     if len(name) < 2 or len(contact) < 4:
@@ -206,10 +211,15 @@ async def website_lead(request: Request) -> JSONResponse:
     forwarded = request.headers.get("x-forwarded-for", "").split(",")[0].strip()
     client_ip = forwarded or (request.client.host if request.client else "unknown")
     now = time.monotonic()
-    recent = [
-        stamp for stamp in website_lead_attempts.get(client_ip, [])
-        if now - stamp < WEBSITE_LEAD_WINDOW_SECONDS
-    ]
+    # Remove expired IP entries globally so they do not remain indefinitely
+    # merely because a visitor never submits the form again.
+    for ip_key, stamps in list(website_lead_attempts.items()):
+        fresh = [stamp for stamp in stamps if now - stamp < WEBSITE_LEAD_WINDOW_SECONDS]
+        if fresh:
+            website_lead_attempts[ip_key] = fresh
+        else:
+            website_lead_attempts.pop(ip_key, None)
+    recent = website_lead_attempts.get(client_ip, [])
     if len(recent) >= WEBSITE_LEAD_MAX_ATTEMPTS:
         website_lead_attempts[client_ip] = recent
         raise HTTPException(status_code=429, detail="Слишком много заявок. Попробуйте позже.")
@@ -232,7 +242,8 @@ async def website_lead(request: Request) -> JSONResponse:
         f"Контакт: {contact}\n"
         f"Запрос: {direction}\n"
         f"Бюджет: {budget}\n"
-        f"Пожелания: {details}"
+        f"Пожелания: {details}\n"
+        f"Согласие на обработку персональных данных: подтверждено; версия текста: {consent_version}; время получения (UTC): {consent_received_at}"
     )
     try:
         await send_message(int(ADMIN_CHAT_ID), message)
