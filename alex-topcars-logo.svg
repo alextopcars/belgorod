@@ -1,42 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1344" height="600" viewBox="0 0 1344 600" role="img" aria-labelledby="title desc">
-<title id="title">ALEX.TOPCARS</title>
-<desc id="desc">Золотая монограмма AT с контуром автомобиля, надпись ALEX.TOPCARS и слоган «Автомобиль ближе, чем кажется».</desc>
-<defs>
-  <linearGradient id="gold" x1="0" y1="0" x2="0.85" y2="1">
-    <stop offset="0" stop-color="#fff1bd"/>
-    <stop offset=".2" stop-color="#f0d187"/>
-    <stop offset=".48" stop-color="#b98332"/>
-    <stop offset=".72" stop-color="#f2d18a"/>
-    <stop offset="1" stop-color="#9a6b27"/>
-  </linearGradient>
-  <linearGradient id="goldEdge" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="#ffe7a0"/>
-    <stop offset=".5" stop-color="#c3913f"/>
-    <stop offset="1" stop-color="#8a5d23"/>
-  </linearGradient>
-  <filter id="softShadow" x="-15%" y="-15%" width="130%" height="135%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
-    <feOffset dy="2" result="offset"/>
-    <feComponentTransfer><feFuncA type="linear" slope=".22"/></feComponentTransfer>
-    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-</defs>
-<g filter="url(#softShadow)">
-  <!-- Interlocked AT monogram -->
-  <path d="M279 356 536 48 Q545 35 560 35 L579 35 714 356 642 356 559 151 401 356Z" fill="url(#gold)"/>
-  <path d="M617 99H883V146H780V276H716V146H617Z" fill="url(#goldEdge)"/>
-  <!-- Road sweep passing through the A -->
-  <path d="M278 355C395 282 510 211 719 151L737 162C575 222 441 286 357 356Z" fill="url(#gold)"/>
-  <!-- Elegant automotive roofline and body outline -->
-  <path d="M474 368C537 337 612 294 700 273 762 258 818 263 875 292 905 307 931 328 963 342L1080 349C1129 352 1166 368 1188 389" fill="none" stroke="url(#gold)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M474 368C593 367 666 368 748 366 833 364 922 365 1018 370 1087 373 1144 380 1188 389" fill="none" stroke="url(#goldEdge)" stroke-width="3.5" stroke-linecap="round"/>
-  <path d="M663 351C681 347 701 352 718 367M1075 355C1095 350 1112 357 1128 372" fill="none" stroke="url(#gold)" stroke-width="3.5" stroke-linecap="round"/>
-  <path d="M749 315 800 315M817 315 852 315" stroke="url(#gold)" stroke-width="3" stroke-linecap="round"/>
-</g>
-<text x="672" y="492" text-anchor="middle" fill="url(#gold)" font-family="Georgia, 'Times New Roman', serif" font-size="95" font-weight="400" letter-spacing="11">ALEX.TOPCARS</text>
-<g stroke="url(#gold)" stroke-width="3">
-  <path d="M29 558H174"/>
-  <path d="M1170 558H1315"/>
-</g>
-<text x="672" y="571" text-anchor="middle" fill="url(#gold)" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" letter-spacing="5.8">АВТОМОБИЛЬ БЛИЖЕ, ЧЕМ КАЖЕТСЯ</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="985" height="672" viewBox="0 0 985 672" role="img" aria-labelledby="title desc">
+<title id="title">ALEX.TOPCARS — официальный золотой логотип</title>
+<desc id="desc">Золотая эмблема ALEX.TOPCARS и слоган «Автомобиль ближе, чем кажется».</desc>
+<image href="https://d2ol7oe51mr4n9.cloudfront.net/user_3KwfF8rets4xLY61zvvK7G2MV43/badc3f9c-6156-4c58-8996-fd33605e1eab.webp" xlink:href="https://d2ol7oe51mr4n9.cloudfront.net/user_3KwfF8rets4xLY61zvvK7G2MV43/badc3f9c-6156-4c58-8996-fd33605e1eab.webp" width="985" height="672" preserveAspectRatio="xMidYMid meet"/>
 </svg>
