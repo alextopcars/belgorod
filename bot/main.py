@@ -211,10 +211,15 @@ async def website_lead(request: Request) -> JSONResponse:
     forwarded = request.headers.get("x-forwarded-for", "").split(",")[0].strip()
     client_ip = forwarded or (request.client.host if request.client else "unknown")
     now = time.monotonic()
-    recent = [
-        stamp for stamp in website_lead_attempts.get(client_ip, [])
-        if now - stamp < WEBSITE_LEAD_WINDOW_SECONDS
-    ]
+    # Remove expired IP entries globally so they do not remain indefinitely
+    # merely because a visitor never submits the form again.
+    for ip_key, stamps in list(website_lead_attempts.items()):
+        fresh = [stamp for stamp in stamps if now - stamp < WEBSITE_LEAD_WINDOW_SECONDS]
+        if fresh:
+            website_lead_attempts[ip_key] = fresh
+        else:
+            website_lead_attempts.pop(ip_key, None)
+    recent = website_lead_attempts.get(client_ip, [])
     if len(recent) >= WEBSITE_LEAD_MAX_ATTEMPTS:
         website_lead_attempts[client_ip] = recent
         raise HTTPException(status_code=429, detail="Слишком много заявок. Попробуйте позже.")
