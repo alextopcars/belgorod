@@ -367,6 +367,17 @@ button,a{-webkit-tap-highlight-color:transparent}
 @media(max-width:760px){.import-ad-grid{grid-template-columns:1fr}.import-ad-card{height:285px}.stock-empty{min-height:245px}.inventory-bar{padding:12px 14px}}
 @media(max-width:560px){.stock-grid{grid-template-columns:1fr}.stock-car-card{max-width:480px;width:100%;margin-inline:auto}.stock-empty-actions{align-items:stretch;flex-direction:column;width:100%}.stock-empty-actions a{width:100%;text-align:center}.stock-car-gallery{aspect-ratio:1.35}.inventory-channel-link{width:100%;margin-left:18px}}
 
+
+.dkp-promo{background:linear-gradient(130deg,#172016,#0d120e);color:#f8f4e9;position:relative;overflow:hidden}
+.dkp-promo:before{content:"ДКП";position:absolute;right:-1%;top:50%;transform:translateY(-55%);font-family:Georgia,serif;font-size:clamp(130px,25vw,330px);font-weight:bold;letter-spacing:-.1em;color:#d9b36b0d;pointer-events:none}
+.dkp-promo-inner{position:relative;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+.dkp-promo h2{font-size:clamp(31px,4vw,48px);line-height:1.05;letter-spacing:-.05em;margin:12px 0}
+.dkp-promo p{color:#c4c9bd;font-size:13px;line-height:1.8;max-width:730px;margin:0}
+.dkp-promo .kicker{color:var(--gold2)}
+.dkp-promo-actions{display:flex;flex-direction:column;align-items:stretch;gap:10px;min-width:230px}
+.dkp-promo-note{font-size:10px;color:#aeb4a6;line-height:1.65;margin-top:16px}
+.dkp-promo-link{font-size:11px;color:var(--gold2);font-weight:800;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:760px){.dkp-promo-inner{grid-template-columns:1fr}.dkp-promo-actions{min-width:0;align-items:stretch}.dkp-promo-actions .btn{width:100%}}
 </style>
 </head>
 <body>
@@ -374,7 +385,7 @@ button,a{-webkit-tap-highlight-color:transparent}
  <div class="container header-inner">
   <a class="brand" href="#home" aria-label="ALEX.TOPCARS — на главную"><img src="assets/alex-topcars-gold.svg?v=20261027-b" width="224" height="100" alt="ALEX.TOPCARS — золотая монограмма AT, автомобиль и слоган"></a>
   <nav class="nav" id="mainNav" aria-label="Основная навигация">
-   <a class="active" href="#home">Главная</a><a href="#import">Под заказ</a><a href="#catalog">В наличии</a><a href="#services">Услуги</a><a href="#contacts">Контакты</a>
+   <a class="active" href="#home">Главная</a><a href="#import">Под заказ</a><a href="#catalog">В наличии</a><a href="#services">Услуги</a><a href="dogovor-kupli-prodazhi-avtomobilya.html">Бланк ДКП</a><a href="#contacts">Контакты</a>
   </nav>
   <div class="header-contacts">
    <div class="header-social"><a class="header-social-link" href="https://t.me/+79192826666?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%20ALEX.TOPCARS.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D0%B1%D0%BE%D1%80%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8F." target="_blank" rel="noopener"><span class="social-dot">➤</span> Написать мне</a></div>
@@ -440,6 +451,20 @@ button,a{-webkit-tap-highlight-color:transparent}
    <article class="service-card"><div class="service-num">04 / ПРОДАЖА</div><h3>Автовыкуп</h3><p>Уточню состояние и документы, обсудим ориентир по стоимости и порядок выкупа.</p><a href="#contacts">Запросить оценку ↗</a></article>
    <article class="service-card"><div class="service-num">05 / ОБМЕН</div><h3>Trade-in</h3><p>Сравним стоимость вашего автомобиля и выбранного варианта, чтобы заранее понимать условия обмена.</p><a href="#contacts">Обсудить обмен ↗</a></article>
    <article class="service-card"><div class="service-num">06 / ПРОДАЖА</div><h3>Комиссионная продажа</h3><p>Подготовлю автомобиль к размещению, помогу представить его покупателям и согласую с вами условия продажи.</p><a href="#contacts">Обсудить продажу ↗</a></article>
+  </div>
+ </div>
+</section>
+<section class="section dkp-promo" id="dogovor-kupli-prodazhi">
+ <div class="container dkp-promo-inner">
+  <div>
+   <div class="kicker">Полезные документы ALEX.TOPCARS</div>
+   <h2>Бланк договора купли-продажи автомобиля</h2>
+   <p>Бесплатный редактируемый образец для Word: данные продавца и покупателя, сведения об автомобиле, цена и расчёты, ограничения и состояние машины, передаваемые документы и отдельный акт приёма-передачи.</p>
+   <div class="dkp-promo-note">Это общий образец, а не индивидуальная юридическая консультация. Перед подписанием проверьте сведения и адаптируйте условия к вашей сделке.</div>
+  </div>
+  <div class="dkp-promo-actions">
+   <a class="btn btn-gold" href="assets/dogovor-kupli-prodazhi-avto.rtf" download="blank-dogovor-kupli-prodazhi-avtomobilya.rtf">Скачать бланк для Word <span class="btn-arrow">↓</span></a>
+   <a class="dkp-promo-link" href="dogovor-kupli-prodazhi-avtomobilya.html">Как заполнить и что проверить →</a>
   </div>
  </div>
 </section>
