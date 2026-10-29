@@ -2,6 +2,7 @@ import hashlib
 import logging
 import os
 import time
+from datetime import datetime, timezone
 from typing import Any
 
 import httpx
@@ -201,6 +202,7 @@ async def website_lead(request: Request) -> JSONResponse:
     if payload.get("pdConsent") is not True:
         raise HTTPException(status_code=422, detail="Необходимо согласие на обработку персональных данных")
     consent_version = clean(payload.get("consentVersion"), 40) or "не указана"
+    consent_received_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
     if not name or not contact:
         raise HTTPException(status_code=422, detail="Укажите имя и контакт для связи")
     if len(name) < 2 or len(contact) < 4:
@@ -236,7 +238,7 @@ async def website_lead(request: Request) -> JSONResponse:
         f"Запрос: {direction}\n"
         f"Бюджет: {budget}\n"
         f"Пожелания: {details}\n"
-        f"Согласие на обработку персональных данных: подтверждено; версия текста: {consent_version}"
+        f"Согласие на обработку персональных данных: подтверждено; версия текста: {consent_version}; время получения (UTC): {consent_received_at}"
     )
     try:
         await send_message(int(ADMIN_CHAT_ID), message)
