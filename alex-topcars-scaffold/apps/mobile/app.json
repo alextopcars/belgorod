@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "alex.topcars",
+    "slug": "alex-topcars",
+    "scheme": "alextopcars",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "ru.alextopcars.app"
+    },
+    "android": {
+      "package": "ru.alextopcars.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#101010"
+      }
+    },
+    "plugins": ["expo-router"]
+  }
+}
