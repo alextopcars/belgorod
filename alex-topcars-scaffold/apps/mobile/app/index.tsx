@@ -17,7 +17,7 @@ export default function Home() {
   return <View style={s.root}>
     <View style={s.header}>
       <View style={s.brandRow}><View style={s.logo}><Text style={s.logoText}>A</Text></View><Text style={s.brand}>alex.topcars</Text></View>
-      <Pressable onPress={()=>setTab("Избранное")}><Text style={s.headerIcon}>♡</Text></Pressable>
+      <Pressable onPress={()=>router.push({pathname:"/favorites",params:{ids:favorites.join(",")}})}><Text style={s.headerIcon}>♡</Text></Pressable>
     </View>
     <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{paddingBottom:110}}>
       <View style={s.hero}>
@@ -27,7 +27,7 @@ export default function Home() {
           <Text style={s.eyebrow}>ALEX.TOPCARS • АВТОМОБИЛИ</Text>
           <Text style={s.heroTitle}>Мечтай.{ "\n" }Выбирай.{ "\n" }Покупай.</Text>
           <Text style={s.heroSub}>Подбор, покупка и доставка автомобилей по всей России</Text>
-          <Pressable style={s.goldButton} onPress={()=>setTab("Каталог")}><Text style={s.goldButtonText}>Смотреть каталог  →</Text></Pressable>
+          <Pressable style={s.goldButton} onPress={()=>router.push("/catalog")}><Text style={s.goldButtonText}>Смотреть каталог  →</Text></Pressable>
         </View>
       </View>
       <View style={s.quickRow}>
@@ -39,10 +39,10 @@ export default function Home() {
         <View><Image source={{uri:car.image}} style={s.carImage}/><View style={s.tag}><Text style={s.tagText}>{car.tag}</Text></View><Pressable style={s.heart} onPress={()=>setFavorites(p=>p.includes(car.id)?p.filter(x=>x!==car.id):[...p,car.id])}><Text style={{fontSize:24,color:favorites.includes(car.id)?gold:"#fff"}}>{favorites.includes(car.id)?"♥":"♡"}</Text></Pressable></View>
         <View style={s.carInfo}><View style={{flex:1}}><Text style={s.carName}>{car.name}</Text><Text style={s.carMeta}>{car.year}  •  {car.mileage}</Text><Text style={s.carPrice}>{car.price}</Text></View><Text style={s.details}>Подробнее</Text></View>
       </Pressable>)}
-      <View style={s.serviceBox}><Text style={s.serviceTitle}>Не нашли нужный автомобиль?</Text><Text style={s.serviceCopy}>Подберём автомобиль под ваш бюджет и пожелания</Text><Pressable style={s.outlineButton} onPress={()=>setTab("Заявка")}><Text style={s.outlineText}>Оставить заявку</Text></Pressable></View>
+      <View style={s.serviceBox}><Text style={s.serviceTitle}>Не нашли нужный автомобиль?</Text><Text style={s.serviceCopy}>Подберём автомобиль под ваш бюджет и пожелания</Text><Pressable style={s.outlineButton} onPress={()=>router.push("/request")}><Text style={s.outlineText}>Оставить заявку</Text></Pressable></View>
       <Text style={s.disclaimer}>Демонстрационный каталог. Цены и наличие требуют подтверждения.</Text>
     </ScrollView>
-    <View style={s.nav}>{["Главная","Каталог","Избранное","Профиль"].map((v,i)=><Pressable key={v} style={s.navItem} onPress={()=>{setTab(v);if(v==="Каталог")setQuery("");}}><Text style={[s.navIcon,tab===v&&s.active]}>{["⌂","▦","♡","○"][i]}</Text><Text style={[s.navLabel,tab===v&&s.active]}>{v}</Text></Pressable>)}</View>
+    <View style={s.nav}>{["Главная","Каталог","Избранное","Профиль"].map((v,i)=><Pressable key={v} style={s.navItem} onPress={()=>{if(v==="Каталог"){setQuery("");router.push("/catalog");}else if(v==="Избранное"){router.push({pathname:"/favorites",params:{ids:favorites.join(",")}});}else if(v==="Профиль"){router.push("/profile");}else{router.replace("/");}}}><Text style={[s.navIcon,tab===v&&s.active]}>{["⌂","▦","♡","○"][i]}</Text><Text style={[s.navLabel,tab===v&&s.active]}>{v}</Text></Pressable>)}</View>
   </View>;
 }
 const s=StyleSheet.create({
