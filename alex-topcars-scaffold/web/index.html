@@ -15,8 +15,9 @@
 <section id="request" class="screen"><h1 class="pageTitle">Оставить заявку</h1><p class="muted">Заполните форму — откроется Telegram с готовым сообщением. Проверьте его и нажмите «Отправить».</p><form id="leadForm"><label class="formlabel">Что вас интересует?</label><select class="field" name="service"><option>Подбор автомобиля</option><option>Покупка автомобиля</option><option>Доставка автомобиля</option><option>Комиссионная продажа</option><option>Вопрос по автомобилю</option></select><label class="formlabel">Ваше имя</label><input class="field" name="name" placeholder="Как к вам обращаться" required><label class="formlabel">Телефон или Telegram</label><input class="field" name="contact" placeholder="+7 или @username" required><label class="formlabel">Автомобиль / бюджет</label><input class="field" name="car" placeholder="Марка, модель, бюджет"><label class="formlabel">Комментарий</label><textarea class="field" name="comment" rows="3" placeholder="Город, пожелания, комплектация"></textarea><button class="gold full" type="submit">Перейти в Telegram →</button></form><p class="notice">Данные не отправляются автоматически: Telegram попросит подтвердить отправку.</p></section>
 <section id="profile" class="screen"><h1 class="pageTitle">Связаться с нами</h1><p class="muted">Официальные страницы alex.topcars</p><div class="profilebox"><a href="https://t.me/AlexTopCarsLeadBot" target="_blank" rel="noopener">Открыть Telegram-бот ↗</a><a href="https://t.me/alex_topcars" target="_blank" rel="noopener">Telegram-канал ↗</a><a href="https://www.instagram.com/alex.topcars" target="_blank" rel="noopener">Instagram ↗</a><a href="https://alextopcars.github.io/belgorod/" target="_blank" rel="noopener">Основной сайт ↗</a></div><div class="service"><h3>Продать автомобиль?</h3><p class="muted">Оставьте заявку на комиссионную продажу — обсудим условия и оценку.</p><button class="gold full" onclick="go('request','Комиссионная продажа')">Продать через alex.topcars</button></div></section>
 </main><nav class="bottomnav"><button class="active" data-tab="home" onclick="go('home')"><span>⌂</span>Главная</button><button data-tab="catalog" onclick="go('catalog')"><span>▦</span>Каталог</button><button data-tab="favorites" onclick="go('favorites')"><span>♡</span>Избранное</button><button data-tab="request" onclick="go('request')"><span>✉</span>Заявка</button><button data-tab="profile" onclick="go('profile')"><span>○</span>Контакты</button></nav></div>
+<script src="./catalog-config.js"></script>
 <script>
-const cars=[
+let cars=[
 {id:'bmw-x5',name:'BMW X5',year:'2023',mileage:'45 000 км',price:'12 990 000 ₽',image:'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1100&q=85',tag:'В наличии',brand:'BMW',engine:'3.0 л · 340 л.с.',gear:'Автомат',drive:'Полный'},
 {id:'mercedes-gle',name:'Mercedes-Benz GLE',year:'2023',mileage:'32 000 км',price:'14 500 000 ₽',image:'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1100&q=85',tag:'Под заказ',brand:'Mercedes',engine:'3.0 л',gear:'Автомат',drive:'Полный'},
 {id:'porsche-cayenne',name:'Porsche Cayenne',year:'2022',mileage:'28 000 км',price:'13 800 000 ₽',image:'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1100&q=85',tag:'В наличии',brand:'Porsche',engine:'3.0 л',gear:'Автомат',drive:'Полный'}
@@ -34,4 +35,29 @@ function clearFilters(){brand='Все';availability='Все';document.getElement
 function renderBrands(){document.getElementById('chips').innerHTML=['Все','BMW','Mercedes','Porsche'].map(x=>'<button class="chip '+(brand===x?'on':'')+'" onclick="brand=\''+x+'\';renderBrands();renderCars()">'+x+'</button>').join('')}
 document.getElementById('leadForm').addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.target);const lines=['Здравствуйте! Хочу обратиться в alex.topcars.','Услуга: '+f.get('service'),'Имя: '+f.get('name'),'Контакт: '+f.get('contact'),'Автомобиль / бюджет: '+(f.get('car')||'не указано'),'Комментарий: '+(f.get('comment')||'нет')];const url='https://t.me/share/url?url='+encodeURIComponent('https://t.me/AlexTopCarsLeadBot')+'&text='+encodeURIComponent(lines.join('\n'));window.location.href=url});
 renderBrands();renderAvailability();document.getElementById('homeCars').innerHTML=cars.slice(0,2).map(card).join('');renderCars();renderFav();
+async function loadLiveCatalog(){
+  const endpoint = window.ALEX_TOPCARS_CATALOG_API || '';
+  if(!endpoint) return;
+  try {
+    const res = await fetch(endpoint, {headers:{'Accept':'application/json'}});
+    if(!res.ok) throw new Error('Catalog API: '+res.status);
+    const payload = await res.json();
+    const rows = Array.isArray(payload.vehicles) ? payload.vehicles : [];
+    cars = rows.map(v => {
+      const currency = v.currency || 'RUB';
+      const price = v.price == null ? 'По запросу' : new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0}).format(v.price)+' '+({RUB:'₽',USD:'
+</script></body></html>,EUR:'€'}[currency]||currency);
+      const status = ({available:'В наличии',on_order:'Под заказ',sold:'Продан',archived:'Архив'})[v.status] || 'В наличии';
+      return {id:v.id,name:v.title || [v.brand,v.model].filter(Boolean).join(' ') || 'Автомобиль',year:v.year || '—',mileage:v.mileage_km ? new Intl.NumberFormat('ru-RU').format(v.mileage_km)+' км' : 'Пробег уточняйте',price,image:v.photos?.[0]?.url || '../../hero-porsche.png',tag:status,brand:v.brand || 'Другое',engine:v.engine || 'Уточняйте',gear:v.transmission || 'Уточняйте',drive:v.drive || 'Уточняйте',description:v.description || ''};
+    });
+    renderBrands();
+    renderAvailability();
+    document.getElementById('homeCars').innerHTML=cars.slice(0,2).map(card).join('') || '<div class="empty">Скоро здесь появятся автомобили из Telegram-канала.</div>';
+    renderCars();
+    renderFav();
+  } catch(err) {
+    console.error('Не удалось загрузить каталог alex.topcars:', err);
+  }
+}
+loadLiveCatalog();
 </script></body></html>
