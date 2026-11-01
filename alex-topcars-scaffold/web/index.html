@@ -1,111 +1,136 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f7f7f5"><meta name="description" content="alex.topcars — подбор, покупка, доставка и комиссионная продажа автомобилей"><title>alex.topcars — автомобили</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
-:root{--bg:#101510;--panel:#192019;--line:#354034;--gold:#d9b36b;--muted:#b9bbb2;--white:#fffefa}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font-family:Manrope,Arial,sans-serif;padding-bottom:86px}button,input,textarea,select{font:inherit}button{cursor:pointer}.wrap{max-width:760px;margin:auto}.top{height:74px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;position:sticky;top:0;z-index:5;background:#101510f2;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.brand{height:48px;display:flex;align-items:center}.brand img{display:block;width:145px;max-height:44px;object-fit:contain;object-position:left center;filter:none;mix-blend-mode:normal}.iconbtn{border:1px solid var(--line);background:var(--panel);color:white;border-radius:12px;width:42px;height:42px;font-size:22px}.screen{display:none;padding:0 16px}.screen.active{display:block}.hero{height:570px;max-height:78vh;min-height:440px;margin:0 -16px 24px;overflow:hidden;position:relative;background:#172019}.hero img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,12,9,.82),rgba(8,12,9,.18) 90%),linear-gradient(0deg,rgba(8,12,9,.65),transparent 70%)}.heroText{position:absolute;z-index:1;bottom:28px;left:22px;right:22px}.eyebrow{color:var(--gold);font-size:10px;font-weight:800;letter-spacing:2px}.hero h1{font-size:clamp(38px,9vw,55px);line-height:.98;margin:14px 0;font-weight:900;letter-spacing:-1.6px}.hero p{color:#eee;line-height:1.5;max-width:330px;font-size:14px}.gold{border:0;background:linear-gradient(125deg,#f0d69a,#c99b4b);color:#1c1b13;font-weight:850;padding:15px 20px;border-radius:999px}.full{width:100%}.quick{display:grid;grid-template-columns:repeat(3,1fr);margin-bottom:32px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.quick button{background:none;border:0;border-right:1px solid var(--line);color:#eee;padding:15px 8px;text-align:left;font-size:11px;font-weight:700;min-height:76px}.quick button:last-child{border:0}.quick b{display:block;color:var(--gold);font-size:21px;margin-bottom:6px}.sectionHead{display:flex;align-items:center;justify-content:space-between;margin:10px 2px 14px}.sectionHead h2{font-size:21px;margin:0}.link{border:0;background:none;color:var(--gold);font-size:12px;font-weight:800}.search{display:flex;gap:10px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:0 14px;height:48px;margin-bottom:14px;color:var(--gold)}.search input{background:none;border:0;outline:0;color:white;width:100%;font-size:14px}.chips{display:flex;gap:8px;overflow:auto;padding:2px 0 16px}.chip{white-space:nowrap;border:1px solid var(--line);border-radius:30px;background:var(--panel);color:#ddd;padding:9px 15px;font-size:12px;font-weight:700}.chip.on{background:var(--gold);border-color:var(--gold);color:#17130a}.car{background:var(--panel);border:1px solid var(--line);overflow:hidden;margin-bottom:16px}.carphoto{height:210px;position:relative;background:#222}.carphoto img{width:100%;height:100%;object-fit:cover}.tag{position:absolute;top:12px;left:12px;border-radius:30px;background:#111d;padding:7px 10px;color:#e7eadf;font-size:10px;font-weight:800}.heart{position:absolute;right:12px;top:10px;border:0;border-radius:50%;width:40px;height:40px;background:#0009;color:white;font-size:22px}.carinfo{padding:15px}.carinfo h3{margin:0;font-size:19px}.meta{color:var(--muted);font-size:12px;margin-top:6px}.carbottom{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px}.price{font-size:18px;font-weight:900;color:white}.smallgold{border:0;background:var(--gold);color:#17130a;border-radius:10px;padding:11px 13px;font-size:12px;font-weight:850}.muted{color:var(--muted);font-size:12px;line-height:1.6}.service,.panel{border:1px solid #695333;background:linear-gradient(135deg,#263124,#141b14);padding:22px;margin:26px 0}.service h3{font-size:20px;margin:0 0 8px}.outline{width:100%;border:1px solid var(--gold);background:transparent;color:var(--gold);padding:13px;border-radius:11px;font-weight:800;margin-top:12px}.bottomnav{position:fixed;bottom:0;left:0;right:0;z-index:6;background:#101214f5;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:8px 3px calc(8px + env(safe-area-inset-bottom));backdrop-filter:blur(16px)}.bottomnav button{border:0;background:none;color:#85888d;font-size:10px;font-weight:700;padding:4px 1px}.bottomnav button span{display:block;font-size:21px;margin-bottom:3px}.bottomnav button.active{color:var(--gold)}.pageTitle{font-size:26px;font-weight:900;margin:22px 2px 6px}.back{border:0;background:none;color:var(--gold);padding:14px 0;font-weight:800}.detailimg{width:calc(100% + 32px);margin-left:-16px;height:260px;object-fit:cover}.specs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px 0}.spec{background:var(--panel);border:1px solid var(--line);padding:12px}.spec small{display:block;color:var(--muted);font-size:10px}.spec b{display:block;font-size:12px;margin-top:7px}.field{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:14px;color:white;margin:6px 0 13px;outline:none}.formlabel{font-size:12px;color:#ddd}.empty{text-align:center;color:var(--muted);padding:40px 12px;line-height:1.7}.notice{font-size:10px;color:#85877f;text-align:center;margin:18px 0}.profilebox{background:var(--panel);border:1px solid var(--line);padding:16px;margin-top:18px}.profilebox a{display:block;color:var(--gold);text-decoration:none;padding:13px 0;border-bottom:1px solid var(--line);font-weight:700}.profilebox a:last-child{border:0}.features{display:grid;grid-template-columns:1fr 1fr;gap:10px}.feature{background:var(--panel);border:1px solid var(--line);padding:15px}.feature b{display:block;color:var(--gold);margin-bottom:6px}.textbtn{border:0;background:none;color:var(--gold);padding:12px 0;font-weight:800}@media(min-width:650px){.hero{height:490px}.carphoto{height:280px}.screen{padding-left:24px;padding-right:24px}.top{padding:0 24px}}
-
-/* Светлая премиальная тема alex.topcars */
-:root{color-scheme:light;--bg:#f7f7f5;--panel:#ffffff;--line:#e8e6e1;--gold:#c69a4e;--muted:#777a7d;--white:#17191b}
-body{background:var(--bg);color:var(--white)}
-.top{background:#ffffffed;border-bottom-color:var(--line)}
-.iconbtn{background:#fff;color:#222;border-color:var(--line);box-shadow:0 3px 12px #1515150a}
-.hero{background:#e9e8e3}
-.quick{border-color:var(--line)}
-.quick button{color:#343638}
-.quick b{color:#b88b3d}
-.link,.textbtn,.back{color:#a77b32}
-.search{background:#fff;border-color:var(--line);color:#a77b32;box-shadow:0 3px 14px #11111106}
-.search input{color:#202326}
-.chip{background:#f0f0ee;border-color:#ecebe8;color:#424548}
-.chip.on{background:#202224;border-color:#202224;color:#fff}
-.car{background:#fff;border:1px solid #eeedea;border-radius:22px;box-shadow:0 5px 18px #2020200a}
-.carphoto{background:#ececea}
-.tag{background:#202224eF;color:#fff}
-.heart{background:#ffffffeb;color:#292b2d;box-shadow:0 2px 10px #0002}
-.carinfo h3{color:#17191b}
-.price{color:#17191b}
-.smallgold{background:linear-gradient(125deg,#d9b66f,#bd8d3e);color:#fff}
-.muted{color:#73777a}
-.service,.panel{border:1px solid #eee4d2;background:linear-gradient(135deg,#fffdf8,#f4f0e8);border-radius:20px}
-.service h3{color:#222}
-.outline{border-color:#bd9149;color:#a77b32}
-.bottomnav{background:#ffffffed;border-top:1px solid var(--line);box-shadow:0 -5px 18px #11111108}
-.bottomnav button{color:#7a7d80}
-.bottomnav button.active{color:#bd8e42}
-.spec{background:#f5f5f2;border:1px solid #e9e8e4;border-radius:12px}
-.field{background:#fff;border-color:#e4e3df;color:#222}
-.formlabel{color:#55595c}
-.profilebox,.feature{background:#fff;border:1px solid var(--line);border-radius:14px}
-.profilebox a{color:#a77b32;border-color:var(--line)}
-.feature b{color:#a77b32}
-.notice{color:#85888a}
-@media(max-width:520px){
- .car{display:grid;grid-template-columns:54% 46%;align-items:stretch}
- .carphoto{height:auto;min-height:190px}
- .carinfo{padding:13px 11px;display:flex;flex-direction:column;justify-content:center;min-width:0}
- .carinfo h3{font-size:16px;line-height:1.25}
- .meta{font-size:11px;line-height:1.45}
- .carbottom{display:block;margin-top:12px}
- .price{display:block;font-size:16px;margin-bottom:10px}
- .smallgold{width:100%;padding:10px 7px;font-size:11px}
-}
-@media(min-width:650px){.car{border-radius:22px}.carphoto{border-radius:20px 0 0 20px}}
-
-</style></head><body><div class="wrap">
-<header class="top"><a class="brand" href="#" onclick="go('home');return false"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3KwfF8rets4xLY61zvvK7G2MV43/badc3f9c-6156-4c58-8996-fd33605e1eab.webp?v=20261030-final-logo" alt="alex.topcars"></a><button class="iconbtn" onclick="go('favorites')" aria-label="Избранное">♡</button></header>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5f3ed">
+<meta name="description" content="alex.topcars — подбор, покупка и доставка автомобилей из Кореи, Китая и Европы. Автомобили в наличии, автовыкуп, Trade-in и комиссионная продажа.">
+<title>alex.topcars — автомобили</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f3ed;--paper:#fffefa;--ink:#171a17;--muted:#73776f;--line:#e5e1d6;--gold:#c79b50;--gold2:#e5c47f;--green:#20291f;--shadow:0 10px 30px #171a1710}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,Arial,sans-serif;padding-bottom:calc(78px + env(safe-area-inset-bottom))}
+button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.app{max-width:760px;margin:auto;min-height:100vh}
+.top{height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;background:#f5f3edf2;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;backdrop-filter:blur(14px)}
+.brand{display:flex;align-items:center;height:58px}.brand img{width:156px;height:52px;object-fit:contain;object-position:left center}
+.top-actions{display:flex;gap:9px}.iconbtn{width:40px;height:40px;border:1px solid var(--line);background:var(--paper);border-radius:50%;color:var(--ink);font-size:18px;display:grid;place-items:center}
+.screen{display:none;padding:0 17px}.screen.active{display:block}
+.hero{height:min(590px,72vh);min-height:440px;margin:0 -17px 18px;position:relative;overflow:hidden;background:#141814}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 57%}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0b100de0 0%,#0b100d91 44%,#0b100d08 100%),linear-gradient(0deg,#0b100d8c 0%,transparent 48%)}
+.hero-copy{position:absolute;z-index:1;left:23px;right:22px;bottom:28px;color:#fff}
+.eyebrow{font-size:10px;letter-spacing:.19em;text-transform:uppercase;font-weight:800;color:var(--gold2)}
+.hero h1{font-size:clamp(37px,9vw,58px);line-height:.99;letter-spacing:-.055em;margin:13px 0 12px;max-width:390px}
+.hero h1 span{display:block;color:var(--gold2)}
+.hero p{font-size:13px;line-height:1.65;color:#f1eee6;max-width:320px;margin:0 0 19px}
+.gold{border:0;border-radius:999px;padding:14px 20px;background:linear-gradient(120deg,#ebd094,#c39143);color:#1b1a15;font-size:12px;font-weight:800;box-shadow:0 7px 20px #0002}
+.outline{border:1px solid #d9bd83;background:#ffffff0d;color:#fff;border-radius:999px;padding:13px 18px;font-size:12px;font-weight:800}
+.quick{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 23px}
+.quick button{border:1px solid var(--line);border-radius:15px;background:var(--paper);box-shadow:var(--shadow);min-height:78px;padding:13px;text-align:left;color:var(--ink);font-size:12px;font-weight:800;display:flex;align-items:center;gap:12px}
+.quick i{font-style:normal;width:36px;height:36px;border-radius:11px;background:#f2ead9;color:#9b7132;display:grid;place-items:center;font-size:19px}
+.catalog-cta{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;border:1px solid #d9bd83;border-radius:16px;padding:17px 18px;background:linear-gradient(120deg,#263126,#111711);color:white;box-shadow:0 8px 24px #171a1716;margin:0 0 28px}
+.catalog-cta b{display:block;font-size:17px}.catalog-cta small{display:block;color:#d2c8b3;font-size:10px;margin-top:4px}.catalog-cta strong{width:40px;height:40px;flex:0 0 40px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:#191810;font-size:22px}
+.sectionHead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:23px 1px 14px}
+.sectionHead h2{font-size:22px;line-height:1.15;letter-spacing:-.045em;margin:0}.textlink{border:0;background:none;color:#946c2e;font-size:11px;font-weight:800;padding:8px 0;white-space:nowrap}
+.intro{font-size:12px;line-height:1.7;color:var(--muted);margin:0 1px 16px}
+.car{background:var(--paper);border:1px solid var(--line);border-radius:17px;overflow:hidden;margin-bottom:13px;box-shadow:var(--shadow)}
+.carphoto{height:205px;position:relative;background:#e1dfd7}.carphoto img{width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;left:12px;top:12px;background:#1e2a20ed;color:#f7e5bd;border:1px solid #d8bd8370;border-radius:30px;padding:6px 10px;font-size:9px;font-weight:800}
+.carinfo{padding:14px}.carinfo h3{font-size:18px;line-height:1.2;margin:0}.meta{color:var(--muted);font-size:11px;margin-top:6px}
+.carbottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:13px}.price{font-size:17px;font-weight:800}.smallgold{border:0;border-radius:999px;padding:10px 14px;background:#ead19e;color:#211d14;font-size:11px;font-weight:800}
+.empty{padding:25px 15px;text-align:center;color:var(--muted);font-size:12px;line-height:1.7;background:var(--paper);border:1px dashed #d8d2c5;border-radius:14px}
+.service{background:var(--green);color:#fff;border-radius:17px;padding:21px;margin:22px 0}.service h3{font-size:19px;margin:0 0 8px}.service p{font-size:12px;color:#d3d6cc;line-height:1.7;margin:0 0 14px}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:13px 0 25px}.feature{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:14px}.feature b{display:block;color:#926b31;font-size:11px;margin-bottom:5px}.feature span{font-size:11px;line-height:1.5;color:var(--muted)}
+.pageTitle{font-size:27px;letter-spacing:-.05em;margin:23px 0 6px}.muted{color:var(--muted);font-size:12px;line-height:1.65}
+.search{display:flex;align-items:center;gap:9px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:0 12px;height:46px;margin:16px 0 11px}.search input{border:0;outline:0;background:transparent;width:100%;color:var(--ink);font-size:13px}
+.chips{display:flex;gap:7px;overflow-x:auto;padding:2px 0 13px;scrollbar-width:none}.chip{white-space:nowrap;border:1px solid var(--line);border-radius:99px;background:var(--paper);color:#53574f;padding:8px 13px;font-size:10px;font-weight:800}.chip.on{background:var(--green);border-color:var(--green);color:white}
+.back{border:0;background:none;color:#946c2e;font-size:12px;font-weight:800;padding:17px 0 7px}
+.detailimg{width:calc(100% + 34px);height:255px;object-fit:cover;margin:0 -17px 17px}
+.specs{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:16px 0}.spec{padding:12px;background:var(--paper);border:1px solid var(--line);border-radius:10px}.spec small{display:block;color:var(--muted);font-size:10px}.spec b{font-size:12px;display:block;margin-top:5px}
+.field{width:100%;border:1px solid var(--line);border-radius:11px;background:var(--paper);padding:13px;color:var(--ink);margin:6px 0 13px;outline:none}.formlabel{font-size:11px;font-weight:700;color:#55594f}
+.profilebox{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:5px 15px;margin:17px 0}.profilebox a{display:block;padding:14px 0;border-bottom:1px solid var(--line);font-size:12px;font-weight:800;color:#80602e}.profilebox a:last-child{border:0}
+.notice{font-size:10px;color:#888b82;text-align:center;margin:18px 0}
+.bottomnav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(760px,100%);z-index:20;display:grid;grid-template-columns:repeat(4,1fr);padding:8px 5px calc(8px + env(safe-area-inset-bottom));background:#fffefaed;border-top:1px solid var(--line);backdrop-filter:blur(16px)}
+.bottomnav button{border:0;background:none;color:#85877f;font-size:10px;font-weight:800;padding:3px}.bottomnav button span{display:block;font-size:20px;margin-bottom:2px}.bottomnav button.active{color:#a77b32}
+@media(min-width:650px){.screen{padding-left:24px;padding-right:24px}.hero{margin-left:-24px;margin-right:-24px;height:500px}.carphoto{height:280px}.top{padding:0 24px}}
+</style>
+</head>
+<body><div class="app">
+<header class="top">
+<a class="brand" href="#" onclick="go('home');return false" aria-label="alex.topcars — главная"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3KwfF8rets4xLY61zvvK7G2MV43/badc3f9c-6156-4c58-8996-fd33605e1eab.webp?v=20261030-final-logo" alt="Официальный логотип alex.topcars"></a>
+<div class="top-actions"><a class="iconbtn" href="tel:+79192826666" aria-label="Позвонить">☎</a><a class="iconbtn" href="https://t.me/alex_topcars" target="_blank" rel="noopener" aria-label="Telegram">➤</a></div>
+</header>
 <main>
-<section id="home" class="screen active"><div class="hero"><img src="../../hero-porsche.png" alt="Porsche"><div class="heroText"><div class="eyebrow">ALEX.TOPCARS · АВТОМОБИЛИ</div><h1>Мечтай.<br>Выбирай.<br>Покупай.</h1><p>Подбор, покупка и доставка автомобилей по всей России</p><button class="gold" onclick="go('catalog')">Смотреть каталог →</button></div></div>
-<div class="quick"><button onclick="setAvailability('В наличии')"><b>◈</b>Авто в наличии</button><button onclick="setAvailability('Под заказ')"><b>⌕</b>Под заказ</button><button onclick="go('request','Доставка автомобиля')"><b>↗</b>Доставка авто</button></div>
-<div class="sectionHead"><h2>Выбор недели</h2><button class="link" onclick="go('catalog')">Весь каталог →</button></div><div id="homeCars"></div>
-<div class="service"><h3>Не нашли нужный автомобиль?</h3><p class="muted">Подберём варианты под ваш бюджет, проверим историю и организуем доставку.</p><button class="outline" onclick="go('request','Подбор автомобиля')">Заказать подбор</button></div>
-<div class="sectionHead"><h2>Наши услуги</h2></div><div class="features"><div class="feature"><b>01 / Подбор</b><span class="muted">Поиск и проверка автомобиля</span></div><div class="feature"><b>02 / Покупка</b><span class="muted">Сопровождение сделки</span></div><div class="feature"><b>03 / Доставка</b><span class="muted">Логистика по России</span></div><div class="feature"><b>04 / Комиссия</b><span class="muted">Продажа вашего автомобиля</span></div></div><p class="notice">Демо-каталог: автомобили, цены и характеристики приведены для демонстрации.</p></section>
-<section id="catalog" class="screen"><h1 class="pageTitle">Каталог автомобилей</h1><p class="muted">Найдите подходящий автомобиль</p><div class="search">⌕ <input id="query" placeholder="Марка или модель" oninput="renderCars()"><button class="textbtn" onclick="clearFilters()">Сбросить</button></div><div class="chips" id="chips"></div><div class="chips" id="availabilityChips"></div><div id="catalogCars"></div></section>
-<section id="favorites" class="screen"><h1 class="pageTitle">Избранное</h1><p class="muted">Сохранённые автомобили на этом устройстве</p><div id="favoriteCars"></div></section>
-<section id="detail" class="screen"><button class="back" onclick="go('catalog')">← Назад к каталогу</button><div id="detailContent"></div></section>
-<section id="request" class="screen"><h1 class="pageTitle">Оставить заявку</h1><p class="muted">Заполните форму — откроется Telegram с готовым сообщением. Проверьте его и нажмите «Отправить».</p><form id="leadForm"><label class="formlabel">Что вас интересует?</label><select class="field" name="service"><option>Подбор автомобиля</option><option>Покупка автомобиля</option><option>Доставка автомобиля</option><option>Комиссионная продажа</option><option>Вопрос по автомобилю</option></select><label class="formlabel">Ваше имя</label><input class="field" name="name" placeholder="Как к вам обращаться" required><label class="formlabel">Телефон или Telegram</label><input class="field" name="contact" placeholder="+7 или @username" required><label class="formlabel">Автомобиль / бюджет</label><input class="field" name="car" placeholder="Марка, модель, бюджет"><label class="formlabel">Комментарий</label><textarea class="field" name="comment" rows="3" placeholder="Город, пожелания, комплектация"></textarea><button class="gold full" type="submit">Перейти в Telegram →</button></form><p class="notice">Данные не отправляются автоматически: Telegram попросит подтвердить отправку.</p></section>
-<section id="profile" class="screen"><h1 class="pageTitle">Связаться с нами</h1><p class="muted">Официальные страницы alex.topcars</p><div class="profilebox"><a href="https://t.me/AlexTopCarsLeadBot" target="_blank" rel="noopener">Открыть Telegram-бот ↗</a><a href="https://t.me/alex_topcars" target="_blank" rel="noopener">Telegram-канал ↗</a><a href="https://www.instagram.com/alex.topcars" target="_blank" rel="noopener">Instagram ↗</a><a href="https://alextopcars.github.io/belgorod/" target="_blank" rel="noopener">Основной сайт ↗</a></div><div class="service"><h3>Продать автомобиль?</h3><p class="muted">Оставьте заявку на комиссионную продажу — обсудим условия и оценку.</p><button class="gold full" onclick="go('request','Комиссионная продажа')">Продать через alex.topcars</button></div></section>
-</main><nav class="bottomnav"><button class="active" data-tab="home" onclick="go('home')"><span>⌂</span>Главная</button><button data-tab="catalog" onclick="go('catalog')"><span>▦</span>Каталог</button><button data-tab="favorites" onclick="go('favorites')"><span>♡</span>Избранное</button><button data-tab="request" onclick="go('request')"><span>✉</span>Заявка</button><button data-tab="profile" onclick="go('profile')"><span>○</span>Контакты</button></nav></div>
-<script src="./catalog-config.js"></script>
+<section id="home" class="screen active">
+<div class="hero"><img src="../../hero-porsche.png" alt="Porsche — автомобиль на главном экране"><div class="hero-copy"><div class="eyebrow">ALEX.TOPCARS · ПРЕМИАЛЬНЫЕ АВТОМОБИЛИ</div><h1>Автомобиль ближе, <span>чем кажется.</span></h1><p>Подбор, покупка и доставка автомобилей из Кореи, Китая и Европы. Сопровождение до передачи ключей.</p><button class="gold" onclick="go('request','Подбор автомобиля')">Подобрать автомобиль ↗</button></div></div>
+<div class="quick">
+<button onclick="go('catalog');setAvailability('В наличии')"><i>◈</i>Автомобили в наличии</button>
+<button onclick="go('request','Подбор автомобиля')"><i>⌕</i>Под заказ</button>
+<button onclick="go('request','Доставка автомобиля')"><i>↗</i>Доставка по России</button>
+<button onclick="go('request','Комиссионная продажа')"><i>◇</i>Комиссионная продажа</button>
+</div>
+<button class="catalog-cta" onclick="go('catalog')"><span><b>Каталог автомобилей</b><small>Актуальные предложения и подробности</small></span><strong>→</strong></button>
+<div class="sectionHead"><h2>Автомобили в наличии</h2><button class="textlink" onclick="go('catalog')">Все авто →</button></div>
+<p class="intro">Показываем только активные предложения из каталога сайта. Наличие и цена подтверждаются перед сделкой.</p>
+<div id="homeCars"><div class="empty">Загружаем актуальные предложения…</div></div>
+<div class="service"><h3>Не нашли нужный автомобиль?</h3><p>Подберём варианты под ваш бюджет, сравним комплектации и заранее объясним расходы, доставку и оформление.</p><button class="gold" onclick="go('request','Подбор автомобиля')">Оставить запрос ↗</button></div>
+<div class="sectionHead"><h2>Чем помогаю</h2></div>
+<div class="features">
+<div class="feature"><b>01 / Подбор</b><span>Поиск и проверка автомобиля под ваши задачи</span></div>
+<div class="feature"><b>02 / Покупка</b><span>Согласование автомобиля, бюджета и условий</span></div>
+<div class="feature"><b>03 / Доставка</b><span>Организация доставки и сопровождение сделки</span></div>
+<div class="feature"><b>04 / Продажа</b><span>Автовыкуп, Trade-in и комиссионная продажа</span></div>
+</div>
+</section>
+<section id="catalog" class="screen">
+<h1 class="pageTitle">Каталог автомобилей</h1><p class="muted">Актуальные предложения alex.topcars. Если подходящего варианта нет — подберём под ваш бюджет.</p>
+<div class="search">⌕ <input id="query" placeholder="Марка или модель" oninput="renderCars()"><button class="textlink" onclick="clearFilters()">Сбросить</button></div>
+<div class="chips" id="chips"></div><div class="chips" id="availabilityChips"></div><div id="catalogCars"><div class="empty">Загружаем каталог…</div></div>
+<button class="gold" style="width:100%;margin:8px 0 20px" onclick="go('request','Подбор автомобиля')">Подобрать автомобиль под заказ ↗</button>
+</section>
+<section id="favorites" class="screen"><h1 class="pageTitle">Избранное</h1><p class="muted">Сохранённые автомобили на этом устройстве.</p><div id="favoriteCars"></div></section>
+<section id="detail" class="screen"><button class="back" onclick="go('catalog')">← Назад в каталог</button><div id="detailContent"></div></section>
+<section id="request" class="screen">
+<h1 class="pageTitle">Оставить заявку</h1><p class="muted">Расскажите, какой автомобиль ищете. Подготовим ответ и свяжемся с вами.</p>
+<form id="leadForm">
+<label class="formlabel">Что вас интересует?</label><select class="field" name="service"><option>Подбор автомобиля</option><option>Автомобиль из Кореи</option><option>Автомобиль из Китая</option><option>Автомобиль из Европы</option><option>Автомобиль в наличии</option><option>Доставка автомобиля</option><option>Автовыкуп</option><option>Trade-in</option><option>Комиссионная продажа</option></select>
+<label class="formlabel">Как к вам обращаться?</label><input class="field" name="name" placeholder="Ваше имя" required>
+<label class="formlabel">Телефон или Telegram</label><input class="field" name="contact" placeholder="+7 или @username" required>
+<label class="formlabel">Бюджет</label><select class="field" name="budget"><option>Пока обсуждаю</option><option>До 2 млн ₽</option><option>2–3 млн ₽</option><option>3–5 млн ₽</option><option>5 млн ₽ и выше</option></select>
+<label class="formlabel">Пожелания</label><textarea class="field" name="details" rows="4" placeholder="Марка, модель, год, город и другие пожелания"></textarea>
+<button class="gold" type="submit" style="width:100%">Перейти в Telegram ↗</button>
+</form><p class="notice">Перед отправкой Telegram покажет подготовленное сообщение — подтвердите его отправку.</p>
+</section>
+<section id="profile" class="screen"><h1 class="pageTitle">Контакты</h1><p class="muted">Связаться с alex.topcars и посмотреть новые предложения.</p>
+<div class="profilebox"><a href="tel:+79192826666">Телефон: +7 919 282-66-66 ↗</a><a href="https://t.me/alex_topcars" target="_blank" rel="noopener">Telegram-канал @alex_topcars ↗</a><a href="https://www.instagram.com/alex.topcars" target="_blank" rel="noopener">Instagram @alex.topcars ↗</a><a href="https://alextopcars.github.io/belgorod/" target="_blank" rel="noopener">Основной сайт alex.topcars ↗</a><a href="https://t.me/AlexTopCarsLeadBot" target="_blank" rel="noopener">Открыть Telegram-бот ↗</a></div>
+<div class="service"><h3>Хотите продать автомобиль?</h3><p>Обсудим оценку, подготовку и условия комиссионной продажи.</p><button class="gold" onclick="go('request','Комиссионная продажа')">Обсудить продажу ↗</button></div>
+</section>
+</main>
+<nav class="bottomnav">
+<button class="active" data-tab="home" onclick="go('home')"><span>⌂</span>Главная</button>
+<button data-tab="catalog" onclick="go('catalog')"><span>▦</span>Каталог</button>
+<button data-tab="favorites" onclick="go('favorites')"><span>♡</span>Избранное</button>
+<button data-tab="profile" onclick="go('profile')"><span>○</span>Контакты</button>
+</nav></div>
 <script>
-let cars=[
-{id:'bmw-x5',name:'BMW X5',year:'2023',mileage:'45 000 км',price:'12 990 000 ₽',image:'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1100&q=85',tag:'В наличии',brand:'BMW',engine:'3.0 л · 340 л.с.',gear:'Автомат',drive:'Полный'},
-{id:'mercedes-gle',name:'Mercedes-Benz GLE',year:'2023',mileage:'32 000 км',price:'14 500 000 ₽',image:'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1100&q=85',tag:'Под заказ',brand:'Mercedes',engine:'3.0 л',gear:'Автомат',drive:'Полный'},
-{id:'porsche-cayenne',name:'Porsche Cayenne',year:'2022',mileage:'28 000 км',price:'13 800 000 ₽',image:'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1100&q=85',tag:'В наличии',brand:'Porsche',engine:'3.0 л',gear:'Автомат',drive:'Полный'},
-{id:'avito-bmw-7-2024',name:'BMW 7 серии',year:'2024',mileage:'10 700 км',price:'13 400 000 ₽',image:'../../hero-porsche.png',tag:'В наличии',brand:'BMW',engine:'3.0 л',gear:'Автомат',drive:'Уточняйте',sourceUrl:"https://m.avito.ru/belgorod/avtomobili/bmw_7_seriya_3.0_at_2024_10_700_km_8315856544?context=H4sIAAAAAAAA_wE_AMD_YToyOntzOjEzOiJhdXRvTG9hbnNNYXNrIjtpOjA7czoxOiJ4IjtzOjE2OiJ6TjRRbG4wV01kbHQ4WlpVIjt9WFnPij8AAAA",description:'Автомобиль из объявления Avito. Актуальность наличия и комплектацию уточняйте у менеджера.'}
-];
-let brand='Все',availability='Все',favorites=[];try{favorites=JSON.parse(localStorage.getItem('at-favs')||'[]')}catch(e){favorites=[]}
-function go(id,service){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.id===id));document.querySelectorAll('.bottomnav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));if(id==='catalog')renderCars();if(id==='favorites')renderFav();if(id==='request'&&service)document.querySelector('[name=service]').value=service;window.scrollTo({top:0,behavior:'smooth'})}
-function card(c){return '<article class="car"><div class="carphoto" onclick="detail(\''+c.id+'\')"><img src="'+c.image+'" alt="'+c.name+'" loading="lazy"><span class="tag">'+c.tag+'</span><button class="heart" aria-label="В избранное" onclick="event.stopPropagation();toggleFav(\''+c.id+'\')">'+(favorites.includes(c.id)?'♥':'♡')+'</button></div><div class="carinfo" onclick="detail(\''+c.id+'\')"><h3>'+c.name+'</h3><div class="meta">'+c.year+' · '+c.mileage+'</div><div class="carbottom"><b class="price">'+c.price+'</b><button class="smallgold" onclick="event.stopPropagation();detail(\''+c.id+'\')">Подробнее</button></div></div></article>'}
-function renderCars(){const q=(document.getElementById('query').value||'').toLowerCase().trim();const list=cars.filter(c=>(brand==='Все'||c.brand===brand)&&(availability==='Все'||c.tag===availability)&&(c.name.toLowerCase().includes(q)||c.brand.toLowerCase().includes(q)));document.getElementById('catalogCars').innerHTML=list.length?list.map(card).join(''):'<div class="empty">Ничего не найдено.<br>Измените запрос или сбросьте фильтры.</div>'}
-function renderFav(){const list=cars.filter(c=>favorites.includes(c.id));document.getElementById('favoriteCars').innerHTML=list.length?list.map(card).join(''):'<div class="empty">♡<br>Здесь будут автомобили, которые вы сохранили.<br><button class="gold" onclick="go(\'catalog\')">Перейти в каталог</button></div>'}
-function toggleFav(id){favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];try{localStorage.setItem('at-favs',JSON.stringify(favorites))}catch(e){}renderCars();renderFav();document.getElementById('homeCars').innerHTML=cars.slice(0,2).map(card).join('')}
-function detail(id){const c=cars.find(x=>x.id===id);if(!c)return;document.getElementById('detailContent').innerHTML='<img class="detailimg" src="'+c.image+'" alt="'+c.name+'"><div class="eyebrow" style="margin-top:20px">ALEX.TOPCARS · АВТОМОБИЛЬ</div><h1 style="font-size:29px;margin:10px 0">'+c.name+'</h1><div class="meta">'+c.year+' · '+c.mileage+' · '+c.tag+'</div><div class="price" style="color:var(--gold);font-size:25px;margin-top:17px">'+c.price+'</div><div class="specs"><div class="spec"><small>Двигатель</small><b>'+c.engine+'</b></div><div class="spec"><small>Коробка</small><b>'+c.gear+'</b></div><div class="spec"><small>Привод</small><b>'+c.drive+'</b></div></div><h3>Об автомобиле</h3><p class="muted">'+(c.description||'Актуальную комплектацию, историю, стоимость и наличие уточняйте у менеджера.')+'</p>'+(c.sourceUrl?'<a class="outline" style="display:block;text-align:center;text-decoration:none" href="'+c.sourceUrl+'" target="_blank" rel="noopener">Смотреть объявление на Avito ↗</a>':'')+'<button class="gold full" onclick="go(\'request\',\'Вопрос по автомобилю\');document.querySelector(\'[name=car]\').value='+JSON.stringify(c.name)+">Оставить заявку</button><button class="outline" onclick="toggleFav(\''+c.id+'\')">'+(favorites.includes(c.id)?'Убрать из избранного':'♡ Добавить в избранное')+'</button><p class="notice">Демо-данные, не является публичной офертой.</p>';go('detail')}
-function setAvailability(value){availability=value;go('catalog');renderAvailability()}
-function renderAvailability(){document.getElementById('availabilityChips').innerHTML=['Все','В наличии','Под заказ'].map(x=>'<button class="chip '+(availability===x?'on':'')+'" onclick="availability=\''+x+'\';renderAvailability();renderCars()">'+x+'</button>').join('')}
-function clearFilters(){brand='Все';availability='Все';document.getElementById('query').value='';renderBrands();renderAvailability();renderCars()}
-function renderBrands(){document.getElementById('chips').innerHTML=['Все','BMW','Mercedes','Porsche'].map(x=>'<button class="chip '+(brand===x?'on':'')+'" onclick="brand=\''+x+'\';renderBrands();renderCars()">'+x+'</button>').join('')}
-document.getElementById('leadForm').addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.target);const lines=['Здравствуйте! Хочу обратиться в alex.topcars.','Услуга: '+f.get('service'),'Имя: '+f.get('name'),'Контакт: '+f.get('contact'),'Автомобиль / бюджет: '+(f.get('car')||'не указано'),'Комментарий: '+(f.get('comment')||'нет')];const url='https://t.me/share/url?url='+encodeURIComponent('https://t.me/AlexTopCarsLeadBot')+'&text='+encodeURIComponent(lines.join('\n'));window.location.href=url});
-renderBrands();renderAvailability();document.getElementById('homeCars').innerHTML=cars.slice(0,2).map(card).join('');renderCars();renderFav();
-async function loadLiveCatalog(){
-  const endpoint = window.ALEX_TOPCARS_CATALOG_API || '';
-  if(!endpoint) return;
-  try {
-    const res = await fetch(endpoint, {headers:{'Accept':'application/json'}});
-    if(!res.ok) throw new Error('Catalog API: '+res.status);
-    const payload = await res.json();
-    const rows = Array.isArray(payload.vehicles) ? payload.vehicles : [];
-    cars = rows.map(v => {
-      const currency = v.currency || 'RUB';
-      const price = v.price == null ? 'По запросу' : new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0}).format(v.price)+' '+({RUB:'₽',USD:'$',EUR:'€'}[currency]||currency);
-      const status = ({available:'В наличии',on_order:'Под заказ',sold:'Продан',archived:'Архив'})[v.status] || 'В наличии';
-      return {id:v.id,name:v.title || [v.brand,v.model].filter(Boolean).join(' ') || 'Автомобиль',year:v.year || '—',mileage:v.mileage_km ? new Intl.NumberFormat('ru-RU').format(v.mileage_km)+' км' : 'Пробег уточняйте',price,image:v.photos?.[0]?.url || '../../hero-porsche.png',tag:status,brand:v.brand || 'Другое',engine:v.engine || 'Уточняйте',gear:v.transmission || 'Уточняйте',drive:v.drive || 'Уточняйте',description:v.description || ''};
-    });
-    renderBrands();
-    renderAvailability();
-    document.getElementById('homeCars').innerHTML=cars.slice(0,2).map(card).join('') || '<div class="empty">Скоро здесь появятся автомобили из Telegram-канала.</div>';
-    renderCars();
-    renderFav();
-  } catch(err) {
-    console.error('Не удалось загрузить каталог alex.topcars:', err);
-  }
-}
-loadLiveCatalog();
-</script></body></html>
+const CARS_URL='../../data/cars.json';
+let cars=[],brand='Все',availability='Все',favorites=[];
+try{favorites=JSON.parse(localStorage.getItem('at-favs')||'[]')}catch(e){favorites=[]}
+const money=n=>n==null?'Цена по запросу':new Intl.NumberFormat('ru-RU').format(n)+' ₽';
+function go(id,service){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.id===id));document.querySelectorAll('.bottomnav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));if(id==='catalog')renderCars();if(id==='favorites')renderFav();if(id==='request'&&service){const sel=document.querySelector('[name=service]');if(sel)sel.value=service}window.scrollTo({top:0,behavior:'smooth'})}
+function carCard(c){return '<article class="car"><div class="carphoto" onclick="detail(\''+c.id+'\')"><img src="'+c.image+'" alt="'+c.title+'" loading="lazy"><span class="tag">'+c.status+'</span></div><div class="carinfo" onclick="detail(\''+c.id+'\')"><h3>'+c.title+'</h3><div class="meta">'+[c.year,c.engine,c.transmission,c.mileage].filter(Boolean).join(' · ')+'</div><div class="carbottom"><b class="price">'+money(c.priceRub)+'</b><button class="smallgold" onclick="event.stopPropagation();detail(\''+c.id+'\')">Подробнее →</button></div></div></article>'}
+function renderCars(){const q=(document.getElementById('query')?.value||'').toLowerCase().trim();const list=cars.filter(c=>(brand==='Все'||c.make===brand)&&(availability==='Все'||c.status===availability)&&(c.title.toLowerCase().includes(q)||c.make.toLowerCase().includes(q)));document.getElementById('catalogCars').innerHTML=list.length?list.map(carCard).join(''):'<div class="empty">Сейчас нет активных автомобилей по выбранным фильтрам.<br>Оставьте запрос — подберём варианты под ваш бюджет.</div>';renderBrands();renderAvailability()}
+function renderHome(){document.getElementById('homeCars').innerHTML=cars.length?cars.slice(0,2).map(carCard).join(''):'<div class="empty">Сейчас нет подтверждённых предложений в наличии.<br>Запросите актуальный список автомобилей у менеджера.</div>'}
+function renderFav(){const list=cars.filter(c=>favorites.includes(c.id));document.getElementById('favoriteCars').innerHTML=list.length?list.map(carCard).join(''):'<div class="empty">♡<br>Вы пока не добавили автомобили в избранное.<br><button class="smallgold" onclick="go(\'catalog\')">Открыть каталог</button></div>'}
+function detail(id){const c=cars.find(x=>x.id===id);if(!c)return;document.getElementById('detailContent').innerHTML='<img class="detailimg" src="'+c.image+'" alt="'+c.title+'"><div class="eyebrow">ALEX.TOPCARS · В НАЛИЧИИ</div><h1 class="pageTitle">'+c.title+'</h1><p class="muted">'+[c.year,c.engine,c.power,c.fuel,c.transmission,c.drive].filter(Boolean).join(' · ')+'</p><div class="price" style="font-size:25px;margin:15px 0">'+money(c.priceRub)+'</div><div class="specs"><div class="spec"><small>Год выпуска</small><b>'+c.year+'</b></div><div class="spec"><small>Двигатель</small><b>'+c.engine+'</b></div><div class="spec"><small>Мощность</small><b>'+c.power+'</b></div><div class="spec"><small>Топливо</small><b>'+c.fuel+'</b></div><div class="spec"><small>Коробка</small><b>'+c.transmission+'</b></div><div class="spec"><small>Привод</small><b>'+c.drive+'</b></div></div><p class="muted">'+(c.priceNote||'Наличие и стоимость подтвердим перед сделкой.')+'</p><button class="gold" style="width:100%" onclick="go(\'request\',\'Автомобиль в наличии\');document.querySelector(\'[name=details]\').value='+JSON.stringify(c.title)+'">Уточнить по автомобилю ↗</button>';go('detail')}
+function renderBrands(){const brands=['Все',...new Set(cars.map(c=>c.make).filter(Boolean))];document.getElementById('chips').innerHTML=brands.map(x=>'<button class="chip '+(brand===x?'on':'')+'" onclick="brand='+JSON.stringify(x)+';renderCars()">'+x+'</button>').join('')}
+function renderAvailability(){const opts=['Все','В наличии'];document.getElementById('availabilityChips').innerHTML=opts.map(x=>'<button class="chip '+(availability===x?'on':'')+'" onclick="availability='+JSON.stringify(x)+';renderCars()">'+x+'</button>').join('')}
+function setAvailability(value){availability=value;go('catalog')}
+function clearFilters(){brand='Все';availability='Все';document.getElementById('query').value='';renderCars()}
+async function loadCatalog(){try{const r=await fetch(CARS_URL,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);const rows=await r.json();cars=rows.filter(v=>v.active===true).map((v,i)=>({id:'site-car-'+i,title:v.title||[v.make,v.model].filter(Boolean).join(' '),make:v.make||'Другое',year:v.year||'—',engine:v.engine||'',power:v.power||'',fuel:v.fuel||'',transmission:v.transmission||'',drive:v.drive||'',priceRub:v.priceRub,image:(v.images&&v.images[0])||'../../hero-porsche.png',status:v.status==='stock'?'В наличии':'Под заказ',mileage:v.mileage||'',description:v.imageAlt||'',priceNote:v.priceNote||''}));renderHome();renderCars();renderFav()}catch(err){console.error('Ошибка загрузки каталога:',err);document.getElementById('homeCars').innerHTML='<div class="empty">Не удалось загрузить каталог. Напишите нам — отправим актуальные предложения.</div>';document.getElementById('catalogCars').innerHTML='<div class="empty">Каталог временно недоступен. Оставьте запрос на подбор автомобиля.</div>'}}
+document.getElementById('leadForm').addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.target);const lines=['Здравствуйте! Хочу обратиться в alex.topcars.','Услуга: '+f.get('service'),'Имя: '+f.get('name'),'Контакт: '+f.get('contact'),'Бюджет: '+f.get('budget'),'Пожелания: '+(f.get('details')||'не указаны')];const url='https://t.me/share/url?url='+encodeURIComponent('https://t.me/AlexTopCarsLeadBot')+'&text='+encodeURIComponent(lines.join('\n'));window.location.href=url});
+loadCatalog();
+</script>
+</body></html>
