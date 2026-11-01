@@ -94,7 +94,7 @@ async function loadLiveCatalog(){
     const rows = Array.isArray(payload.vehicles) ? payload.vehicles : [];
     cars = rows.map(v => {
       const currency = v.currency || 'RUB';
-      const price = v.price == null ? 'По запросу' : new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0}).format(v.price)+' '+({RUB:'₽',USD:'
+      const price = v.price == null ? 'По запросу' : new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0}).format(v.price)+' '+({RUB:'₽',USD:'$',EUR:'€'}[currency]||currency);
 </script></body></html>,EUR:'€'}[currency]||currency);
       const status = ({available:'В наличии',on_order:'Под заказ',sold:'Продан',archived:'Архив'})[v.status] || 'В наличии';
       return {id:v.id,name:v.title || [v.brand,v.model].filter(Boolean).join(' ') || 'Автомобиль',year:v.year || '—',mileage:v.mileage_km ? new Intl.NumberFormat('ru-RU').format(v.mileage_km)+' км' : 'Пробег уточняйте',price,image:v.photos?.[0]?.url || '../../hero-porsche.png',tag:status,brand:v.brand || 'Другое',engine:v.engine || 'Уточняйте',gear:v.transmission || 'Уточняйте',drive:v.drive || 'Уточняйте',description:v.description || ''};
