@@ -1,6 +1,54 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101510"><meta name="description" content="alex.topcars — подбор, покупка, доставка и комиссионная продажа автомобилей"><title>alex.topcars — автомобили</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f7f7f5"><meta name="description" content="alex.topcars — подбор, покупка, доставка и комиссионная продажа автомобилей"><title>alex.topcars — автомобили</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
 :root{--bg:#101510;--panel:#192019;--line:#354034;--gold:#d9b36b;--muted:#b9bbb2;--white:#fffefa}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font-family:Manrope,Arial,sans-serif;padding-bottom:86px}button,input,textarea,select{font:inherit}button{cursor:pointer}.wrap{max-width:760px;margin:auto}.top{height:74px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;position:sticky;top:0;z-index:5;background:#101510f2;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.brand{height:48px;display:flex;align-items:center}.brand img{display:block;width:145px;max-height:44px;object-fit:contain;object-position:left center;filter:none;mix-blend-mode:normal}.iconbtn{border:1px solid var(--line);background:var(--panel);color:white;border-radius:12px;width:42px;height:42px;font-size:22px}.screen{display:none;padding:0 16px}.screen.active{display:block}.hero{height:570px;max-height:78vh;min-height:440px;margin:0 -16px 24px;overflow:hidden;position:relative;background:#172019}.hero img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,12,9,.82),rgba(8,12,9,.18) 90%),linear-gradient(0deg,rgba(8,12,9,.65),transparent 70%)}.heroText{position:absolute;z-index:1;bottom:28px;left:22px;right:22px}.eyebrow{color:var(--gold);font-size:10px;font-weight:800;letter-spacing:2px}.hero h1{font-size:clamp(38px,9vw,55px);line-height:.98;margin:14px 0;font-weight:900;letter-spacing:-1.6px}.hero p{color:#eee;line-height:1.5;max-width:330px;font-size:14px}.gold{border:0;background:linear-gradient(125deg,#f0d69a,#c99b4b);color:#1c1b13;font-weight:850;padding:15px 20px;border-radius:999px}.full{width:100%}.quick{display:grid;grid-template-columns:repeat(3,1fr);margin-bottom:32px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.quick button{background:none;border:0;border-right:1px solid var(--line);color:#eee;padding:15px 8px;text-align:left;font-size:11px;font-weight:700;min-height:76px}.quick button:last-child{border:0}.quick b{display:block;color:var(--gold);font-size:21px;margin-bottom:6px}.sectionHead{display:flex;align-items:center;justify-content:space-between;margin:10px 2px 14px}.sectionHead h2{font-size:21px;margin:0}.link{border:0;background:none;color:var(--gold);font-size:12px;font-weight:800}.search{display:flex;gap:10px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:0 14px;height:48px;margin-bottom:14px;color:var(--gold)}.search input{background:none;border:0;outline:0;color:white;width:100%;font-size:14px}.chips{display:flex;gap:8px;overflow:auto;padding:2px 0 16px}.chip{white-space:nowrap;border:1px solid var(--line);border-radius:30px;background:var(--panel);color:#ddd;padding:9px 15px;font-size:12px;font-weight:700}.chip.on{background:var(--gold);border-color:var(--gold);color:#17130a}.car{background:var(--panel);border:1px solid var(--line);overflow:hidden;margin-bottom:16px}.carphoto{height:210px;position:relative;background:#222}.carphoto img{width:100%;height:100%;object-fit:cover}.tag{position:absolute;top:12px;left:12px;border-radius:30px;background:#111d;padding:7px 10px;color:#e7eadf;font-size:10px;font-weight:800}.heart{position:absolute;right:12px;top:10px;border:0;border-radius:50%;width:40px;height:40px;background:#0009;color:white;font-size:22px}.carinfo{padding:15px}.carinfo h3{margin:0;font-size:19px}.meta{color:var(--muted);font-size:12px;margin-top:6px}.carbottom{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px}.price{font-size:18px;font-weight:900;color:white}.smallgold{border:0;background:var(--gold);color:#17130a;border-radius:10px;padding:11px 13px;font-size:12px;font-weight:850}.muted{color:var(--muted);font-size:12px;line-height:1.6}.service,.panel{border:1px solid #695333;background:linear-gradient(135deg,#263124,#141b14);padding:22px;margin:26px 0}.service h3{font-size:20px;margin:0 0 8px}.outline{width:100%;border:1px solid var(--gold);background:transparent;color:var(--gold);padding:13px;border-radius:11px;font-weight:800;margin-top:12px}.bottomnav{position:fixed;bottom:0;left:0;right:0;z-index:6;background:#101214f5;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:8px 3px calc(8px + env(safe-area-inset-bottom));backdrop-filter:blur(16px)}.bottomnav button{border:0;background:none;color:#85888d;font-size:10px;font-weight:700;padding:4px 1px}.bottomnav button span{display:block;font-size:21px;margin-bottom:3px}.bottomnav button.active{color:var(--gold)}.pageTitle{font-size:26px;font-weight:900;margin:22px 2px 6px}.back{border:0;background:none;color:var(--gold);padding:14px 0;font-weight:800}.detailimg{width:calc(100% + 32px);margin-left:-16px;height:260px;object-fit:cover}.specs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px 0}.spec{background:var(--panel);border:1px solid var(--line);padding:12px}.spec small{display:block;color:var(--muted);font-size:10px}.spec b{display:block;font-size:12px;margin-top:7px}.field{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:14px;color:white;margin:6px 0 13px;outline:none}.formlabel{font-size:12px;color:#ddd}.empty{text-align:center;color:var(--muted);padding:40px 12px;line-height:1.7}.notice{font-size:10px;color:#85877f;text-align:center;margin:18px 0}.profilebox{background:var(--panel);border:1px solid var(--line);padding:16px;margin-top:18px}.profilebox a{display:block;color:var(--gold);text-decoration:none;padding:13px 0;border-bottom:1px solid var(--line);font-weight:700}.profilebox a:last-child{border:0}.features{display:grid;grid-template-columns:1fr 1fr;gap:10px}.feature{background:var(--panel);border:1px solid var(--line);padding:15px}.feature b{display:block;color:var(--gold);margin-bottom:6px}.textbtn{border:0;background:none;color:var(--gold);padding:12px 0;font-weight:800}@media(min-width:650px){.hero{height:490px}.carphoto{height:280px}.screen{padding-left:24px;padding-right:24px}.top{padding:0 24px}}
+
+/* Светлая премиальная тема alex.topcars */
+:root{color-scheme:light;--bg:#f7f7f5;--panel:#ffffff;--line:#e8e6e1;--gold:#c69a4e;--muted:#777a7d;--white:#17191b}
+body{background:var(--bg);color:var(--white)}
+.top{background:#ffffffed;border-bottom-color:var(--line)}
+.iconbtn{background:#fff;color:#222;border-color:var(--line);box-shadow:0 3px 12px #1515150a}
+.hero{background:#e9e8e3}
+.quick{border-color:var(--line)}
+.quick button{color:#343638}
+.quick b{color:#b88b3d}
+.link,.textbtn,.back{color:#a77b32}
+.search{background:#fff;border-color:var(--line);color:#a77b32;box-shadow:0 3px 14px #11111106}
+.search input{color:#202326}
+.chip{background:#f0f0ee;border-color:#ecebe8;color:#424548}
+.chip.on{background:#202224;border-color:#202224;color:#fff}
+.car{background:#fff;border:1px solid #eeedea;border-radius:22px;box-shadow:0 5px 18px #2020200a}
+.carphoto{background:#ececea}
+.tag{background:#202224eF;color:#fff}
+.heart{background:#ffffffeb;color:#292b2d;box-shadow:0 2px 10px #0002}
+.carinfo h3{color:#17191b}
+.price{color:#17191b}
+.smallgold{background:linear-gradient(125deg,#d9b66f,#bd8d3e);color:#fff}
+.muted{color:#73777a}
+.service,.panel{border:1px solid #eee4d2;background:linear-gradient(135deg,#fffdf8,#f4f0e8);border-radius:20px}
+.service h3{color:#222}
+.outline{border-color:#bd9149;color:#a77b32}
+.bottomnav{background:#ffffffed;border-top:1px solid var(--line);box-shadow:0 -5px 18px #11111108}
+.bottomnav button{color:#7a7d80}
+.bottomnav button.active{color:#bd8e42}
+.spec{background:#f5f5f2;border:1px solid #e9e8e4;border-radius:12px}
+.field{background:#fff;border-color:#e4e3df;color:#222}
+.formlabel{color:#55595c}
+.profilebox,.feature{background:#fff;border:1px solid var(--line);border-radius:14px}
+.profilebox a{color:#a77b32;border-color:var(--line)}
+.feature b{color:#a77b32}
+.notice{color:#85888a}
+@media(max-width:520px){
+ .car{display:grid;grid-template-columns:54% 46%;align-items:stretch}
+ .carphoto{height:auto;min-height:190px}
+ .carinfo{padding:13px 11px;display:flex;flex-direction:column;justify-content:center;min-width:0}
+ .carinfo h3{font-size:16px;line-height:1.25}
+ .meta{font-size:11px;line-height:1.45}
+ .carbottom{display:block;margin-top:12px}
+ .price{display:block;font-size:16px;margin-bottom:10px}
+ .smallgold{width:100%;padding:10px 7px;font-size:11px}
+}
+@media(min-width:650px){.car{border-radius:22px}.carphoto{border-radius:20px 0 0 20px}}
+
 </style></head><body><div class="wrap">
 <header class="top"><a class="brand" href="#" onclick="go('home');return false"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3KwfF8rets4xLY61zvvK7G2MV43/badc3f9c-6156-4c58-8996-fd33605e1eab.webp?v=20261030-final-logo" alt="alex.topcars"></a><button class="iconbtn" onclick="go('favorites')" aria-label="Избранное">♡</button></header>
 <main>
