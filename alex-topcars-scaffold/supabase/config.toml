@@ -1,0 +1,3 @@
+# Supabase CLI project configuration.
+# This file contains no credentials or secrets.
+project_id = "alex-topcars-dev"
