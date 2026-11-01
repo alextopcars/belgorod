@@ -1,0 +1,18 @@
+{
+  "name": "alex-topcars-android",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Android test build for alex.topcars",
+  "scripts": {
+    "android:sync": "cap sync android",
+    "android:open": "cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "6.2.1",
+    "@capacitor/core": "6.2.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "6.2.1",
+    "typescript": "5.6.3"
+  }
+}
