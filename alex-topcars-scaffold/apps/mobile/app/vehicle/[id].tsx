@@ -4,7 +4,7 @@ import { useLocalSearchParams, router } from "expo-router";
 const cars:any = {
  "bmw-x5":{name:"BMW X5",year:"2023",mileage:"45 000 км",price:"12 990 000 ₽",image:"https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1200&q=90",engine:"3.0 л • 340 л.с.",gear:"АКПП",drive:"Полный привод"},
  "mercedes-gle":{name:"Mercedes-Benz GLE",year:"2023",mileage:"32 000 км",price:"14 500 000 ₽",image:"https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1200&q=90",engine:"3.0 л",gear:"АКПП",drive:"Полный привод"},
- "porsche-cayenne":{name:"Porsche Cayenne",year:"2022",mileage:"28 000 км",price:"13 800 000 ₽",image:"https://images.unsplash.com/photo-1503376780353-7e66927670?w=1200&q=90",engine:"3.0 л",gear:"АКПП",drive:"Полный привод"}
+ "porsche-cayenne":{name:"Porsche Cayenne",year:"2022",mileage:"28 000 км",price:"13 800 000 ₽",image:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=90",engine:"3.0 л",gear:"АКПП",drive:"Полный привод"}
 };
 export default function Vehicle(){
  const {id}=useLocalSearchParams(); const car=cars[String(id)]||cars["bmw-x5"];
