@@ -213,9 +213,10 @@ create policy "customers read own orders"
 on public.orders for select
 using (user_id = auth.uid() or public.current_app_role() in ('manager','admin'));
 
-create policy "customers create own orders"
-on public.orders for insert
-with check (user_id is null or user_id = auth.uid());
+-- Orders are created only by trusted server-side Edge Functions.
+-- This prevents clients from submitting or modifying their own total_amount,
+-- deposit_rate, or amount_due. Edge Functions must validate vehicle price and
+-- calculate the 5% deposit or full payment amount before inserting.
 
 create policy "staff manage orders"
 on public.orders for update
