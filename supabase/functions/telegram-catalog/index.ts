@@ -81,10 +81,14 @@ Deno.serve(async (req) => {
   const caption = clean(post.caption ?? post.text ?? "");
   const mediaGroup = post.media_group_id ? String(post.media_group_id) : null;
   const sourceKey = mediaGroup ? `${post.chat.id}:album:${mediaGroup}` : `${post.chat.id}:message:${post.message_id}`;
-  const parsed = parsePost(caption);
-  const sourceUrl = post.chat?.username
+  // Album updates after the caption often contain photos without text; retain the original vehicle data.
+  const { data: existingVehicle } = await supabase.from("vehicles")
+    .select("raw_text,source_url").eq("source_post_key", sourceKey).maybeSingle();
+  const effectiveText = caption || existingVehicle?.raw_text || "";
+  const parsed = parsePost(effectiveText);
+  const sourceUrl = existingVehicle?.source_url || (post.chat?.username
     ? `https://t.me/${post.chat.username}/${post.message_id}`
-    : null;
+    : null);
 
   const { data: vehicle, error: upsertError } = await supabase.from("vehicles").upsert({
     source_post_key: sourceKey,
@@ -93,7 +97,7 @@ Deno.serve(async (req) => {
     telegram_media_group_id: mediaGroup,
     source_url: sourceUrl,
     ...parsed,
-    raw_text: caption,
+    raw_text: effectiveText,
     published_at: new Date((post.date ?? Date.now() / 1000) * 1000).toISOString(),
     updated_at: new Date().toISOString(),
   }, { onConflict: "source_post_key" }).select("id").single();
