@@ -1,0 +1,8 @@
+import { useState } from "react";
+import { View, Text, TextInput, Pressable, StyleSheet, Alert } from "react-native";
+import { router } from "expo-router";
+export default function Request(){
+ const [name,setName]=useState(""); const [phone,setPhone]=useState(""); const [comment,setComment]=useState("");
+ return <View style={s.root}><Pressable onPress={()=>router.back()}><Text style={s.back}>‹  Назад</Text></Pressable><Text style={s.kicker}>ALEX.TOPCARS</Text><Text style={s.title}>Заявка на автомобиль</Text><Text style={s.copy}>Оставьте контакты — менеджер свяжется с вами и уточнит детали.</Text>{[[name,setName,"Ваше имя"],[phone,setPhone,"Номер телефона"],[comment,setComment,"Какой автомобиль ищете?"]].map(([v,set,p]:any)=><TextInput key={p} value={v} onChangeText={set} placeholder={p} placeholderTextColor="#777" style={s.input}/ >)}<Pressable style={s.button} onPress={()=>Alert.alert("Демо-режим","Заявка пока не отправляется. Подключим отправку после настройки сервисов.")}><Text style={s.buttonText}>Отправить заявку</Text></Pressable></View>
+}
+const s=StyleSheet.create({root:{flex:1,backgroundColor:"#090A0C",padding:22,paddingTop:58},back:{color:"#fff",fontSize:16,marginBottom:36},kicker:{color:"#D9AE55",fontWeight:"800",letterSpacing:2},title:{color:"#fff",fontSize:28,fontWeight:"900",marginTop:12},copy:{color:"#AEB0B4",fontSize:14,lineHeight:21,marginTop:10,marginBottom:24},input:{backgroundColor:"#17191C",borderWidth:1,borderColor:"#303338",borderRadius:12,padding:16,color:"#fff",marginBottom:12},button:{backgroundColor:"#D9AE55",padding:17,borderRadius:12,alignItems:"center",marginTop:12},buttonText:{color:"#17130A",fontWeight:"900",fontSize:15}});
