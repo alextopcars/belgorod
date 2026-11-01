@@ -1,0 +1,31 @@
+name: Alex TopCars Supabase migration check
+
+on:
+  pull_request:
+    paths:
+      - "alex-topcars-scaffold/supabase/**"
+      - ".github/workflows/alex-topcars-supabase-check.yml"
+  workflow_dispatch:
+
+jobs:
+  validate-migrations:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Validate migration files
+        working-directory: alex-topcars-scaffold
+        run: |
+          test -d supabase/migrations
+          find supabase/migrations -maxdepth 1 -type f -name '*.sql' -print | sort
+          test "$(find supabase/migrations -maxdepth 1 -type f -name '*.sql' | wc -l)" -gt 0
+          for file in supabase/migrations/*.sql; do
+            test -s "$file"
+          done
+          echo "Migration files exist and are non-empty."
