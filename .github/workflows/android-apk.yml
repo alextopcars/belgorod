@@ -1,0 +1,63 @@
+name: Build alex.topcars Android APK
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'alex-topcars-scaffold/web/**'
+      - 'alex-topcars-scaffold/mobile-apk/**'
+      - '.github/workflows/android-apk.yml'
+    branches:
+      - alex-topcars-app-foundation
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: alex-topcars-scaffold/mobile-apk
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: alex-topcars-scaffold/mobile-apk/package-lock.json
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate Android project
+        run: npx cap add android
+
+      - name: Sync web app
+        run: npx cap sync android
+
+      - name: Build debug APK
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: alex-topcars-android-debug
+          path: alex-topcars-scaffold/mobile-apk/android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 14
